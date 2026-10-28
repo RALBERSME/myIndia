@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aroma & Kultur: Die 7 Säulen der indischen Gewürzküche</title>
+    <style>
+      :root {
+        --bg-main: #fcfaf7;
+        --bg-card: #ffffff;
+        --bg-muted: #fbf6f0;
+
+        --primary: #832710;
+        --accent: #d97706;
+        --accent-light: #fef3c7;
+        --text-main: #2e2522;
+        --text-muted: #6b5a55;
+
+        --nav-bg: #1c1514;
+        --border-color: #e5dcd5;
+        --max-width: 1200px;
+        --radius: 12px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
+        line-height: 1.6;
+        background-color: var(--bg-main);
+        background-image: url(Images/bark.png);
+        background-size: 60cqmax;
+        color: var(--text-main);
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 20px;
+        width: 100%;
+      }
+
+      header {
+        background: url(Images/spices.jpg) center/cover no-repeat;
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 12px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      header p {
+        font-size: 1.3rem;
+        opacity: 0.95;
+        max-width: 700px;
+        margin: 0 auto;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      nav {
+        background-color: var(--nav-bg);
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px 0;
+      }
+
+      nav a {
+        color: #f5eeeb;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 8px 14px;
+        border-radius: 6px;
+        transition: background 0.2s ease;
+      }
+
+      nav a:hover {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      main {
+        padding: 40px 0;
+      }
+
+      .intro-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+      }
+
+      .intro-card h2 {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+
+      .spice-section {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+        padding: 40px;
+        margin-bottom: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        border-top: 6px solid var(--primary);
+      }
+
+      .spice-title {
+        font-size: 2.2rem;
+        color: var(--primary);
+        margin-bottom: 5px;
+      }
+
+      .botanical-name {
+        font-style: italic;
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        display: block;
+      }
+
+      .spice-profile {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 30px;
+        margin-bottom: 35px;
+      }
+
+      .spice-img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--border-color);
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+      }
+
+      .info-box {
+        background-color: var(--bg-muted);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid var(--accent);
+      }
+
+      .info-box strong {
+        display: block;
+        color: var(--primary);
+        margin-bottom: 6px;
+        font-size: 1.05rem;
+      }
+
+      .recipe-box {
+        background: #fffdfa;
+        border: 2px dashed var(--border-color);
+        border-radius: 8px;
+        padding: 30px;
+        margin-top: 30px;
+      }
+
+      .recipe-box h4 {
+        color: var(--primary);
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .recipe-meta {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin-bottom: 15px;
+        font-style: italic;
+      }
+
+      .recipe-steps {
+        margin-left: 20px;
+        margin-top: 10px;
+      }
+
+      .recipe-steps li {
+        margin-bottom: 8px;
+      }
+
+      @media (max-width: 968px) {
+        .spice-profile {
+          grid-template-columns: 1fr;
+        }
+        .spice-img {
+          height: 250px;
+          order: -1;
+        }
+        header h1 {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container" style="background-color: rgba(0, 0, 0, 0.4)">
+        <h1>Aroma & Kultur</h1>
+        <p>
+          Ein botanisch-kulinarischer Streifzug durch die sieben essenziellen
+          Gewürze des indischen Subkontinents
+        </p>
+        <br />
+        <iframe
+          src="https://www.youtube.com/embed/dcTRXWU8bas"
+          style="border-radius: 5px; border: 2px solid white"
+          title="31 Clever Cooking Tricks Indian Restaurants Hope You Never Find Out"
+          frameborder="0"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+            web-share;
+          "
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </header>
+
+    <nav>
+      <div class="container nav-links">
+        <a href="#esskultur">Indische Esskultur</a>
+        <a href="#kurkuma">1. Kurkuma</a>
+        <a href="#kardamom">2. Grüner Kardamom</a>
+        <a href="#kreuzkuemmel">3. Kreuzkümmel</a>
+        <a href="#senfsaat">4. Schwarzer Senf</a>
+        <a href="#koriander">5. Koriander</a>
+        <a href="#nelken">6. Gewürznelke</a>
+        <a href="#asafoetida">7. Asafoetida</a>
+      </div>
+    </nav>
+    <br />
+    <main class="container">
+      <section id="esskultur" class="intro-card">
+        <h2>Wie Indien isst: Einblicke in eine jahrtausendealte Esskultur</h2>
+        <p style="margin-bottom: 15px">
+          Das Essen in Indien ist untrennbar mit Philosophie, Geografie und
+          Religion verwoben. Es gibt keine homogene „indische Küche“, sondern
+          ein Mosaik aus Regionalküchen. Im Norden dominieren durch persische
+          Einflüsse cremige Saucen, Nüsse und Weizenbrote (Naan, Roti). Der
+          Süden kocht schärfer, nutzt Kokosmilch und basiert fast vollständig
+          auf Reis.
+        </p>
+        <p style="margin-bottom: 15px">
+          Zwei fundamentale Prinzipien prägen den indischen Alltag:
+        </p>
+        <ul style="margin-left: 20px; margin-bottom: 15px">
+          <li style="margin-bottom: 8px">
+            <strong>Das Prinzip des Ayurveda:</strong> Nahrung gilt als erste
+            Medizin. Gewürze werden selten nur wegen des Geschmacks genutzt,
+            sondern um die Verdauung zu steuern. Jedes Gericht versucht, die
+            sechs Geschmacksrichtungen (süß, sauer, salzig, scharf, bitter,
+            herb) auszubalancieren.
+          </li>
+          <li style="margin-bottom: 8px">
+            <strong>Traditionelles Teilen:</strong> Gegessen wird traditionell
+            in der Gemeinschaft, oft auf dem Boden sitzend. Die Speisen werden
+            auf einem großen Blech- oder Bananenblatt-Teller serviert (genannt
+            <em>Thali</em>), auf dem sich verschiedene kleine Schälchen
+            (<em>Katoris</em>) mit Linsen, Gemüse, Joghurt und Chutneys
+            befinden.
+          </li>
+        </ul>
+        <p>
+          <strong>Die rechte Hand:</strong> In weiten Teilen Indiens isst man
+          ganz bewusst mit den Fingern der rechten Hand. Die Fingerkuppen gelten
+          als Sinnesorgane, die dem Gehirn die Temperatur und Textur des Essens
+          signalisieren, noch bevor es den Mund erreicht. Die linke Hand gilt
+          als unrein und verbleibt am Tischrand.
+        </p>
+      </section>
+
+      <section id="kurkuma" class="spice-section">
+        <h2 class="spice-title">1. Kurkuma (Gelbwurz)</h2>
+        <span class="botanical-name">Curcuma longa</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Herkunft & Botanik:</strong> Ursprünglich in Südasien
+              heimisch. Die Pflanze gehört zu den Ingwergewächsen. Genutzt wird
+              das unterirdische Rhizom (Wurzelstock), das nach dem Ernten
+              gekocht, getrocknet und pulverisiert wird.
+            </div>
+            <div class="info-box">
+              <strong>Sensorik (Geruch & Geschmack):</strong> Riecht holzig,
+              erdig und dezent nach Ingwer. Geschmacklich leicht bitter, harzig
+              und von einer milden, unaufdringlichen Schärfe geprägt.
+            </div>
+            <div class="info-box">
+              <strong>Kulinarische Verwendung:</strong> Basis fast jedes Currys,
+              Dals (Linsengerichte) und Reisgerichts. Es schenkt den Speisen die
+              charakteristische leuchtend gelbe Farbe.
+            </div>
+            <div class="info-box">
+              <strong>Heilwirkung (Wissenschaftlich fundiert):</strong> Der
+              Wirkstoff <em>Curcumin</em> wirkt stark entzündungshemmend und
+              antioxidativ. Es regt den Gallenfluss an und fördert so die
+              Fettverdauung. In Kombination mit schwarzem Pfeffer (Piperin) wird
+              die biologische Aufnahme extrem gesteigert.
+            </div>
+          </div>
+          <img
+            src="Images/curcuma.png"
+            alt="Kurkuma-Wurzeln"
+            class="spice-img"
+          />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Rezept: Klassisches Gelbes Linsen-Dal (Tarka Dal)</h4>
+          <p class="recipe-meta">
+            Ein nahrhaftes, ayurvedisches Grundnahrungsmittel für jeden Tag.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/YzzedKg6Gr4"
+            title="The easiest and quickest dal to make at home - healthy dinner in 15 minutes!"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <ol class="recipe-steps">
+            <li>
+              150g gelbe Linsen (Toor Dal oder rote Linsen) gründlich waschen
+              und mit 500ml Wasser, <strong>1 TL Kurkumapulver</strong> und
+              etwas Salz in einem Topf ca. 20 Minuten weich kochen.
+            </li>
+            <li>
+              In einer separaten kleinen Pfanne 2 EL Ghee oder Pflanzenöl
+              erhitzen. Je einen TL Kreuzkümmelsamen und gehackten Knoblauch
+              darin anbraten, bis sie duften.
+            </li>
+            <li>
+              Dieses heiße Gewürzöl (genannt <em>Tarka</em>) direkt über die
+              fertig gekochten, cremigen Linsen gießen, umrühren und mit
+              frischem Koriander servieren.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="kardamom" class="spice-section">
+        <h2 class="spice-title">2. Grüner Kardamom</h2>
+        <span class="botanical-name">Elettaria cardamomum</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Herkunft & Botanik:</strong> Stammt aus den feuchten
+              Bergwäldern Südindiens (den Kardamombergen). Es wächst als Staude;
+              die Kapseln reifen an bodennahen Blütenständen. Die grünen Kapseln
+              werden von Hand gepflückt, bevor sie aufplatzen.
+            </div>
+            <div class="info-box">
+              <strong>Sensorik (Geruch & Geschmack):</strong> Intensiv süßlich,
+              stechend aromatisch mit einer ausgeprägten Eukalyptus- und
+              Zitrusnote. Schmeckt frisch, würzig und leicht brennend.
+            </div>
+            <div class="info-box">
+              <strong>Kulinarische Verwendung:</strong> Unverzichtbar in
+              festlichen Reisgerichten (Biryani), in süßen Speisen (Kheer,
+              Halwa) und als tragende Note im indischen Gewürztee (Masala Chai).
+            </div>
+            <div class="info-box">
+              <strong>Heilwirkung:</strong> Die enthaltenen ätherischen Öle
+              (darunter Cineol) wirken krampflösend auf den Magen-Darm-Trakt,
+              helfen gegen Blähungen und regen den Appetit an. Das Kauen ganzer
+              Kapseln beseitigt Mundgeruch.
+            </div>
+          </div>
+          <img
+            src="Images/cardamom.jpg"
+            alt="grüne Kardamomkapsel"
+            class="spice-img"
+          />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Rezept: Authentischer indischer Masala Chai</h4>
+          <p class="recipe-meta">
+            Das allgegenwärtige Lebenselixier auf indischen Straßen.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/PBxQdK-NrRc"
+            title="The Secret Behind Perfect Masala Tea - What Makes This Chai So Addictive?"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <ol class="recipe-steps">
+            <li>
+              <strong>4 grüne Kardamomkapseln</strong> im Mörser leicht
+              zerdrücken, so dass die schwarzen Samen sichtbar werden. Zusammen
+              mit einer halben Zimtstange und einem Stück zerdrücktem Ingwer in
+              250ml Wasser aufkochen.
+            </li>
+            <li>
+              2 TL kräftigen schwarzen Tee (Assam CTC) hinzufügen und 3 Minuten
+              köcheln lassen.
+            </li>
+            <li>
+              200ml Milch und 2 TL Rohrzucker dazugeben. Alles aufkochen lassen,
+              durch ein Sieb direkt in Gläser gießen und heiß genießen.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="kreuzkuemmel" class="spice-section">
+        <h2 class="spice-title">3. Kreuzkümmel (Jeera)</h2>
+        <span class="botanical-name">Cuminum cyminum</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Herkunft & Botanik:</strong> Ursprünglich im östlichen
+              Mittelmeerraum heimisch, wird er seit Jahrtausenden in Indien
+              (besonders Gujarat und Rajasthan) kultiviert. Die Pflanze ist ein
+              zierliches Doldengewächs; genutzt werden die getrockneten
+              Spaltfrüchte.
+            </div>
+            <div class="info-box">
+              <strong>Sensorik (Geruch & Geschmack):</strong> Schwer,
+              durchdringend, würzig-warm. Geschmacklich leicht bitter, erdig und
+              scharf mit einer markanten Rauchnote, die sich durch Anrösten
+              verstärkt.
+            </div>
+            <div class="info-box">
+              <strong>Kulinarische Verwendung:</strong> Bildet zusammen mit
+              Koriander das aromatische Rückgrat fast aller nordindischen
+              Gemüse- und Fleischsaucen. Wird zu Beginn des Kochens in heißem Öl
+              angeröstet.
+            </div>
+            <div class="info-box">
+              <strong>Heilwirkung:</strong> Regt die Produktion von
+              Verdauungsenzymen in der Bauchspeicheldrüse massiv an. Das im
+              ätherischen Öl enthaltene <em>Cuminaldehyd</em> lindert Blähungen,
+              Völlegefühl und Magenkrämpfe.
+            </div>
+          </div>
+          <img
+            src="Images/Kreuzkümmel.jpg"
+            alt="Getrocknete Kreuzkümmelsamen der Cuminum cyminum Pflanze"
+            class="spice-img"
+          />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Rezept: Aromatischer Kreuzkümmel-Reis (Jeera Rice)</h4>
+          <p class="recipe-meta">
+            Die elegante Aufwertung für einfachen Beilagenreis.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/8IMIOEGoVQE"
+            title="Jeera rice recipe | non sticky jeera rice in pressure cooker | quick &amp; easy restaurant style"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <ol class="recipe-steps">
+            <li>
+              200g Basmatireis waschen und 20 Minuten in kaltem Wasser
+              einweichen, danach abgießen.
+            </li>
+            <li>
+              In einem Topf 1 EL Ghee erhitzen.
+              <strong>1 EL ganze Kreuzkümmelsamen</strong> hinzugeben und ca. 30
+              Sekunden anrösten, bis sie anfangen zu knistern und intensiv
+              duften.
+            </li>
+            <li>
+              Den Reis und eine Prise Salz hinzufügen, kurz mitrösten. Mit 400ml
+              kochendem Wasser aufgießen, Deckel schließen und bei kleinster
+              Hitze 10-12 Minuten gar dämpfen.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="senfsaat" class="spice-section">
+        <h2 class="spice-title">4. Schwarze Senfsaat</h2>
+        <span class="botanical-name">Brassica nigra</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Herkunft & Botanik:</strong> Ein Kreuzblütler, der in ganz
+              Indien angebaut wird. Die winzigen, kugeligen Samen reifen in
+              dünnen Schoten heran. Nach dem Trocknen der Pflanze werden die
+              Samen ausgedroschen.
+            </div>
+            <div class="info-box">
+              <strong>Sensorik (Geruch & Geschmack):</strong> Im rohen Zustand
+              völlig geruchlos und nussig-mild. Sobald sie jedoch in heißem Öl
+              erhitzt werden und aufplatzen, entwickeln sie ein intensiv
+              nussiges Aroma und eine stechende, rettichartige Schärfe.
+            </div>
+            <div class="info-box">
+              <strong>Kulinarische Verwendung:</strong> Das absolute
+              Standardgewürz Südindiens. Essentiell für Kokosnusssaucen, Sambar
+              (Gemüseeintopf) und Kichererbsengerichte.
+            </div>
+            <div class="info-box">
+              <strong>Heilwirkung:</strong> Enthält Glykoside (Sinigrin), die
+              beim Aufplatzen Senföle freisetzen. Diese wirken stark
+              antimikrobiell, regen die Durchblutung der Magenschleimhaut an und
+              fördern die Darmperistaltik.
+            </div>
+          </div>
+          <img src="Images/senf.jpg" alt="Senfsamen" class="spice-img" />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Rezept: Südindisches Kartoffel-Masala (für Masala Dosa)</h4>
+          <p class="recipe-meta">
+            Die traditionelle, milde Füllung für die knusprigen indischen
+            Linsenpfannkuchen.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/mDqkxZ3UVzc"
+            title="Masala Dosa | Dosa-Teig-Rezept | Kartoffelcurry | Frühstücksrezepte"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <ol class="recipe-steps">
+            <li>
+              300g Kartoffeln kochen, pellen und grob mit den Händen zerdrücken.
+            </li>
+            <li>
+              2 EL Öl erhitzen.
+              <strong>1 TL schwarze Senfsamen</strong> hineingeben. Sobald sie
+              anfangen zu springen, sofort eine Handvoll Curryblätter, 1
+              gehackte Zwiebel und 1/2 TL Kurkuma dazugeben und glasig braten.
+            </li>
+            <li>
+              Die zerdrückten Kartoffeln und 50ml Wasser einrühren, salzen und
+              unter Rühren 5 Minuten köcheln lassen, bis eine kompakte, würzige
+              Masse entsteht.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="koriander" class="spice-section">
+        <h2 class="spice-title">5. Koriander (Dhaniya)</h2>
+        <span class="botanical-name">Coriandrum sativum</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Herkunft & Botanik:</strong> Eines der ältesten
+              Kulturgewürze der Menschheit. Es wächst als einjähriges Kraut.
+              Kulinarisch werden in Indien sowohl die frischen Blätter als auch
+              die getrockneten, runden Samenkapseln (Früchte) genutzt.
+            </div>
+            <div class="info-box">
+              <strong>Sensorik (Geruch & Geschmack):</strong> Die Samen riechen
+              süßlich, holzig und deutlich nach getrockneten Orangenschalen. Der
+              Geschmack ist mild, nussig, würzig und leicht zitronig – ganz ohne
+              die seifige Note der frischen Blätter.
+            </div>
+            <div class="info-box">
+              <strong>Kulinarische Verwendung:</strong> Gemahlener Koriander
+              dient als natürliches Bindemittel. Er gibt Currysauce Dichte,
+              Körper und eine milde, ausgleichende Würze, die extreme
+              Chilischarfe abpuffert.
+            </div>
+            <div class="info-box">
+              <strong>Heilwirkung:</strong> Koriandersamen enthalten das
+              ätherische Öl <em>Linalool</em>. Es wirkt nachweislich
+              entkrampfend auf die glatte Muskulatur des Darms, mindert
+              Blähungen und hat entzündungshemmende Eigenschaften im
+              Urogenitaltrakt.
+            </div>
+          </div>
+          <img src="Images/koriander.jpg" alt="Koriander" class="spice-img" />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Rezept: Nordindisches Kichererbsen-Curry (Chana Masala)</h4>
+          <p class="recipe-meta">
+            Ein deftiger Klassiker, der tiefen, runden Gewürzgeschmack verlangt.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/W9jQkOyjmAs"
+            title="Chana Masala- Easy Chickpea Curry Recipe"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <ol class="recipe-steps">
+            <li>
+              1 gehackte Zwiebel, 2 Knoblauchzehen und ein Stück Ingwer in einer
+              Pfanne mit Öl goldbraun anbraten. Eine Dose gehackte Tomaten
+              hinzugeben.
+            </li>
+            <li>
+              <strong>2 TL gemahlenen Koriander</strong>, 1 TL Kreuzkümmel, 1/2
+              TL Chili und 1/2 TL Kurkuma einrühren, bis das Öl beginnt, sich an
+              den Rändern der Gewürzpaste abzusetzen.
+            </li>
+            <li>
+              Eine Dose abgespülte Kichererbsen (ca. 400g) und 100ml Wasser
+              zufügen. Bei mittlerer Hitze 15 Minuten einkochen lassen, mit
+              Zitronensaft abschmecken.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="nelken" class="spice-section">
+        <h2 class="spice-title">6. Gewürznelke (Laung)</h2>
+        <span class="botanical-name">Syzygium aromaticum</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Herkunft & Botanik:</strong> Ursprünglich von den
+              Molukken, wachsen Nelkenbäume heute in den tropischen
+              Küstenregionen Südindiens. Genutzt werden die noch ungeöffneten,
+              von Hand gepflückten Blütenknospen, die getrocknet werden, bis sie
+              braun und holzig sind.
+            </div>
+            <div class="info-box">
+              <strong>Sensorik (Geruch & Geschmack):</strong> Extrem intensiv,
+              stechend süßlich und schwer aromatisch. Im Mund schmecken sie
+              feurig-würzig, stark herb und hinterlassen ein leicht taubes,
+              kühlendes Gefühl auf der Zunge.
+            </div>
+            <div class="info-box">
+              <strong>Kulinarische Verwendung:</strong> Kernbestandteil der
+              klassischen Gewürzmischung <em>Garam Masala</em>. Ganze Nelken
+              werden in heißem Öl oder Ghee aromatisiert, um Fleischgerichten
+              (wie Korma) Tiefe zu geben.
+            </div>
+            <div class="info-box">
+              <strong>Heilwirkung:</strong> Nelken haben unter allen
+              Naturstoffen den höchsten Gehalt an Antioxidantien. Das enthaltene
+              ätherische Öl <em>Eugenol</em> wirkt stark antiseptisch, antiviral
+              und lokal betäubend – historisch bewährt bei Zahnschmerzen.
+            </div>
+          </div>
+          <img
+            src="Images/nelken.jpg"
+            alt="Getrocknete Gewürznelken"
+            class="spice-img"
+          />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Rezept: Festlicher Mughlai-Reis</h4>
+          <p class="recipe-meta">
+            Ein eleganter Gewürzreis, der oft zu feierlichen Anlässen gereicht
+            wird.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/TD6n-TmAIgs"
+            title="Mughlai Vegetable Biryani Recipe By Food Fusion"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <ol class="recipe-steps">
+            <li>
+              1 EL Ghee in einem tiefen Topf schmelzen. Eine halbe Zimtstange,
+              <strong>3 ganze Gewürznelken</strong> und 2 grüne Kardamomkapseln
+              hineingeben, bis sie leicht anschwellen.
+            </li>
+            <li>
+              Eine in feine Streifen geschnittene Zwiebel darin langsam
+              dunkelbraun und knusprig braten.
+            </li>
+            <li>
+              200g gewaschenen Basmatireis, eine Handvoll Cashewkerne und
+              Rosinen zufügen, mit 400ml Gemüsebrühe aufgießen und zugedeckt bei
+              minimaler Hitze quellen lassen.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="asafoetida" class="spice-section">
+        <h2 class="spice-title">7. Asafoetida (Hing)</h2>
+        <span class="botanical-name">Ferula foetida / assa-foetida</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Herkunft & Botanik:</strong> Das getrocknete Gummiharz,
+              das aus den dicken Wurzeln einer riesigen Steppendolde gewonnen
+              wird, die in Wüstenregionen wächst. Das klebrige Harz wird an der
+              Luft getrocknet und meist mit Bockshornkleepulver vermischt.
+            </div>
+            <div class="info-box">
+              <strong>Sensorik (Geruch & Geschmack):</strong> Im rohen Zustand
+              verströmt das Pulver einen extrem stechenden Schwefelgeruch nach
+              fauligen Zwiebeln. Sobald eine Messerspitze davon in heißem Fett
+              aufgeschäumt wird, verwandelt sich das Aroma schlagartig in eine
+              feine, komplexe Note von gebratenen Zwiebeln und Knoblauch
+              (Umami).
+            </div>
+            <div class="info-box">
+              <strong>Kulinarische Verwendung:</strong> Das wichtigste Gewürz
+              der brahmanischen und jainistischen Küche Indiens, da diese
+              Gemeinschaften aus religiös-ethischen Gründen auf Knoblauch und
+              Zwiebeln verzichten.
+            </div>
+            <div class="info-box">
+              <strong>Heilwirkung:</strong> Gilt im Ayurveda als das stärkste
+              Mittel gegen Blähungen. Es spaltet schwer verdauliche Proteine und
+              Schwefelverbindungen in Linsen und Bohnen auf und macht diese
+              sofort verträglich.
+            </div>
+          </div>
+          <img
+            src="Images/ASAFOETIDA.webp"
+            alt="Indische Gewürze in Schalen"
+            class="spice-img"
+          />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Rezept: Traditionelles Kichererbsen-Mehl-Curry (Kadhi)</h4>
+          <p class="recipe-meta">
+            Eine säuerlich-würzige Joghurtsauce aus Westindien.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/Ozksm_q1hRU"
+            title="Priya macht Kadhi (cremige indische Suppe) | Aus der Testküche | Guten Appetit"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <br /><br />
+          <ol class="recipe-steps">
+            <li>
+              200g sauren Naturjoghurt mit 2 EL Kichererbsenmehl, 1/2 TL Kurkuma
+              und 400ml Wasser vollkommen klumpenfrei verquirlen. Die Mischung
+              unter ständigem Rühren in einem Topf aufkochen, bis sie eindickt.
+            </li>
+            <li>
+              In einer kleinen Pfanne 1 EL Öl erhitzen.
+              <strong>Eine großzügige Messerspitze Asafoetida (Hing)</strong>
+              und 1 TL Kreuzkümmel hineingeben. Das Harz schäumt sofort auf.
+            </li>
+            <li>
+              Das heiße Gewürzöl umgehend in die kochende Joghurtsauce gießen,
+              salzen und weitere 5 Minuten köcheln lassen. Heiß mit Roti
+              servieren.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <h1 id="pageTitle">Und so geht es weiter...</h1>
+
+      <div class="action-section" style="margin-top: 40px">
+        <a
+          id="nextStepLink"
+          class="hidden"
+          style="
+            display: inline-block;
+            background-color: #800020;
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            font-size: 18px;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            transition: background-color 0.2s;
+          "
+        ></a>
+      </div>
+      <br /><br />
+    </main>
+  </body>
+</html>
