@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dateiName = aktuellesThema.toLowerCase() + ".html";
 
     linkElement.href = dateiName;
-    linkElement.innerText = `➥ Klick hier, denn jetzt geht's zum '${aktuellesThema}'`;
+    linkElement.innerText = `➥ Klick hier, denn jetzt geht's zu: '${aktuellesThema}'`;
     linkElement.classList.remove("hidden");
 
     linkElement.addEventListener("click", (e) => {
