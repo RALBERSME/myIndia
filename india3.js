@@ -1,5 +1,4 @@
-// Array für die gewählten Folgeseiten/Themen (Rundreise ist immer gesetzt)
-const gewaehlteThemen = ["Goodbye"];
+const gewaehlteThemen = ["goodbye"];
 
 const draggables = document.querySelectorAll(".draggable");
 const chain = document.getElementById("garlandChain");
@@ -7,7 +6,6 @@ const pool = document.getElementById("flowerPool");
 const finishBtn = document.getElementById("finishBtn");
 const resultMessage = document.getElementById("resultMessage");
 
-// Drag & Drop Logik
 draggables.forEach((draggable) => {
   draggable.addEventListener("dragstart", () => {
     draggable.classList.add("dragging");
