@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Welcome to India</title>
+  </head>
+  <body>
+    <div class="container" onclick="document.location.href = 'india1.html'">
+      <div id="indiaText" class="india-text flag-gradient">INDIA</div>
+
+      <div id="mapContainer" class="map-container">
+        <div class="india-map-svg"></div>
+      </div>
+
+      <div id="welcomeMessage" class="welcome-text">Welcome to India!</div>
+    </div>
+
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <mask
+          id="accurate-india-mask"
+          maskUnits="objectBoundingBox"
+          maskContentUnits="objectBoundingBox"
+        >
+          <path
+            fill="#ffffff"
+            transform="scale(0.0016, 0.0014) translate(-35, -20)"
+            d="M305,42 L315,30 L335,28 L345,15 L360,25 L372,20 L370,42 L385,55 L382,75 L395,85 L415,80 L425,98 L440,95 L445,115 L465,118 L480,142 L470,165 L485,178 L508,172 L515,190 L532,192 L545,215 L565,212 L572,230 L590,235 L585,255 L600,265 L618,258 L630,280 L620,302 L635,315 L625,335 L642,350 L630,372 L640,395 L615,410 L622,432 L605,450 L590,442 L580,465 L565,460 L552,482 L535,475 L525,498 L505,492 L495,515 L485,535 L462,542 L455,565 L435,558 L422,580 L405,585 L392,612 L375,618 L368,642 L350,648 L342,675 L325,682 L320,712 L302,725 L305,755 L292,778 L275,772 L260,795 L245,788 L232,812 L215,805 L208,832 L195,825 L182,852 L170,845 L155,872 L142,865 L135,842 L148,825 L140,802 L152,785 L145,762 L158,745 L150,722 L162,705 L155,682 L168,665 L160,642 L172,625 L165,602 L178,585 L170,562 L182,545 L175,522 L188,505 L180,482 L192,465 L185,442 L198,425 L190,402 L202,385 L195,362 L208,345 L200,322 L212,305 L205,282 L218,265 L210,242 L222,225 L215,202 L228,185 L220,162 L232,145 L225,122 L238,105 L230,82 L242,65 L235,42 L252,50 L265,35 L272,52 L290,45 Z"
+          />
+        </mask>
+      </defs>
+    </svg>
+
+    <script src="main.js"></script>
+  </body>
+</html>

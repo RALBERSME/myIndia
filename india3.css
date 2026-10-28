@@ -1,0 +1,181 @@
+:root {
+  --bg-color: #dcb773;
+  --primary-color: #de2f1ff4;
+  --secondary-color: #07371cf4;
+
+  --text-color: #332211;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  background-image: url(Images/ringelblume.png);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1000px;
+  width: 1000px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--secondary-color);
+  margin-bottom: 40px;
+}
+
+.workspace {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.chain-section {
+  flex: 2;
+  background: #fff;
+  border: 2px dashed #dcb773;
+  border-radius: 15px;
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.garland-string {
+  width: 8px;
+  min-height: 250px;
+  background: #dcb773;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  position: relative;
+}
+
+.flower {
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, #ffcc00 20%, var(--primary-color) 80%);
+  color: rgb(23, 61, 2);
+  font-weight: bold;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  cursor: grab;
+  user-select: none;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  border: 2px solid #fff;
+  font-size: 14px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.flower:active {
+  cursor: grabbing;
+}
+
+.fixed-flower {
+  background: radial-gradient(circle, #ff9933 20%, var(--primary-color) 90%);
+  cursor: default;
+}
+
+.sidebar {
+  flex: 1;
+  background: #f7e7ce;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar h3 {
+  font-size: 1.15rem;
+  color: black;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.flower-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  width: 100%;
+}
+
+.flower.dragging {
+  opacity: 0.5;
+  transform: scale(0.9);
+}
+
+.action-section {
+  margin-top: 20px;
+}
+
+button {
+  background: linear-gradient(
+    to right bottom,
+    rgb(3, 86, 3),
+    rgb(25, 239, 53) 1%,
+    rgb(3, 86, 3)
+  );
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+button:hover {
+  background-color: #600018;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.result-message {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #e8f5e9;
+  border-left: 5px solid #2e7d32;
+  border-radius: 4px;
+  font-size: 18px;
+  color: #1b5e20;
+  line-height: 1.6;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

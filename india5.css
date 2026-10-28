@@ -1,0 +1,256 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Georgia", serif;
+  background-color: #fcfbfa;
+  color: #1a252f;
+  padding: 20px;
+}
+
+.taj-header {
+  text-align: center;
+  padding: 60px 20px 40px 20px;
+}
+
+.taj-header .sub-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #c5a059;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.taj-header h1 {
+  font-size: 3rem;
+  color: #0b1d33;
+  margin-bottom: 15px;
+}
+
+.taj-header p {
+  font-family: "Arial", sans-serif;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.video-section {
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  box-shadow: 0 15px 35px rgba(11, 29, 51, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid #c5a059;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.info-grid-container {
+  max-width: 1000px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+}
+
+.info-grid-container h2 {
+  font-size: 2rem;
+  color: #0b1d33;
+  margin-bottom: 5px;
+}
+
+.instruction {
+  font-family: "Arial", sans-serif;
+  font-size: 0.9rem;
+  color: #95a5a6;
+  margin-bottom: 30px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.info-card {
+  background: #ffffff;
+  border: 1px solid #eae6df;
+  border-radius: 10px;
+  padding: 30px 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: #c5a059;
+  box-shadow: 0 10px 25px rgba(197, 160, 89, 0.15);
+}
+
+.info-card.active {
+  background-color: #0b1d33;
+  border-color: #c5a059;
+  color: #ffffff;
+}
+
+.card-icon {
+  margin-bottom: 15px;
+  width: 60px;
+  height: 60px;
+}
+
+.info-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.details-display {
+  background: #ffffff;
+  border: 2px solid #c5a059;
+  border-radius: 12px;
+  padding: 35px;
+  text-align: left;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.details-display h4 {
+  font-size: 1.6rem;
+  color: #0b1d33;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eae6df;
+  padding-bottom: 10px;
+}
+
+.details-display p {
+  font-family: "Arial", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #34495e;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#story {
+  margin: 2% 2%;
+  background-color: #f5f1eb;
+  padding: 5px;
+  text-align: center;
+}
+hr {
+  border: 1px solid #c5a059;
+}
+iframe {
+  margin-bottom: 10px;
+}
+
+.taj-footer {
+  text-align: center;
+  margin: 40px 0 80px 0;
+}
+
+.beach-btn {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 60px;
+  background-color: #c5a059;
+  border: 2px solid #e5ba55;
+  border-radius: 30px;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(247, 208, 112, 0.3);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.beach-btn .btn-text {
+  position: relative;
+  z-index: 2;
+  font-family: "Arial", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.4s ease;
+}
+
+.beach-btn .wave-bg {
+  position: absolute;
+  top: 100%;
+  left: -50%;
+  width: 200%;
+  height: 400%;
+  background: #2980b9;
+  border-radius: 40%;
+  z-index: 1;
+  transition: top 0.6s ease;
+}
+
+.beach-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(41, 128, 185, 0.4);
+}
+
+.beach-btn:hover .btn-text {
+  color: #ffffff;
+}
+
+.beach-btn:hover .wave-bg {
+  top: -60%;
+  animation: ocean-wave 4s linear infinite;
+}
+
+@keyframes ocean-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 1200px) {
+  .videos {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  #story {
+    margin: 2% 20%;
+    background-color: #f5f1eb;
+    padding: 25px;
+  }
+}

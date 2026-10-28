@@ -1,0 +1,501 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #111;
+  color: #fff;
+  overflow-x: hidden;
+  padding-bottom: 60px;
+}
+
+.delhi-ticker {
+  background: #ffcc00;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 0.9rem;
+  padding: 10px 0;
+  letter-spacing: 2px;
+}
+
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.ticker-item {
+  display: inline-block;
+  white-space: nowrap;
+  animation: fast-ticker 5s linear infinite;
+}
+
+@keyframes fast-ticker {
+  0% {
+    transform: translateX(-1200px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.delhi-header {
+  text-align: center;
+  padding: 60px 20px 30px 20px;
+}
+
+.danger-badge {
+  background-color: #ff3f34;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+
+.delhi-header h1 {
+  font-size: 3.5rem;
+  margin-top: 15px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.delhi-header p {
+  color: #aaa;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.delhi-video-section {
+  max-width: 1000px;
+  margin: 0 auto 50px auto;
+  padding: 0 20px;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 4px solid #ffcc00;
+  box-shadow: 0 0 30px rgba(255, 204, 0, 0.2);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.delhi-matrix {
+  max-width: 1100px;
+  margin: 0 auto 60px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 25px;
+  padding: 0 20px;
+}
+
+.matrix-card {
+  padding: 40px;
+  border-radius: 12px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.yellow-card {
+  background-color: #ffcc00;
+  color: #111;
+}
+.orange-card {
+  background-color: #ff9f43;
+  color: #111;
+}
+.red-card {
+  background-color: #ff5252;
+  color: #fff;
+}
+.dark-card {
+  background-color: #222;
+  color: #fff;
+  border: 2px solid #333;
+}
+
+.matrix-card:hover {
+  transform: scale(1.03) rotate(1deg); /* Knalliger Kipp-Effekt beim Hovern */
+}
+
+.matrix-tag {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.matrix-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.matrix-card p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.visual-impressions {
+  max-width: 1100px;
+  margin: 0 auto 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.visual-impressions h2 {
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  color: #ffcc00;
+}
+
+.impression-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.impression-box {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  filter: grayscale(40%);
+  transition: all 0.4s ease;
+}
+
+.impression-box:hover {
+  filter: grayscale(0%);
+  transform: translateY(-5px);
+}
+
+.impression-box span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.delhi-footer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.beach-btn {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 60px;
+  background-color: #f7d070;
+  border: 2px solid #e5ba55;
+  border-radius: 30px;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(247, 208, 112, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.beach-btn .btn-text {
+  position: relative;
+  z-index: 2;
+  font-size: 15px;
+  font-weight: bold;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.beach-btn .wave-bg {
+  position: absolute;
+  top: 100%;
+  left: -50%;
+  width: 200%;
+  height: 400%;
+  background: #2980b9;
+  border-radius: 40%;
+  z-index: 1;
+  transition: top 0.6s ease;
+}
+
+.beach-btn:hover {
+  transform: translateY(-3px);
+}
+
+.beach-btn:hover .btn-text {
+  color: #ffffff;
+}
+
+.beach-btn:hover .wave-bg {
+  top: -60%;
+  animation: ocean-wave 4s linear infinite;
+}
+
+@keyframes ocean-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .delhi-matrix {
+    grid-template-columns: 1fr;
+  }
+  .delhi-header h1 {
+    font-size: 2.3rem;
+  }
+}
+
+.delhi-sights {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.sights-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sights-header h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.sights-header p {
+  color: #ccc;
+  font-style: italic;
+}
+
+.sights-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 30px;
+}
+
+.sight-card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.sight-card:hover {
+  border-color: #ffcc00;
+  transform: translateY(-3px);
+}
+
+.sight-card h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #ffcc00;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.sight-image-wrap {
+  width: 100%;
+  height: 220px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.sight-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.sight-card:hover .sight-image-wrap img {
+  transform: scale(1.05);
+}
+
+.sight-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+@media (max-width: 600px) {
+  .sights-container {
+    grid-template-columns: 1fr;
+  }
+  .sights-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+.delhi-contrast-experience {
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 0 20px;
+}
+
+.experience-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+}
+
+.experience-badge {
+  display: inline-block;
+  background-color: #ff5252;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.experience-intro h2 {
+  font-size: 2.3rem;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.experience-intro p {
+  color: #bbb;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.split-experience-container {
+  display: flex;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.experience-side {
+  flex: 1;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+}
+
+.old-delhi-side {
+  background: linear-gradient(135deg, #2c1a11 0%, #1a0f0a 100%);
+  border: 1px solid #d97d64;
+}
+
+.new-delhi-side {
+  background: linear-gradient(135deg, #111a24 0%, #0a0f14 100%);
+  border: 1px solid #3498db;
+}
+
+.split-experience-container:hover .experience-side {
+  opacity: 0.4;
+  transform: scale(0.98);
+}
+
+.split-experience-container .experience-side:hover {
+  opacity: 1;
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
+}
+
+.old-delhi-side:hover {
+  border-color: #ffcc00;
+}
+
+.new-delhi-side:hover {
+  border-color: #00ecff;
+}
+
+.side-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+}
+
+.side-icon {
+  font-size: 2rem;
+}
+
+.experience-side h3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.old-delhi-side h3 {
+  color: #ffcc00;
+}
+.new-delhi-side h3 {
+  color: #3498db;
+}
+
+.side-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.side-text p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .split-experience-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .split-experience-container:hover .experience-side {
+    opacity: 1;
+    transform: none;
+  }
+  .split-experience-container .experience-side:hover {
+    transform: none;
+  }
+  .experience-side {
+    padding: 25px;
+  }
+}

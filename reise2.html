@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Das Spirituelle Herz Indiens</title>
+    <style>
+      :root {
+        --bg-dark: #0f0a06;
+        --text-light: #f5efe6;
+        --accent-orange: #e07a5f;
+        --accent-gold: #f4a261;
+        --card-bg: #1c140e;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+        line-height: 1.8;
+        padding: 0;
+      }
+
+      header {
+        text-align: center;
+        padding: 80px 20px;
+        background: linear-gradient(rgba(15, 10, 6, 0.6), rgba(15, 10, 6, 1));
+        border-bottom: 1px solid rgba(244, 162, 97, 0.2);
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: var(--accent-gold);
+        margin-bottom: 20px;
+        font-weight: 400;
+        letter-spacing: 2px;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        font-style: italic;
+        opacity: 0.8;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      section {
+        margin-bottom: 80px;
+      }
+
+      h2 {
+        font-size: 2rem;
+        color: var(--accent-orange);
+        margin-bottom: 24px;
+        border-bottom: 1px solid rgba(224, 122, 95, 0.3);
+        padding-bottom: 10px;
+      }
+
+      p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        text-align: justify;
+      }
+
+      /* --- CAROUSEL STYLES --- */
+      .carousel-container {
+        position: relative;
+        max-width: 100%;
+        margin: 35px auto;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+        border: 1px solid rgba(244, 162, 97, 0.15);
+      }
+
+      .carousel-slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+      }
+
+      .carousel-slide {
+        min-width: 100%;
+        position: relative;
+        aspect-ratio: 16 / 9;
+        background-color: #000;
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .carousel-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+        padding: 20px 25px;
+        color: #fff;
+        font-size: 1rem;
+        font-style: italic;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+      }
+
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(28, 20, 14, 0.7);
+        color: var(--text-light);
+        border: 1px solid rgba(244, 162, 97, 0.3);
+        font-size: 1.5rem;
+        padding: 12px 18px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        z-index: 10;
+        user-select: none;
+      }
+
+      .carousel-btn:hover {
+        background: var(--accent-gold);
+        color: var(--bg-dark);
+        border-color: var(--accent-gold);
+      }
+
+      .carousel-btn.prev {
+        left: 15px;
+      }
+      .carousel-btn.next {
+        right: 15px;
+      }
+
+      .carousel-dots {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 10;
+      }
+
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .carousel-dot.active {
+        background: var(--accent-gold);
+        transform: scale(1.2);
+      }
+
+      .quote-block {
+        background-color: var(--card-bg);
+        border-left: 4px solid var(--accent-gold);
+        padding: 20px 30px;
+        margin: 30px 0;
+        font-style: italic;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .encounter-box {
+        background: linear-gradient(145deg, #1c140e, #251b13);
+        border: 1px solid rgba(244, 162, 97, 0.15);
+        padding: 35px;
+        border-radius: 12px;
+        margin-top: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .encounter-box h3 {
+        color: var(--accent-gold);
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        font-size: 0.9rem;
+        opacity: 0.6;
+        border-top: 1px solid rgba(244, 162, 97, 0.1);
+      }
+
+      .highlight {
+        color: var(--accent-gold);
+        font-weight: bold;
+      }
+      .beach-btn {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 220px;
+        height: 60px;
+        background-color: #f7d070;
+        border: 2px solid #e5ba55;
+        border-radius: 30px;
+        text-decoration: none;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(247, 208, 112, 0.3);
+        transition: transform 0.2s ease;
+      }
+
+      .beach-btn .btn-text {
+        position: relative;
+        z-index: 2;
+        font-size: 15px;
+        font-weight: bold;
+        color: #2c3e50;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .beach-btn .wave-bg {
+        position: absolute;
+        top: 100%;
+        left: -50%;
+        width: 200%;
+        height: 400%;
+        background: #2980b9;
+        border-radius: 40%;
+        z-index: 1;
+        transition: top 0.6s ease;
+      }
+
+      .beach-btn:hover {
+        transform: translateY(-3px);
+      }
+
+      .beach-btn:hover .btn-text {
+        color: #ffffff;
+      }
+
+      .beach-btn:hover .wave-bg {
+        top: -60%;
+        animation: ocean-wave 4s linear infinite;
+      }
+
+      @keyframes ocean-wave {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Das Spirituelle Herz Indiens</h1>
+      <p class="subtitle">
+        Eine Reise zu den Orten, an denen die Ewigkeit den Alltag berührt, die
+        Hingabe spürbar wird und der menschliche Geist seine tiefste Zuflucht
+        findet.
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Was ist das Spirituelle Herz?</h2>
+        <p>
+          Das spirituelle Herz Indiens ist kein geografischer Punkt, der sich
+          auf einer Landkarte exakt vermessen lässt. Es ist ein Zustand. Ein
+          lebendiger, pulsierender Rhythmus aus bedingungsloser Hingabe,
+          jahrtausendealten Ritualen und einer tiefen, unerschütterlichen
+          Gewissheit, dass alles Leben miteinander verbunden ist. Es existiert
+          an Orten, an denen die Grenze zwischen der materiellen Welt und dem
+          Transzendenten hauchdünn wird.
+        </p>
+        <p>
+          Hier geht es nicht um prunkvolle Denkmäler der Vergangenheit, sondern
+          um die gelebte Realität im Hier und Jetzt. Es offenbart sich im Rauch
+          des Weihrauchs, im monotonen und kraftvollen Klang der Mantras, im
+          kalten Wasser eines heiligen Flusses und in der Wärme einer warmen
+          Mahlzeit, die bedingungslos mit Fremden geteilt wird. Das spirituelle
+          Herz ist der Ort, an dem der Mensch seine Masken fallen lässt und
+          demütig wird vor der Unendlichkeit.
+        </p>
+      </section>
+
+      <section>
+        <h2>Varanasi: Der ewige Atem am Ufer des Ganges</h2>
+        <p>
+          <span class="highlight">Varanasi</span>, auch Kashi genannt, ist eine
+          der ältesten ununterbrochen besiedelten Städte der Welt. Für gläubige
+          Hindus ist sie der Wohnsitz Shivas und der heiligste Ort der Erde. Wer
+          hier stirbt, so sagt es die Tradition, durchbricht den ewigen
+          Kreislauf der Wiedergeburten (Samsara) und erlangt die Befreiung
+          (Moksha). An den Ghats entfaltet sich das gesamte Drama des
+          menschlichen Daseins: Leben, Reinigung und Tod existieren unmittelbar
+          nebeneinander.
+        </p>
+
+        <p>
+          Jeden Abend, wenn die Dämmerung hereinbricht, verwandelt sich das
+          Dashashwamedh Ghat in eine Bühne des Lichts. Bei der
+          <span class="highlight">Ganga Aarti-Zeremonie</span> bringen junge
+          Priester der Flussgöttin Ganga ein rituelles Opfer aus Feuer, Musik
+          und Gebeten dar. Tausende Menschen drängen sich auf Booten und den
+          Stufen, gehüllt in ein Meer aus flackernden Öllampen.
+        </p>
+
+        <div class="carousel-container" id="carousel-varanasi">
+          <button class="carousel-btn prev">❮</button>
+          <button class="carousel-btn next">❯</button>
+          <div class="carousel-slides">
+            <div class="carousel-slide">
+              <img src="Images/aarti.jpg" alt="Ganga Aarti in Varanasi" />
+              <div class="carousel-caption">
+                Die magischen Lichter der abendlichen Ganga Aarti-Zeremonie am
+                Dashashwamedh Ghat.
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="Images/priest.jpg" alt="Heiliger Sadhu in Varanasi" />
+              <div class="carousel-caption">
+                Ein Gläubiger meditiert in den frühen Abendstunden am Ufer des
+                Ganges.
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="Images/river-ganges.jpg" alt="Ganges" />
+              <div class="carousel-caption">
+                Pilgerer im heiligen Fluss Ganges.
+              </div>
+            </div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+
+        <div class="encounter-box">
+          <h3>Die Begegnung: Das Feuer und die Wahrheit des Flusses</h3>
+          <p>
+            Am Rande des Dashashwamedh Ghats treffen wir
+            <span class="highlight">Rahul</span>, einen der jungen
+            Brahmanen-Priester, die kurz vor Beginn der Zeremonie in ihren
+            goldenen Seidengewändern bereitstehen. Seine Augen spiegeln die
+            Flammen der schweren Messinglampen wider. Auf die Frage, was er
+            fühlt, wenn er die Aarti vollzieht, antwortet er leise, aber mit
+            spürbarer innerer Kraft:
+          </p>
+          <div class="quote-block">
+            "Wenn ich diese Lampe hebe, bin ich nicht mehr Rahul. Ich bin nur
+            ein Werkzeug. Wir danken der Mutter Ganga, weil sie uns das Leben
+            schenkt und unsere Sünden abwäscht. Schau dich um: Hier wird der Tod
+            am Harishchandra Ghat nur wenige Meter weiter verbrannt, während wir
+            hier das Leben und das Licht feiern. Die Menschen weinen, wenn sie
+            hier sitzen, weil sie spüren, dass Staub zu Staub wird, aber die
+            Liebe und die Seele ewig bleiben. Das ist kein Schauspiel für
+            Touristen. Das ist unser Atem. Wenn der Gesang einsetzt, schlägt das
+            Herz der Welt genau hier."
+          </div>
+          <p>
+            Seine Worte verhallen im einsetzenden Rhythmus der Glocken und
+            Zimbeln. Als Rahul die brennende Pyramide aus Licht in den
+            Nachthimmel hebt, spürt man die kollektive Gänsehaut der tausenden
+            Gläubigen, deren Tränen im Widerschein des Feuers glänzen.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Amritsar: Das strahlende Licht der Gleichheit</h2>
+        <p>
+          Reist man weiter nach Norden, erreicht man
+          <span class="highlight">Amritsar</span> im Bundesstaat Punjab. Hier
+          schlägt das spirituelle Zentrum der Sikh-Religion. Im Zentrum eines
+          spiegelnden, heiligen Sees erhebt sich der
+          <span class="highlight">Harmandir Sahib</span>, weltbekannt als der
+          Goldene Tempel. Seine vier Eingänge in alle vier Himmelsrichtungen
+          symbolisieren eine der radikalsten und schönsten Wahrheiten dieser
+          Philosophie: Jeder Mensch, ungeachtet seiner Herkunft, seiner
+          Religion, seines Geschlechts oder seines sozialen Status, ist hier
+          bedingungslos willkommen und vollkommen gleichgestellt.
+        </p>
+
+        <p>
+          Die friedliche Atmosphäre, getragen von den ununterbrochenen, live
+          gesungenen spirituellen Hymnen (Gurbani), zieht die Seele sofort in
+          ihren Bann. Doch das wahre Wunder von Amritsar liegt in seiner
+          riesigen Gemeinschaftsküche, dem
+          <span class="highlight">Guru Ka Langar</span>. Es ist die größte
+          kostenlose Küche der Welt. Täglich bereiten Hunderte von freiwilligen
+          Helfern (Sevadars) über 100.000 warme Mahlzeiten zu. Alles basiert auf
+          rein ehrenamtlicher Arbeit und Spenden.
+        </p>
+
+        <div class="carousel-container" id="carousel-amritsar">
+          <button class="carousel-btn prev" aria-label="Vorheriges Bild">
+            ❮
+          </button>
+          <button class="carousel-btn next" aria-label="Nächstes Bild">
+            ❯
+          </button>
+
+          <div class="carousel-slides">
+            <div class="carousel-slide">
+              <img
+                src="Images/amritsar1.jpg"
+                alt="Der Goldene Tempel Harmandir Sahib"
+              />
+              <div class="carousel-caption">
+                Der Goldene Tempel (Harmandir Sahib) spiegelt sich im heiligen,
+                reinigenden Wasser des Amrit Sarovar.
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="Images/amritsar2.jpg" alt="Sikh Pilger im Tempel" />
+              <div class="carousel-caption">
+                Er ist mit echtem 24-karätigem Gold überzogen.
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img
+                src="Images/amritsar4.jpg"
+                alt="Vorbereitung in der Großküche"
+              />
+              <div class="carousel-caption">
+                Das Hauptgebäude ist im Kern aus weißem Marmor errichtet.
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-dots"></div>
+        </div>
+
+        <div class="encounter-box">
+          <h3>Die Begegnung: Der Dienst am Nächsten ohne Stolz</h3>
+          <p>
+            Der Weg in die Guru Ka Langar, die monumentale Gemeinschaftsküche
+            des Goldenen Tempels, ist ein Sturmlauf der Sinne. Schon Hunderte
+            Meter vor dem Eingang mischt sich der süßliche Duft von kochendem
+            Ghee (Butterschmalz) mit dem erdigen Aroma von Kreuzkümmel, Kurkuma
+            und Millionen von Linsen, die in riesigen, kesselartigen Töpfen
+            brodeln. Der Boden ist spiegelglatt und feucht vom ständigen
+            Schrubben. <br /><br />
+            Das Geräusch ist ohrenbetäubend und hypnotisch zugleich: Ein
+            rhythmisches, tausendfaches Klacken hallt durch die Hallen, als die
+            Rotis (indische Fladenbrote) im Sekundentakt auf die heißen
+            Gusseisenplatten geworfen und gewendet werden. Überall sitzen
+            Menschen auf dem harten Steinboden – Schulter an Schulter, ohne
+            Abstand. Es gibt hier keine Hierarchien. Der vermögende Pilger in
+            feinster Seide sitzt neben dem Tagelöhner, dessen Kleidung vom Staub
+            der Straße gezeichnet ist. <br /><br />Inmitten dieses scheinbar
+            chaotischen, aber perfekt organisierten Ameisenhaufens treffen wir
+            auf <span class="highlight">Amandeep Singh</span>. Er kniet auf dem
+            nassen, kalten Marmorboden, ein grober Schrubber in den Händen,
+            während um ihn herum ein Eimer Wasser nach dem anderen ausgekippt
+            wird. Seine Stirn ist schweißnass, sein edler, dunkelblauer Turban
+            hat ein paar Flecken abbekommen, und seine Hände sind vom
+            stundenlangen Zwiebelschneiden und Putzen geschwollen. Im normalen
+            Leben ist Amandeep ein hochbezahlter IT-Manager in einem gläsernen
+            Wolkenkratzer in Delhi. Er leitet Teams, verhandelt Millionenbudgets
+            und bewegt sich in einer Welt, in der Status alles bedeutet. Doch
+            für zwei Wochen im Jahr lässt er all das hinter sich. Er opfert
+            seinen gesamten Jahresurlaub, nicht um an einem Strand zu
+            entspannen, sondern um hier das zu tun, was die Sikhs Seva nennen:
+            den bedingungslosen, selbstlosen Dienst am Nächsten.<br /><br />
+            Als er kurz innebricht, um sich den Schweiß von der Stirn zu
+            wischen, blicken wir in Augen, die eine unbeschreibliche, fast
+            greifbare Ruhe ausstrahlen. Auf die Frage, warum ein Mann in seiner
+            Position sich dieser harten, körperlichen Arbeit unterzieht, blickt
+            er auf seine vom Wasser aufgeweichten Hände, lächelt demütig und
+            sagt mit einer Stimme, die im Lärm der Küche erstaunlich ruhig
+            wirkt:<br /><br /><em>
+              "Wenn ich in Delhi in mein Büro gehe, ziehe ich eine Rüstung an.
+              Mein Ego wächst mit jedem Erfolg, mit jedem Statussymbol. Die Welt
+              da draußen fragt dich ununterbrochen: Wer bist du? Was besitzt du?
+              Stehst du über den anderen? Das ist eine Krankheit, die die Seele
+              langsam auffrisst.<br /><br />
+              Aber hier? Wenn ich die Tore des Harmandir Sahib betrete, bricht
+              diese Rüstung in Sekundenstücken zusammen. Hier schrubbe ich den
+              Dreck von den Füßen der Pilger, die aus aller Welt herströmen. Ich
+              schäle Zwiebeln, bis mir die Tränen kommen, und ich reiche Fremden
+              das Brot. In der Sikh-Philosophie ist Seva keine Pflicht – es ist
+              das höchste Privileg. Wir waschen damit den Stolz und die Arroganz
+              aus unserem Geist.<br /><br />
+              Schau dir diese Hallen an. Siehst du den Mann dort drüben, der die
+              Linsen verteilt? Er ist ein bekannter Richter. Und die Frau, die
+              das Geschirr abwäscht? Sie besitzt eine Hotelkette. Hier sitzen
+              sie auf dem Boden, auf exakt derselben Höhe wie der Bettler, der
+              vielleicht seit Tagen nichts gegessen hat. Wenn wir die Menschen
+              bedienen, knien wir vor ihnen nieder. Wir sehen in jedem Gesicht
+              den Funken des Schöpfers. Das ist kein Schauspiel, das wir für ein
+              paar Stunden aufführen – es ist die absolute, nackte Realität des
+              Lebens. Wir füttern hier nicht nur die Körper von hunderttausend
+              Menschen am Tag. Wir füttern die menschliche Seele mit der
+              Wahrheit, dass wir alle vollkommen gleich sind. Es gibt keine
+              Kasten, keine Schranken, keine Fremden. Es gibt nur Brüder und
+              Schwestern."</em
+            ><br /><br />
+            Amandeep blickt kurz zu einer älteren Frau hinüber, die erschöpft,
+            aber mit gefalteten Händen vor ihrem Edelstahlteller sitzt und leise
+            ein Dankgebet murmelt. In diesem Moment schießen ihm für einen
+            kurzen Augenblick Tränen in die Augen, die er jedoch schnell
+            weglächelt. Er greift wieder nach seinem Schrubber, schiebt die
+            Wassermassen über den Stein und geht im Rhythmus der Gemeinschaft
+            auf.<br /><br />
+            Das unaufhörliche Klappern von Tausenden Metalltellern, das dumpfe
+            Aufschlagen der Brote und das Summen der live gesungenen Hymnen aus
+            dem Tempel verschmelzen in diesem Raum zu einer Sinfonie des puren
+            Mitgefühls. Es ist der Moment, in dem man begreift: Das spirituelle
+            Herz Indiens schlägt nicht in den prunkvollen Verzierungen aus Gold,
+            sondern im schweißnassen Gesicht eines Mannes, der sein Ego abgelegt
+            hat, um der Welt zu dienen.
+          </p>
+          <br /><br /><a href="reise3.html" class="beach-btn">
+            <span class="btn-text">➥ weiter geht's</span>
+            <span class="wave-bg"></span>
+          </a>
+        </div>
+      </section>
+    </main>
+    <script src="reise2b.js"></script>
+  </body>
+</html>

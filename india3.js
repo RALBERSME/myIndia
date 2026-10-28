@@ -1,0 +1,76 @@
+// Array für die gewählten Folgeseiten/Themen (Rundreise ist immer gesetzt)
+const gewaehlteThemen = ["Goodbye"];
+
+const draggables = document.querySelectorAll(".draggable");
+const chain = document.getElementById("garlandChain");
+const pool = document.getElementById("flowerPool");
+const finishBtn = document.getElementById("finishBtn");
+const resultMessage = document.getElementById("resultMessage");
+
+// Drag & Drop Logik
+draggables.forEach((draggable) => {
+  draggable.addEventListener("dragstart", () => {
+    draggable.classList.add("dragging");
+  });
+
+  draggable.addEventListener("dragend", () => {
+    draggable.classList.remove("dragging");
+  });
+});
+
+chain.addEventListener("dragover", (e) => {
+  e.preventDefault();
+});
+
+chain.addEventListener("drop", (e) => {
+  e.preventDefault();
+  const draggable = document.querySelector(".dragging");
+  if (draggable) {
+    chain.appendChild(draggable);
+
+    const topic = draggable.getAttribute("data-topic");
+    if (!gewaehlteThemen.includes(topic)) {
+      gewaehlteThemen.unshift(topic);
+    }
+  }
+});
+
+pool.addEventListener("dragover", (e) => {
+  e.preventDefault();
+});
+
+pool.addEventListener("drop", (e) => {
+  e.preventDefault();
+  const draggable = document.querySelector(".dragging");
+  if (draggable) {
+    pool.appendChild(draggable);
+
+    const topic = draggable.getAttribute("data-topic");
+    const index = gewaehlteThemen.indexOf(topic);
+    if (index > -1) {
+      gewaehlteThemen.splice(index, 1);
+    }
+  }
+});
+
+let pageCount = 3;
+finishBtn.addEventListener("click", () => {
+  localStorage.setItem("indienReiseThemen", JSON.stringify(gewaehlteThemen));
+
+  const extraThemen = gewaehlteThemen.filter((thema) => thema !== "Rundreise");
+  let themenText =
+    extraThemen.length > 0 ? extraThemen.join(", ") : "keine weiteren Themen";
+
+  resultMessage.innerHTML = `<strong>Super.</strong> Du hast gewählt: Rundreise & <em>${themenText}</em>. Wir beginnen mit der Rundreise.`;
+  resultMessage.classList.remove("hidden");
+
+  console.log("Gespeicherte Themenübersicht für Folgeseiten:", gewaehlteThemen);
+  console.log(
+    "Erfolgreich im Local Storage gespeichert:",
+    JSON.parse(localStorage.getItem("indienReiseThemen")),
+  );
+  setTimeout(() => {
+    pageCount++;
+    window.location.href = `india${pageCount}.html`;
+  }, 2000);
+});

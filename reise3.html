@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indiens Seele: Romantik & Natur</title>
+    <style>
+      :root {
+        --bg-nature: #0a1410;
+        --text-light: #f4ebd9;
+        --accent-gold: #f4a261;
+        --accent-terracotta: #e76f51;
+        --kerala-green: #2a9d8f;
+        --card-bg: #11221c;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background-color: var(--bg-nature);
+        color: var(--text-light);
+        line-height: 1.8;
+      }
+
+      header {
+        text-align: center;
+        padding: 100px 20px;
+        background:
+          linear-gradient(rgba(10, 20, 16, 0.4), rgba(10, 20, 16, 1)),
+          url("https://unsplash.com") center/cover;
+        border-bottom: 2px solid var(--accent-gold);
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        color: var(--accent-gold);
+        margin-bottom: 20px;
+        font-weight: 400;
+        letter-spacing: 3px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      .subtitle {
+        font-size: 1.3rem;
+        font-style: italic;
+        opacity: 0.9;
+        max-width: 700px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+      }
+
+      main {
+        max-width: 950px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      section {
+        margin-bottom: 100px;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        color: var(--accent-gold);
+        margin-bottom: 24px;
+        border-bottom: 1px solid rgba(244, 162, 97, 0.3);
+        padding-bottom: 10px;
+      }
+
+      p {
+        margin-bottom: 25px;
+        font-size: 1.15rem;
+        text-align: justify;
+      }
+
+      .highlight {
+        color: var(--accent-terracotta);
+        font-weight: bold;
+      }
+
+      .carousel-container {
+        position: relative;
+        max-width: 100%;
+        margin: 40px auto;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(244, 162, 97, 0.2);
+      }
+
+      .carousel-slides {
+        display: flex;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        width: 100%;
+      }
+
+      .carousel-slide {
+        min-width: 100%;
+        position: relative;
+        aspect-ratio: 16 / 9;
+        background-color: #000;
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .carousel-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(10, 20, 16, 0.95));
+        padding: 25px 30px;
+        color: #fff;
+        font-size: 1.05rem;
+        font-style: italic;
+      }
+
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(17, 34, 28, 0.85);
+        color: var(--text-light);
+        border: 1px solid var(--accent-gold);
+        font-size: 1.6rem;
+        padding: 10px 16px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        z-index: 10;
+        user-select: none;
+      }
+
+      .carousel-btn:hover {
+        background: var(--accent-gold);
+        color: var(--bg-nature);
+      }
+
+      .carousel-btn.prev {
+        left: 20px;
+      }
+      .carousel-btn.next {
+        right: 20px;
+      }
+
+      .carousel-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+      }
+
+      .carousel-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .carousel-dot.active {
+        background: var(--accent-gold);
+        transform: scale(1.3);
+      }
+
+      .video-wrapper {
+        margin: 50px 0;
+        background-color: var(--card-bg);
+        padding: 25px;
+        border-radius: 16px;
+        border: 1px solid rgba(42, 157, 143, 0.3);
+        text-align: center;
+      }
+
+      .video-wrapper p {
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .carousel-slide iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      .carousel-slide.video-slide .carousel-caption {
+        z-index: 2;
+        background: linear-gradient(transparent, rgba(10, 20, 16, 0.95));
+        pointer-events: none;
+      }
+
+      footer {
+        text-align: center;
+        padding: 60px 20px;
+        font-size: 0.95rem;
+        opacity: 0.7;
+        border-top: 1px solid rgba(244, 162, 97, 0.15);
+        background-color: #060d0a;
+      }
+      .beach-btn {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 220px;
+        height: 60px;
+        background-color: #f7d070;
+        border: 2px solid #e5ba55;
+        border-radius: 30px;
+        text-decoration: none;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(247, 208, 112, 0.3);
+        transition: transform 0.2s ease;
+      }
+
+      .beach-btn .btn-text {
+        position: relative;
+        z-index: 2;
+        font-size: 15px;
+        font-weight: bold;
+        color: #2c3e50;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .beach-btn .wave-bg {
+        position: absolute;
+        top: 100%;
+        left: -50%;
+        width: 200%;
+        height: 400%;
+        background: #2980b9;
+        border-radius: 40%;
+        z-index: 1;
+        transition: top 0.6s ease;
+      }
+
+      .beach-btn:hover {
+        transform: translateY(-3px);
+      }
+
+      .beach-btn:hover .btn-text {
+        color: #ffffff;
+      }
+
+      .beach-btn:hover .wave-bg {
+        top: -60%;
+        animation: ocean-wave 4s linear infinite;
+      }
+
+      @keyframes ocean-wave {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Wo die Natur Romantik haucht</h1>
+      <p class="subtitle">
+        Eine visuelle und emotionale Reise durch das farbenfrohe Indien – von
+        den majestätischen Wasserpalästen Rajasthans in das tropisch grüne
+        Paradies von Keralas Kanälen.
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Die farbenprächtige Harmonie</h2>
+        <p>
+          Indien besitzt eine landschaftliche Poesie, die Reisende seit
+          Jahrhunderten verzaubert. Abseits der lebhaften Metropolen offenbart
+          sich eine Welt, in der Natur und menschliche Schöpfungskraft eine
+          tiefromantische Symbiose eingehen. Es ist ein echtes Wechselspiel der
+          Farben: Das blendende Weiß marmorierter Paläste, das im tiefen Orange
+          eines Wüstensonnenuntergangs versinkt, verwandelt sich im Süden in ein
+          schier endloses, lebendiges Smaragdgrün, das vom glitzernden Blau
+          tropischer Wellen durchzogen wird. Diese Landschaften sind keine
+          Kulissen – sie sind lebendige Ökosysteme voller Ruhe und zeitloser
+          Schönheit.
+        </p>
+      </section>
+
+      <section>
+        <h2>Udaipur: Das weiße Juwel im Wüstensand</h2>
+        <p>
+          Inmitten der ariden Landschaft Rajasthans gleicht
+          <span class="highlight">Udaipur</span> einer Fata Morgana. Oftmals
+          ehrfürchtig als „Venedig des Ostens“ bezeichnet, verdankt die Stadt
+          ihren romantischen Ruf einem Netz aus künstlich angelegten
+          Süßwasserseen, die im 14. Jahrhundert erschaffen wurden. Das
+          unbestrittene Herzstück ist der
+          <span class="highlight">Lake Pichola</span>. Hier scheint die
+          Schwerkraft ihre Gültigkeit zu verlieren: Prachtvolle, schneeweiße
+          Paläste wie das berühmte *Taj Lake Palace* ragen filigran direkt aus
+          dem spiegelnden Nass empor, als würden sie schwerelos auf dem Wasser
+          treiben.
+        </p>
+
+        <p>
+          Wenn die Sonne hinter den schroffen Aravalli-Bergen versinkt, wechselt
+          das Farbspektrum Udaipurs im Minutentakt. Die filigranen Kuppeln
+          (Chhatris) und die kunstvoll gemeißelten Balkone reflektieren das
+          warme Abendlicht in Nuancen von Rosé, Gold und flammendem Orange. Eine
+          abendliche Bootsfahrt ist hier kein touristischer Zeitvertreib,
+          sondern das Eintauchen in ein lebendiges Gemälde aus majestätischer
+          Architektur und absoluter Stille.
+        </p>
+
+        <div class="carousel-container" id="carousel-udaipur">
+          <button class="carousel-btn prev" aria-label="Vorheriges Bild">
+            ❮
+          </button>
+          <button class="carousel-btn next" aria-label="Nächstes Bild">
+            ❯
+          </button>
+          <div class="carousel-slides">
+            <div class="carousel-slide">
+              <img src="Images/udaipur1.jpg" alt="Taj Lake Palace Udaipur" />
+              <div class="carousel-caption">
+                Das weiße Marmorjuwel des Taj Lake Palace am Lake Pichola.
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="Images/udaipur2.jpg" alt="Pichola-See" />
+              <div class="carousel-caption">
+                In Ruhe aus dem Restaurant den Pichola-See bewundern.
+              </div>
+            </div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Kerala: Das tropische Labyrinth aus Smaragdgrün</h2>
+        <p>
+          Reist man Tausende Kilometer nach Süden, wandelt sich die Farbpalette
+          radikal. Willkommen in <span class="highlight">Kerala</span>, im
+          tropischen, üppigen Süden Indiens. Die *Backwaters* sind ein
+          faszinierendes, über 900 Kilometer langes Netzwerk aus
+          labyrinthartigen Kanälen, Lagunen und Flüssen, das sich parallel zur
+          Küste des Arabischen Meeres zieht. Hier dominiert die Natur in all
+          ihrer ungezähmten Pracht: Dichte Palmenhaine neigen sich schützend
+          über das ruhige Wasser, während im Hinterland die sanften Hügel von
+          üppigen Gewürzplantagen bedeckt sind, auf denen grüner Kardamom,
+          Pfeffer und Nelken wachsen.
+        </p>
+
+        <p>
+          Die romantischste Art, diese Natur zu erfahren, ist an Bord eines
+          traditionellen Hausbootes, genannt
+          <span class="highlight">Kettuvallam</span>. Ursprünglich wurden diese
+          hölzernen Boote als Lastkähne für den Reistransport genutzt. Heute
+          sind sie kunstvoll aus Naturmaterialien wie Bambusmatten, Kokosfasern
+          und langlebigem Anjili-Holz zu schwimmenden Luxus-Suiten umgebaut.
+          Ohne den Einsatz eines einzigen Nagels zusammengefügt, gleitet man mit
+          ihnen tagelang entschleunigt durch die Kanäle. Man lauscht dem sanften
+          Plätschern, beobachtet Eisvögel beim Fischen und spürt den warmen,
+          tropischen Wind, der den Duft von exotischen Gewürzen mit sich trägt.
+        </p>
+
+        <div class="carousel-container" id="carousel-kerala">
+          <button class="carousel-btn prev" aria-label="Vorheriges Bild">
+            ❮
+          </button>
+          <button class="carousel-btn next" aria-label="Nächstes Bild">
+            ❯
+          </button>
+          <div class="carousel-slides">
+            <div class="carousel-slide">
+              <img
+                src="Images/Kerala1.jpg"
+                alt="Kettuvallam Hausboot in Kerala"
+              />
+              <div class="carousel-caption">
+                Ein traditionelles Kettuvallam-Hausboot.
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img
+                src="Images/backwater.jpg"
+                alt="Grüne Palmenhaine in den Backwaters"
+              />
+              <div class="carousel-caption">
+                Das smaragdgrüne Dickicht der unberührten Natur wölbt sich bis
+                übers Wasser.
+              </div>
+            </div>
+
+            <div class="carousel-slide video-slide">
+              <iframe
+                src="elefant.mp4"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              ></iframe>
+              <div class="carousel-caption">
+                Hin und wieder tauchen auch ganze Familien auf.
+              </div>
+            </div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+
+        <div class="video-wrapper">
+          <p>
+            Erleben Sie die beruhigende Magie einer Hausboot-Fahrt hautnah in
+            diesem authentischen Einblick in das Leben auf den Backwaters:
+          </p>
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/YlaRl8C7ZN0"
+              title="Hausboot in den Backwaters Cochin / Indien."
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <br /><br /><a href="reise4.html" class="beach-btn">
+            <span class="btn-text">➥ weiter geht's</span>
+            <span class="wave-bg"></span>
+          </a>
+        </div>
+      </section>
+    </main>
+    <script src="reise3.js"></script>
+  </body>
+</html>

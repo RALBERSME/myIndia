@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Henny+Penny&family=Oswald:wght@200..700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  background-image: url(Images/mandala.png);
+  background-size: 10cqmax;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+}
+
+.container {
+  margin: 5% 10%;
+  background-image: linear-gradient(
+    to right bottom,
+    #ff9933 0%,
+    #ff9933 35%,
+    #ffffff 35%,
+    #ffffff 65%,
+    #138808 65%,
+    #138808 100%
+  );
+  border-radius: 10px;
+  padding: 25px 45px;
+}
+h1 {
+  font-family: "Henny Penny", system-ui, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2.25rem;
+}
+
+.gallery-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0b0f19;
+  padding: 20px 0;
+  border-radius: 10px;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  gap: 20px;
+}
+
+.image-slot {
+  flex: 1;
+  height: 25vh;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  background-color: #1a2333;
+}
+
+.image-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.india-btn {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding: 6px 35px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #0b0f19;
+  border: none;
+  border-radius: 50px;
+  border: 3px solid black;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transform: translateY(-30px);
+  box-shadow: 0 5px 15px rgba(255, 153, 51, 0.2);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  background: linear-gradient(
+    to right bottom,
+    #ff9933 0%,
+    #ff9933 35%,
+    #ffffff 35%,
+    #ffffff 65%,
+    #138808 65%,
+    #138808 100%
+  );
+}
+
+.india-btn span {
+  position: relative;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.india-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to left top,
+    #ff9933 0%,
+    #ff9933 35%,
+    #ffffff 35%,
+    #ffffff 65%,
+    #138808 65%,
+    #138808 100%
+  );
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.india-btn:hover {
+  transform: scale(0.95);
+  box-shadow: 0 10px 25px rgba(19, 136, 8, 0.4);
+}
+
+.india-btn:hover::before {
+  opacity: 1;
+}
+
+.india-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+  .gallery-container {
+    gap: 10px;
+    width: 95%;
+  }
+  .image-slot {
+    height: 20vh;
+    border-radius: 4px;
+  }
+  .india-btn {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .gallery-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .image-slot {
+    width: 100%;
+    height: 15vh;
+  }
+  .india-btn {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    width: 80%;
+    max-width: 280px;
+    text-align: center;
+  }
+}

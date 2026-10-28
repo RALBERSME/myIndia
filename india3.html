@@ -1,0 +1,62 @@
+<!doctype html>
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deine Indien Reiseplanung</title>
+    <link rel="stylesheet" href="india3.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Was möchtest du auf deiner Reise durch Indien erleben?</h1>
+
+      <div class="workspace">
+        <div class="chain-section">
+          <div class="garland-string" id="garlandChain">
+            <div class="flower fixed-flower">Rundreise</div>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <h3>
+            Füge weitere Wünsche hinzu, indem du die entsprechende Blume an die
+            Kette hängst. Ziehe sie hierzu auf die "Rundreise"
+          </h3>
+          <div class="flower-pool" id="flowerPool">
+            <div class="flower draggable" draggable="true" data-topic="Geist">
+              Geist
+            </div>
+            <div
+              class="flower draggable"
+              draggable="true"
+              data-topic="Geschichte"
+            >
+              Geschichte
+            </div>
+            <div class="flower draggable" draggable="true" data-topic="Liebe">
+              Liebe
+            </div>
+            <div
+              class="flower draggable"
+              draggable="true"
+              data-topic="Gerichte"
+            >
+              Gerichte
+            </div>
+            <div class="flower draggable" draggable="true" data-topic="Medizin">
+              Medizin
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-section">
+        <button id="finishBtn">Ich bin fertig, es kann losgehen</button>
+        <div id="resultMessage" class="result-message hidden"></div>
+      </div>
+    </div>
+
+    <script src="india3.js"></script>
+  </body>
+</html>
