@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faszination Indien - Kultur, Feste & Sitten</title>
+    <style>
+      :root {
+        --primary: #c83416;
+        --secondary: #41069a;
+        --accent: #138808;
+        --bg-light: #fffbf7;
+        --text-dark: #2d241e;
+        --white: #ffffff;
+        --border: #f0e2d5;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.7;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        font-size: 1.05rem;
+      }
+
+      header {
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+          url(Images/traditions.jpg) no-repeat center center/cover;
+        color: var(--white);
+        text-align: center;
+        padding: 80px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        letter-spacing: 1px;
+      }
+
+      header p {
+        font-size: 1.25rem;
+        max-width: 800px;
+        margin: 0 auto;
+        opacity: 0.95;
+        font-style: italic;
+        color: whitesmoke;
+        text-align: center;
+      }
+
+      nav {
+        background-color: var(--primary);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: var(--white);
+        text-decoration: none;
+        padding: 18px 25px;
+        display: block;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a.active {
+        background-color: var(--secondary);
+        color: var(--white);
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      section {
+        background-color: var(--white);
+        padding: 40px;
+        margin-bottom: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        border-top: 4px solid var(--secondary);
+      }
+
+      h2 {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--border);
+      }
+
+      h3 {
+        color: var(--primary);
+        margin: 25px 0 12px 0;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      p {
+        margin-bottom: 18px;
+        text-align: justify;
+        color: #4a3e3d;
+      }
+
+      .fest-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 20px;
+      }
+
+      .fest-card {
+        background: #fffdfa;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 25px;
+        border-left: 5px solid var(--secondary);
+      }
+
+      .fest-meta {
+        font-size: 0.9rem;
+        color: #7c6e65;
+        margin-bottom: 15px;
+        font-style: italic;
+        background: #fdf5ed;
+        padding: 8px 12px;
+        border-radius: 4px;
+        display: inline-block;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .dos-box,
+      .donts-box {
+        padding: 25px;
+        border-radius: 8px;
+      }
+
+      .dos-box {
+        background-color: #f0fdf4;
+        border: 1px solid #bbf7d0;
+      }
+
+      .dos-box h3 {
+        color: var(--accent);
+      }
+
+      .donts-box {
+        background-color: #fef2f2;
+        border: 1px solid #fecaca;
+      }
+
+      .donts-box h3 {
+        color: #b91c1c;
+      }
+
+      ul {
+        margin-left: 20px;
+        margin-bottom: 15px;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      .accordion-item {
+        border: 1px solid var(--border);
+        margin-bottom: 10px;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      .accordion-header {
+        background-color: #fcf8f4;
+        padding: 15px 20px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+        transition: background 0.2s;
+      }
+
+      .accordion-header:hover {
+        background-color: #f5ede4;
+      }
+
+      .accordion-content {
+        padding: 20px;
+        background-color: var(--white);
+        display: none;
+        border-top: 1px solid var(--border);
+      }
+
+      footer a {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+        background-color: #000080;
+        padding: 5px;
+      }
+      footer a:hover {
+        background-color: green;
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.2rem;
+        }
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+        nav ul {
+          flex-direction: column;
+          text-align: center;
+        }
+        nav a {
+          padding: 12px;
+        }
+        section {
+          padding: 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Indische Kultur & Traditionen</h1>
+      <p>
+        Ein tiefer Einblick in farbenfrohe Feste, Jahrtausende alte Sitten und
+        den gesellschaftlichen Knigge des Subkontinents.
+      </p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#feiertage" class="nav-link">Feiertage & Feste</a></li>
+        <li><a href="#sitten" class="nav-link">Gebräuche & Ethik</a></li>
+        <li><a href="#manieren" class="nav-link">Manieren & Knigge</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <section id="feiertage">
+        <h2>Traditionelle & Religiöse Feiertage</h2>
+        <p>
+          Indiens Kalender ist geprägt von einer immensen Vielfalt. Da die
+          indische Kultur stark spirituell verwurzelt ist, basieren die meisten
+          Feste auf mythologischen Epen und Mondkalendern.
+        </p>
+
+        <div class="fest-grid">
+          <div class="fest-card">
+            <h3>Diwali (Deepavali) – Das Lichterfest</h3>
+            <div class="fest-meta">
+              Wer feiert: Hindus, Jains, Sikhs | Zeitraum: Oktober/November
+            </div>
+            <br /><br />
+            <iframe
+              src="https://www.youtube.com/embed/C7oxqq9NHGY"
+              title="What is Diwali, India&#39;s festival of lights? AP Explains"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe
+            ><br /><br />
+            <p>
+              <strong>Entstehung & Bedeutung:</strong> Diwali feiert die
+              Rückkehr des Gottes Rama aus dem 14-jährigen Exil und seinen Sieg
+              über den Dämonenkönig Ravana. Es symbolisiert den Triumph des
+              Lichts über die Dunkelheit und des Guten über das Böse. Historisch
+              markierte es zudem das Ende der Erntezeit und den Beginn eines
+              neuen Geschäftsjahres.
+            </p>
+            <p>
+              <strong>Wie man feiert:</strong> Häuser werden akribisch
+              gereinigt, mit Öllampchen (Divas) und farbenfrohen Sandbildern
+              (Rangolis) geschmückt. Familien kommen zusammen, tauschen
+              Süßigkeiten (Mithai) aus, zünden Feuerwerke und beten zur Göttin
+              Lakshmi für Wohlstand.
+            </p>
+            <p>
+              <strong>Bedeutung im Wandel:</strong> Früher stand die spirituelle
+              Einkehr, die Ernte danksagung und das rituelle Entzünden von
+              Tonlampen im Vordergrund. Heute hat sich Diwali zusätzlich zu
+              einem gigantischen Konsum- und Shopping-Ereignis gewandelt,
+              vergleichbar mit dem westlichen Weihnachtsfest.
+            </p>
+          </div>
+
+          <div class="fest-card">
+            <h3>Holi – Das Fest der Farben</h3>
+            <div class="fest-meta">
+              Wer feiert: Überwiegend Hindus (gesellschaftsübergreifend) |
+              Zeitraum: März
+            </div>
+            <br /><br /><iframe
+              src="https://www.youtube.com/embed/SGfaeSKADL0"
+              title="Holi festival celebrated with bursts of color across India"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <br /><br />
+            <p>
+              <strong>Entstehung & Bedeutung:</strong> Es basiert unter anderem
+              auf der Verbrennung der Dämonin Holika (Sieg der Hingabe über das
+              Böse) und feiert die unbeschwerte Liebe des Gottes Krishna zu
+              Radha. Gleichzeitig markiert es den Beginn des Frühlings.
+            </p>
+            <p>
+              <strong>Wie man feiert:</strong> Menschen bewerfen sich
+              gegenseitig mit farbigem Pulver (Gulal) und gefärbtem Wasser.
+              Starre Kastenschranken, Altersunterschiede und soziale
+              Statusbarrieren werden für diesen einen Tag komplett aufgehoben –
+              jeder ist gleich.
+            </p>
+            <p>
+              <strong>Bedeutung im Wandel:</strong> Früher wurden ausschließlich
+              natürliche Heilkräuter und Blütenextrakte (wie Neem oder Kurkuma)
+              als Farben genutzt, was auch der Vorbeugung von
+              Frühlingskrankheiten diente. Heute dominieren oft synthetische
+              Farben, und das Fest hat weltweite, rein säkulare Ableger (Color
+              Runs) inspiriert.
+            </p>
+          </div>
+
+          <div class="fest-card">
+            <h3>Eid ul-Fitr & Eid al-Adha</h3>
+            <div class="fest-meta">
+              Wer feiert: Die muslimische Minderheit (ca. 200 Millionen Inder) |
+              Zeitraum: Variiert
+            </div>
+            <br /><br /><iframe
+              src="https://www.youtube.com/embed/oOCkWi0Kv6U"
+              title="Eid-ul-Fitr: ein Fest des muslimischen Glaubens in Indien"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe
+            ><br /><br />
+            <p>
+              <strong>Entstehung & Bedeutung:</strong> Eid ul-Fitr markiert das
+              Ende des Fastenmonats Ramadan. Eid al-Adha ist das Opferfest, das
+              an die Opferbereitschaft Abrahams erinnert. Beide Feste sind feste
+              Bestandteile der gesamtindischen Kultur.
+            </p>
+            <p>
+              <strong>Wie man feiert:</strong> Nach dem gemeinsamen Festgebet in
+              großen Moscheen wird im Familien- und Freundeskreis opulent
+              gegessen. Ein traditionelles indisches Gericht hierfür ist
+              <em>Sheer Khurma</em> (eine süße Milchspeise mit Datteln und
+              Fadennudeln). Es ist üblich, auch nicht-muslimische Nachbarn
+              einzuladen.
+            </p>
+            <p>
+              <strong>Bedeutung im Wandel:</strong> Früher wie heute sind diese
+              Feste tragende Säulen der sozialen Fürsorge (Zakat/Almosen) und
+              stärken trotz politischer Spannungen lokal oft das interreligiöse
+              Zusammenleben (Ganga-Jamuni-Tehzeeb).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="sitten">
+        <h2>Gebräuche, Sitten & gesellschaftliche Ethik</h2>
+        <p>
+          Die indische Gesellschaft ist kollektivistisch geprägt. Das Wohl und
+          der Ruf der Familie sowie Respekt gegenüber Älteren stehen über den
+          individuellen Wünschen.
+        </p>
+
+        <div class="grid-2">
+          <div class="dos-box">
+            <h3>Anerkannt & Lobenswert</h3>
+            <ul>
+              <li>
+                <strong>Respekt vor dem Alter:</strong> Älteren Menschen
+                begegnet man mit Ehrerbietung. Ein traditioneller Brauch ist das
+                <em>Charan Sparsh</em> – das Berühren der Füße von Großeltern,
+                Eltern oder Lehrern, um deren Segen zu erbitten.
+              </li>
+              <li>
+                <strong>Gastfreundschaft (Atithi Devo Bhava):</strong> Der Gast
+                wird sprichwörtlich wie ein Gott behandelt. Es gilt als
+                unhöflich, angebotenes Essen oder Tee (Chai) vehement
+                abzulehnen.
+              </li>
+              <li>
+                <strong>Religiöse Toleranz im Alltag:</strong> Das Akzeptieren
+                und gegenseitige Gratulieren zu Festen anderer
+                Glaubensgemeinschaften gilt als ethisch hochstehend.
+              </li>
+            </ul>
+          </div>
+
+          <div class="donts-box">
+            <h3>Tabu & Unakzeptabel</h3>
+            <ul>
+              <li>
+                <strong>Die unreine linke Hand:</strong> Die linke Hand gilt
+                historisch als unrein (für die Intimhygiene). Es ist ein
+                absolutes Tabu, Essen, Geld oder Geschenke mit der linken Hand
+                zu überreichen oder anzunehmen.
+              </li>
+              <li>
+                <strong>Schuhe im Haus/Tempel:</strong> Das Tragen von
+                Straßenschuhen in Wohnräumen oder religiösen Stätten gilt als
+                grobe Respektlosigkeit und Verunreinigung.
+              </li>
+              <li>
+                <strong>Öffentliche Zärtlichkeiten:</strong> Das Austauschen von
+                Intimitäten (Küssen, intensives Umarmen) in der Öffentlichkeit
+                gilt ethisch als unschicklich und wird gesellschaftlich
+                missbilligt.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="manieren">
+        <h2>Manieren & Alltagsknigge</h2>
+        <p>
+          Klicke auf die einzelnen Bereiche, um zu erfahren, wie man sich im
+          indischen Alltag korrekt und höflich verhält:
+        </p>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Die richtige Begrüßung <span>+</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Das traditionelle <strong>"Namaste"</strong> (oder "Namaskar"),
+              bei dem die Handflächen vor der Brust zusammengeführt werden und
+              man sich leicht verneigt, ist immer korrekt. Es drückt tiefen
+              Respekt aus, ohne das Gegenüber berühren zu müssen. Ein
+              Händeschütteln ist unter Männern im geschäftlichen Kontext üblich,
+              zwischen Männern und Frauen jedoch distanzierter zu betrachten –
+              hier wartet man ab, ob die Frau die Hand anbietet.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Verhalten bei Tisch & Essen mit den Fingern <span>+</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Traditionelles indisches Essen (wie Roti oder Reis mit Curry) wird
+              oft mit der <strong>rechten Hand</strong> gegessen. Dabei werden
+              nur die Fingerspitzen benutzt, um das Essen zum Mund zu führen;
+              die Handfläche sollte sauber bleiben. Wenn Besteck bereitgestellt
+              wird, kann dieses natürlich genutzt werden. Es gilt als höflich,
+              sich vor und nach dem Essen gründlich die Hände zu waschen.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">Kleiderordnung <span>+</span></div>
+          <div class="accordion-content">
+            <p>
+              Indien ist in Kleidungsfragen konservativ. Schultern und Knie
+              sollten sowohl bei Frauen als auch bei Männern stets bedeckt sein.
+              Zu große Freizügigkeit im Alltag (z.B. kurze Shorts oder tief
+              ausgeschnittene Tops) zieht unerwünschte Blicke an und gilt als
+              unhöflich. Beim Betreten von Tempeln, Moscheen oder Gurudwaras
+              (Sikh-Tempeln) müssen Frauen (und manchmal auch Männer) zudem den
+              Kopf mit einem Tuch bedecken.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Kommunikation & Das indische Kopfwiegen <span>+</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Kritik wird in Indien selten direkt geäußert, um das Gegenüber
+              nicht das "Gesicht verlieren" zu lassen. Ein direktes "Nein" wird
+              oft umschrieben. Berühmt ist das
+              <strong>indische Kopfwiegen</strong> (ein seitliches Neigen des
+              Kopfes). Es ist kein klares "Ja" oder "Nein", sondern bedeutet
+              meistens "Ok", "Ich verstehe" oder signalisiert eine freundliche
+              Aufmerksamkeit im Gespräch.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <a href="cloth.htm">➥ weiter geht`s</a>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+        accordionHeaders.forEach((header) => {
+          header.addEventListener("click", () => {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector("span");
+
+            const isOpen = content.style.display === "block";
+
+            document
+              .querySelectorAll(".accordion-content")
+              .forEach((c) => (c.style.display = "none"));
+            document
+              .querySelectorAll(".accordion-header span")
+              .forEach((i) => (i.textContent = "+"));
+
+            if (!isOpen) {
+              content.style.display = "block";
+              icon.textContent = "−";
+            } else {
+              content.style.display = "none";
+              icon.textContent = "+";
+            }
+          });
+        });
+
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetSection = document.querySelector(
+              link.getAttribute("href"),
+            );
+            if (targetSection) {
+              window.scrollTo({
+                top: targetSection.offsetTop - 70,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+
+        window.addEventListener("scroll", () => {
+          let fromTop = window.scrollY + 100;
+          navLinks.forEach((link) => {
+            const section = document.querySelector(link.getAttribute("href"));
+            if (section) {
+              if (
+                section.offsetTop <= fromTop &&
+                section.offsetTop + section.offsetHeight > fromTop
+              ) {
+                link.classList.add("active");
+              } else {
+                link.classList.remove("active");
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

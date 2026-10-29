@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masti & Maza - So feiert Indien das Leben!</title>
+    <style>
+      :root {
+        --primary-pink: #ff007f;
+        --saffron-orange: #cd1ead;
+        --teal-blue: #1eac78;
+        --sun-yellow: #ffcc00;
+        --bg-creme: #fffaf0;
+        --text-dark: #2b1d1d;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background-color: var(--bg-creme);
+        color: var(--text-dark);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      header {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 0, 127, 0.8),
+            rgba(255, 153, 51, 0.9)
+          ),
+          url("https://unsplash.com") no-repeat center center/cover;
+        color: var(--white);
+        text-align: center;
+        padding: 100px 20px;
+        position: relative;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      header h1 {
+        font-size: 3.5rem;
+        margin-bottom: 15px;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        animation: bounceIn 1.5s ease;
+      }
+
+      header p {
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+        animation: fadeIn 2s ease;
+      }
+
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: var(--sun-yellow);
+        border-radius: 50%;
+        animation: fall linear infinite;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0 20px;
+      }
+
+      .intro-text {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 50px;
+        color: #554444;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.2rem;
+        color: var(--primary-pink);
+        margin-bottom: 40px;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "✨";
+        display: block;
+        font-size: 1.5rem;
+        margin-top: 5px;
+      }
+
+      .hobby-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+
+      .hobby-card {
+        background-color: var(--white);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 2px solid transparent;
+        padding: 10px;
+      }
+
+      .hobby-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(255, 0, 127, 0.15);
+        border-color: var(--saffron-orange);
+      }
+
+      .hobby-img-wrapper {
+        width: 100%;
+        height: 230px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hobby-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .hobby-card:hover .hobby-img {
+        transform: scale(1.1);
+      }
+
+      .hobby-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: var(--sun-yellow);
+        color: var(--text-dark);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 0.85rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .hobby-content {
+        padding: 25px auto;
+      }
+
+      .hobby-content h3 {
+        color: var(--teal-blue);
+        margin-bottom: 12px;
+        font-size: 1.5rem;
+      }
+
+      .hobby-content p {
+        font-size: 1rem;
+        color: #554a49;
+        text-align: justify;
+      }
+      iframe {
+        margin-left: 25px;
+        border-radius: 5px;
+        border: 2px solid orange;
+      }
+
+      .game-section {
+        background: linear-gradient(135deg, #047d63, #0eb994);
+        color: white;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        margin-top: 40px;
+        position: relative;
+      }
+
+      .game-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: var(--sun-yellow);
+      }
+
+      .cricket-btn {
+        background-color: var(--saffron-orange);
+        color: white;
+        border: none;
+        padding: 15px 35px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+        margin-top: 15px;
+        display: inline-block;
+      }
+
+      .cricket-btn:hover {
+        background-color: var(--primary-pink);
+        transform: scale(1.05);
+      }
+
+      .score-board {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 20px;
+        background: rgba(0, 0, 0, 0.2);
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 10px;
+      }
+
+      .game-commentary {
+        margin-top: 15px;
+        font-style: italic;
+        min-height: 25px;
+        color: var(--sun-yellow);
+      }
+
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0.3);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 0.8;
+        }
+        70% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-50px) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(45vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      footer a {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+        background-color: #000080;
+        padding: 5px;
+      }
+      footer a:hover {
+        background-color: green;
+      }
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        header p {
+          font-size: 1.1rem;
+        }
+        .hobby-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header-confetti">
+      <h1>Masti, Maza & Freizeit!</h1>
+      <p>
+        Erlebe, mit wie viel Leidenschaft, Gemeinschaft und Freude Indien seine
+        Freizeit feiert.
+      </p>
+    </header>
+
+    <div class="container">
+      <p class="intro-text">
+        In Indien ist Freizeit selten eine einsame Angelegenheit. Sie bedeutet
+        <strong>„Maza“ (Spaß)</strong> und
+        <strong>„Masti“ (unbeschwerter Unfug)</strong> – am liebsten im großen
+        Kreis von Familie, Nachbarn und Freunden. Tauche ein in die bunten
+        Facetten!
+      </p>
+
+      <h2 class="section-title">Die beliebtesten Freizeitbeschäftigungen</h2>
+
+      <div class="hobby-grid">
+        <div class="hobby-card">
+          <div class="hobby-img-wrapper">
+            <span class="hobby-badge">Absolute Religion</span> <br /><br />
+            <iframe
+              src="https://www.youtube.com/embed/A_rkI2UQG6s"
+              title="I Played Gully Cricket In India"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="hobby-content">
+            <h3>Gully Cricket (Straßen-Cricket)</h3>
+            <p>
+              Cricket ist in Indien kein bloßer Sport, sondern eine
+              leidenschaftliche Freizeit-Religion. Ob in engen Großstadtgassen
+              (Gully), auf staubigen Dorfplätzen oder am Strand: Sobald ein paar
+              freie Minuten da sind, zücken Kinder und Erwachsene improvisierte
+              Schläger und spielen gemeinsam.
+            </p>
+          </div>
+        </div>
+
+        <div class="hobby-card">
+          <div class="hobby-img-wrapper">
+            <span class="hobby-badge">Großes Kino</span> <br /><br />
+            <iframe
+              src="https://www.youtube.com/embed/dTUIMEC9bDQ"
+              title="Bollywood: Geheimnisse der größten Filmindustrie der Welt"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="hobby-content">
+            <h3>Der Bollywood-Kult & Kinos</h3>
+            <p>
+              Ein Kinobesuch in Indien ist ein interaktives Freizeiterlebnis!
+              Man sitzt nicht still im Dunkeln: Bei epischen Szenen oder Songs
+              der Lieblingsstars wird im Saal geklatscht, laut gejubelt,
+              mitgesungen und getanzt. Zu Hause schaut die gesamte Familie
+              stundenlange Filme und zelebriert die Musik.
+            </p>
+          </div>
+        </div>
+
+        <div class="hobby-card">
+          <div class="hobby-img-wrapper">
+            <span class="hobby-badge">Geselligkeit</span> <br /><br />
+            <iframe
+              src="https://www.youtube.com/embed/4JPqSaNkuGA"
+              title="Chai-Kultur | Indien"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="hobby-content">
+            <h3>Chai-Pausen & "Adda" (Tratschen)</h3>
+            <p>
+              Das ungezwungene Zusammenkommen an kleinen Straßenständen (Tapris)
+              für einen frisch gebrühten, süßen Gewürztee (Masala Chai) ist der
+              soziale Klebstoff. Man nennt das ausgiebige Diskutieren über
+              Politik, Cricket und das Leben liebevoll „Adda“ – eine Kunst des
+              gemütlichen Zeitvertreibs.
+            </p>
+          </div>
+        </div>
+
+        <div class="hobby-card">
+          <div class="hobby-img-wrapper">
+            <span class="hobby-badge">Klassiker</span> <br /><br />
+            <iframe
+              src="https://www.youtube.com/embed/wfJ6rPr55d0"
+              title="BEST CARROM SUSPENSE AND FINISH EVER, Sandeep Deorukhkar, ICF Cup Delhi"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="hobby-content">
+            <h3>Carrom, Ludo & Karten</h3>
+            <p>
+              An heißen Nachmittagen oder während der Monsunregen verlagert sich
+              die Freizeit nach drinnen. Das rasante Finger-Billard
+              <strong>Carrom</strong> sowie Ludo (die Urform von
+              Mensch-ärgere-dich-nicht) und intensive Rommé-Kartenrunden
+              vereinen Großeltern und Enkelkinder stundenlang am Tisch.
+            </p>
+          </div>
+        </div>
+
+        <div class="hobby-card">
+          <div class="hobby-img-wrapper">
+            <span class="hobby-badge">Hoch am Himmel</span> <br /><br />
+            <iframe
+              src="https://www.youtube.com/embed/VyPK4EI1liA"
+              title="🇮🇳 All India kite  tournament Lucknow versus Allahabad🪁 kite fighting full game￼⁠ 2024"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="hobby-content">
+            <h3>Patang Bazi (Drachensteigen)</h3>
+            <p>
+              Besonders im Westen und Norden Indiens verwandeln sich die
+              Hausdächer in bunte Festivalzonen. Beim Drachensteigen liefert man
+              sich leidenschaftliche Duelle am Himmel, versucht mit der eigenen,
+              glasbeschichteten Schnur die Drachen der Nachbarn zu kappen,
+              begleitet von lauten Triumpfschreien ("Kai Po Che!").
+            </p>
+          </div>
+        </div>
+
+        <div class="hobby-card">
+          <div class="hobby-img-wrapper">
+            <span class="hobby-badge">Kulinarischer Spaß</span> <br /><br />
+            <iframe
+              src="https://www.youtube.com/embed/Fe1c7Ch5Ge8"
+              title="Chaat Heaven of India | Delhi&#39;s Popular Bhalla Papdi Chaat | Indian Street Food"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="hobby-content">
+            <h3>Abendliche Marktbummel & Chaat</h3>
+            <p>
+              Sobald die Hitze des Tages nachlässt, strömen Familien auf die
+              Basare. Es geht gar nicht immer ums Einkaufen, sondern ums Sehen
+              und Gesehenwerden. Gekrönt wird der Abend vom gemeinsamen Essen
+              scharfer, süß-saurer Snacks (Chaat wie Pani Puri oder Samosas)
+              direkt am Straßenrand.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <section class="game-section">
+        <h2 class="game-title">🏏 Mach mit beim Gully Cricket!</h2>
+        <p>
+          Spiele eine Runde Freizeit-Cricket direkt auf dem Bildschirm. Klicke
+          auf den Schläger und versuche, die magischen
+          <strong>6 Runs</strong> zu schlagen!
+        </p>
+
+        <button class="cricket-btn" id="hit-btn">SCHLAGEN!</button>
+
+        <div>
+          <div class="score-board">Score: <span id="score">0</span> Runs</div>
+        </div>
+        <div class="game-commentary" id="commentary">
+          Bereit für den ersten Ball? Schlag zu!
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <a href="specials.html">➥ zurück zur Special Offer Page</a>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const header = document.getElementById("header-confetti");
+        const colors = ["#ff007f", "#ff9933", "#ffcc00", "#008080", "#ffffff"];
+
+        for (let i = 0; i < 40; i++) {
+          const confetti = document.createElement("div");
+          confetti.classList.add("confetti");
+
+          confetti.style.left = Math.random() * 100 + "vw";
+          confetti.style.top = Math.random() * 20 + "vh";
+          confetti.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+          confetti.style.animationDelay = Math.random() * 2 + "s";
+
+          header.appendChild(confetti);
+        }
+
+        const hitBtn = document.getElementById("hit-btn");
+        const scoreDisplay = document.getElementById("score");
+        const commentaryDisplay = document.getElementById("commentary");
+
+        let totalRuns = 0;
+        const cricketResults = [0, 1, 2, 4, 6, "Wicket!"];
+        const comments = {
+          0: "Kein Run. Der Ball geht genau zum Feldspieler!",
+          1: "Ein schneller Single! Gut gelaufen.",
+          2: "Schöner Schlag ins Außenfeld, das reicht für zwei Runs!",
+          4: "VIER! Der Ball rast flach über die Grenze! Was für ein Feldschlag! 👏",
+          6: "SECHS!!! Der Ball fliegt hoch über das Hausdach in die Zuschauermenge! Unfassbar! 🎉",
+          "Wicket!":
+            "Oh nein! Du bist OUT! Der Ball hat die Stumps getroffen! 😭 Spiel von vorn!",
+        };
+
+        hitBtn.addEventListener("click", () => {
+          const result =
+            cricketResults[Math.floor(Math.random() * cricketResults.length)];
+
+          if (result === "Wicket!") {
+            totalRuns = 0;
+            scoreDisplay.textContent = totalRuns;
+            commentaryDisplay.textContent = comments["Wicket!"];
+            commentaryDisplay.style.color = "#ff007f";
+          } else {
+            totalRuns += result;
+            scoreDisplay.textContent = totalRuns;
+            commentaryDisplay.textContent = comments[result];
+
+            if (result === 6) {
+              commentaryDisplay.style.color = "#ffcc00";
+              commentaryDisplay.style.fontWeight = "bold";
+            } else {
+              commentaryDisplay.style.color = "white";
+              commentaryDisplay.style.fontWeight = "normal";
+            }
+          }
+
+          hitBtn.style.transform = "scale(0.95)";
+          setTimeout(() => {
+            hitBtn.style.transform = "scale(1)";
+          }, 100);
+        });
+      });
+    </script>
+  </body>
+</html>
