@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      India's Neighbors - Geopolitics & History // India's Neighbors
+    </title>
+    <style>
+      :root {
+        --primary: #1e3a8a;
+        --secondary: #d97706;
+        --accent-red: #b91c1c;
+        --accent-green: #15803d;
+        --bg-light: #f8fafc;
+        --text-dark: #0f172a;
+        --card-bg: #ffffff;
+        --border: #e2e8f0;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.15rem;
+        line-height: 1.6;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+      }
+
+      header {
+        background: linear-gradient(135deg, #164ada 0%, #ede85c 100%);
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        font-size: 2.8rem;
+        margin-bottom: 15px;
+        font-weight: 800;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        opacity: 0.9;
+        color: whitesmoke;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      .poster {
+        margin: 2%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .poster img {
+        width: 60%;
+      }
+      .poster img:hover {
+        width: 100%;
+      }
+      .poster a {
+        text-decoration: none;
+        padding-left: 30px;
+        color: #3498db;
+      }
+      .poster a:hover {
+        color: orangered;
+      }
+      .poster hr {
+        width: 60%;
+        border-bottom: 3px solid black;
+      }
+
+      .filter-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border);
+        padding: 10px 18px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background-color: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .country-card {
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        padding: 40px;
+        margin-bottom: 40px;
+        border-left: 5px solid var(--primary);
+        transition: transform 0.2s ease;
+      }
+
+      .country-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .country-card.conflict-high {
+        border-left-color: var(--accent-red);
+      }
+
+      .country-card.conflict-low {
+        border-left-color: var(--accent-green);
+      }
+
+      .country-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 15px;
+        margin-bottom: 25px;
+      }
+
+      .country-title {
+        font-size: 2rem;
+        color: var(--primary);
+      }
+
+      .status-badge {
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .status-badge.red {
+        background-color: #fee2e2;
+        color: var(--accent-red);
+      }
+      .status-badge.orange {
+        background-color: #fef3c7;
+        color: var(--secondary);
+      }
+      .status-badge.green {
+        background-color: #dcfce7;
+        color: var(--accent-green);
+      }
+
+      .section-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin: 20px 0 8px 0;
+        color: #1e293b;
+      }
+
+      p {
+        margin-bottom: 15px;
+        text-align: justify;
+        color: #334155;
+      }
+
+      .table-section {
+        background-color: var(--card-bg);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        margin-top: 60px;
+        overflow-x: auto;
+      }
+
+      .table-section h2 {
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 600px;
+      }
+
+      th,
+      td {
+        padding: 14px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+      }
+
+      th {
+        background-color: #f1f5f9;
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      tr:hover {
+        background-color: #f8fafc;
+      }
+
+      footer a {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+        background-color: #000080;
+        padding: 5px;
+      }
+      footer a:hover {
+        background-color: green;
+      }
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2rem;
+        }
+        .country-card {
+          padding: 25px;
+        }
+        .country-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>India's Neighbors</h1>
+      <p>
+        A historical and geopolitical overview of relations, conflicts, and
+        cultural ties across the South Asian subcontinent.
+      </p>
+    </header>
+    <div class="poster">
+      <img src="Images/IndiansNeighbours.png" alt="map" />
+      <br /><a href="Images/Landkarte.pdf" download>➥ download .pdf</a>
+      <br /><br />
+      <hr />
+      <hr />
+      <br /><br />
+    </div>
+    <div class="container">
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">
+          All neighbours
+        </button>
+        <button class="filter-btn" data-filter="high">
+          Strained Relations
+        </button>
+        <button class="filter-btn" data-filter="neutral">
+          Complex/Neutral Relations
+        </button>
+        <button class="filter-btn" data-filter="low">Friendly Relations</button>
+      </div>
+
+      <div class="country-card conflict-high" data-status="high">
+        <div class="country-header">
+          <h2 class="country-title">Pakistan</h2>
+          <span class="status-badge red">Historically Strained </span>
+        </div>
+
+        <div class="section-title">Cultural Similarities & Differences</div>
+        <p>
+          Historically and ethnically, North Indians and Pakistanis share the
+          same DNA, language (Hindi and Urdu are linguistically almost
+          identical), cuisine, clothing, and music. The primary difference is
+          religion: Pakistan was deliberately created in 1947 as a homeland for
+          the Muslims of the subcontinent, while India remained secular (with a
+          Hindu majority).
+        </p>
+
+        <div class="section-title">Past Relations & Causes of Conflict</div>
+        <p>
+          Prior to 1947, these peoples lived together within the British
+          colonial empire. The hasty and violent
+          <strong>Partition of India in 1947</strong> ed to massive religious
+          riots, creating millions of refugees and resulting in up to one
+          million deaths. The main bone of contention was and remains the region
+          of <strong>Kaschmir</strong>, which is claimed by both countries.
+        </p>
+
+        <div class="section-title">Wars & Disputes</div>
+        <p>
+          There have been four major military conflicts: the
+          <strong>First Kashmir War (1947), </strong>, the
+          <strong>Second Kashmir War (1965),</strong>, the
+          <strong>Bangladesh War (1971)</strong>, in which India supported the
+          secession of East Pakistan, and the
+          <strong>Kargil War (1999)</strong>. Today, both states possess nuclear
+          weapons, which keeps the conflict permanently frozen but highly
+          dangerous.
+        </p>
+
+        <div class="section-title">Present-Day Relations</div>
+        <p>
+          Relations are largely deadlocked. Official trade and diplomacy are
+          almost completely frozen. Border incidents and proxy conflicts
+          (allegations of terrorism) continuously strain the relationship.
+        </p>
+      </div>
+
+      <div class="country-card conflict-high" data-status="high">
+        <div class="country-header">
+          <h2 class="country-title">China (Tibet)</h2>
+          <span class="status-badge red">Geopolitical Rivalry</span>
+        </div>
+
+        <div class="section-title">Cultural Similarities & Differences</div>
+        <p>
+          These are two completely different civilizations. India is
+          Indo-Aryan/Dravidian and spiritually heavily shaped by Hinduism; China
+          is East Asian and shaped by Confucianism/Buddhism. The historical
+          bridge between the two countries was the peaceful spread of<strong
+            >Buddhism</strong
+          >
+          from India to China via the Silk Road.
+        </p>
+
+        <div class="section-title">Past Relations & Causes of Conflict</div>
+        <p>
+          For millennia, the Himalayas separated the two empires, meaning there
+          were virtually no direct military conflicts. This changed radically
+          when China annexed Tibet in 1950. India granted asylum to the
+          <strong>Dalai Lama 1959</strong>. The primary cause of dispute is the
+          imprecise, colonial border in the high mountains (the McMahon Line).
+        </p>
+
+        <div class="section-title">Wars & Disputes</div>
+        <p>
+          In the <strong>Sino-Indian Border War of 1962</strong>, India suffered
+          a severe defeat; China occupied the Aksai Chin region. To this day,
+          lethal skirmishes between soldiers using clubs and stones (to avoid
+          escalation) repeatedly occur in the regions of Ladakh and Arunachal
+          Pradesh.
+        </p>
+
+        <div class="section-title">Present-Day Relations</div>
+        <p>
+          A mixture of intense economic interdependence (billions in trade) and
+          sharp geopolitical rivalry. China is trying to strategically encircle
+          India (including through ports in Pakistan and Sri Lanka), while India
+          is expanding its alliances with the West.
+        </p>
+      </div>
+
+      <div class="country-card conflict-neutral" data-status="neutral">
+        <div class="country-header">
+          <h2 class="country-title">Bangladesch</h2>
+          <span class="status-badge orange">Close but Complex</span>
+        </div>
+
+        <div class="section-title">Cultural Similarities & Differences</div>
+        <p>
+          Extremely high similarity. The people of Bangladesh share a language,
+          literature (such as the works of Rabindranath Tagore), culture, and
+          history with the inhabitants of the Indian state of West Bengal. The
+          difference here, too, lies primarily in religion (Bangladesh is
+          majority Muslim, West Bengal is Hindu).
+        </p>
+
+        <div class="section-title">Past Relations & Wars</div>
+        <p>
+          The country was part of Pakistan until 1971 as "East Pakistan."
+          Because West Pakistan brutally oppressed the Bengalis, India
+          intervened militarily in the
+          <strong>1971 War</strong> and helped Bangladesh achieve its
+          independence. India was initially celebrated as a liberator.
+        </p>
+
+        <div class="section-title">
+          Points of Contention & Present-Day Relations
+        </div>
+        <p>
+          Points of contention include illegal migration into India, the
+          construction of border fences by India, and the fair sharing of water
+          resources from the Ganges River. Following years of stable economic
+          cooperation, domestic political upheavals in Bangladesh are currently
+          causing a more cautious and wait-and-see attitude on both sides.
+        </p>
+      </div>
+
+      <div class="country-card conflict-low" data-status="low">
+        <div class="country-header">
+          <h2 class="country-title">Nepal & Bhutan</h2>
+          <span class="status-badge green">Traditionally Friendly </span>
+        </div>
+
+        <div class="section-title">Cultural Similarities & Differences</div>
+        <p>
+          Nepal is historically and culturally deeply intertwined with India
+          (both are majority Hindu and share similar languages). Bhutan is
+          Buddhist-dominated and has Tibetan roots, but shares a long tradition
+          of spiritual exchange with India.
+        </p>
+
+        <div class="section-title">Past and Present-Day Relations</div>
+        <p>
+          India has always maintained open borders with Nepal; millions of
+          Nepalis work in India visa-free. Bhutan is considered India's closest
+          ally in the region—historically, India even handled aspects of
+          Bhutan's foreign and defense policies. There have never been wars
+          between these states.
+        </p>
+
+        <div class="section-title">Current Challenges</div>
+        <p>
+          Both Nepal and Bhutan are increasingly catching China's attention.
+          China is trying to expand its influence through infrastructure
+          projects, which is viewed with great concern in India and leads to
+          diplomatic tensions.
+        </p>
+      </div>
+
+      <div class="country-card conflict-neutral" data-status="neutral">
+        <div class="country-header">
+          <h2 class="country-title">Sri Lanka</h2>
+          <span class="status-badge orange">Neighboring Ties</span>
+        </div>
+
+        <div class="section-title">Cultural Similarities & Wars</div>
+        <p>
+          The majority of Sri Lanka's population (Sinhalese) and the minority
+          (Tamils) originally trace their descent back to the Indian
+          subcontinent. India intervened in the civil war there (1987–1990) with
+          a "peacekeeping force" to disarm the separatist Tamils (LTTE). This
+          ended in a fiasco and led to the 1991 assassination of former Indian
+          Prime Minister Rajiv Gandhi by a female Tamil suicide bomber.
+        </p>
+
+        <div class="section-title">Present-Day Relations</div>
+        <p>
+          Today, India and Sri Lanka cooperate closely. India helped Sri Lanka
+          during its recent severe economic crisis with massive loans and relief
+          supplies in order to curb China's growing maritime influence on the
+          island.
+        </p>
+      </div>
+
+      <div class="table-section">
+        <h2>Quick Overview: India's International Borders</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Neighboring Country</th>
+              <th>Country Border Length (approx.)</th>
+              <th>Main Point of Contention</th>
+              <th>Contention Relations Today</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pakistan</strong></td>
+              <td>3.323 km</td>
+              <td>Kaschmir-Region / Terrorism</td>
+              <td>Very Poor / Deadlocked</td>
+            </tr>
+            <tr>
+              <td><strong>China</strong></td>
+              <td>3.488 km</td>
+              <td>Border Alignment (Ladakh / Arunachal)</td>
+              <td>Strained / Rivalry</td>
+            </tr>
+            <tr>
+              <td><strong>Bangladesch</strong></td>
+              <td>4.096 km</td>
+              <td>Migration / Water rights</td>
+              <td>Complex / Marriage of Convenience</td>
+            </tr>
+            <tr>
+              <td><strong>Nepal</strong></td>
+              <td>1.751 km</td>
+              <td>Chinese influence / Border adjustments</td>
+              <td>Good but sensitive</td>
+            </tr>
+            <tr>
+              <td><strong>Bhutan</strong></td>
+              <td>699 km</td>
+              <td>No direct conflicts</td>
+              <td>Very close & friendly</td>
+            </tr>
+            <tr>
+              <td><strong>Sri Lanka</strong></td>
+              <td>Maritime border</td>
+              <td>Fishing rights / Chinese presence</td>
+              <td>Cooperative / Strategic</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer>
+      <a href="traditionEngl.html">➥ Let's continue..</a>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const cards = document.querySelectorAll(".country-card");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            const filterValue = button.getAttribute("data-filter");
+
+            cards.forEach((card) => {
+              const cardStatus = card.getAttribute("data-status");
+
+              if (filterValue === "all" || filterValue === cardStatus) {
+                card.style.display = "block";
+
+                card.style.opacity = "0";
+                setTimeout(() => {
+                  card.style.opacity = "1";
+                  card.style.transition = "opacity 0.4s ease";
+                }, 10);
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love and Marriage in India</title>
+    <style>
+      :root {
+        --primary-color: #0f4db0;
+        --secondary-color: #09144e;
+        --dark-color: #000080;
+        --light-bg: #abe9dc;
+        --text-dark: #2c3e50;
+        --text-light: #fefdf7;
+        --white: #f0ebe4;
+        --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        background-image: url(Images/woman.jpg);
+        background-repeat: repeat-y;
+        background-size: 15cqmax;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+      }
+
+      .logo {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        transition: var(--transition);
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--white);
+        background-color: var(--primary-color);
+      }
+
+      .hero {
+        background: url(Images/wedding.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 40% 50%;
+        color: var(--text-light);
+        padding: 8rem 2rem 5rem 2rem;
+        text-align: center;
+      }
+      .intro {
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 5px 5px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        opacity: 0.95;
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+      }
+
+      section {
+        padding: 5rem 0 2rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      section:last-child {
+        border-bottom: none;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        color: var(--dark-color);
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 60px;
+        height: 4px;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+      }
+
+      p {
+        margin-bottom: 1.2rem;
+        font-size: 1.05rem;
+      }
+
+      .love-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .love-card {
+        background: var(--white);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: var(--card-shadow);
+        border-top: 4px solid var(--primary-color);
+        transition: var(--transition);
+      }
+
+      .love-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .love-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .highlight-box {
+        background-color: rgba(64, 179, 140, 0.08);
+        border-left: 5px solid var(--primary-color);
+        padding: 1.5rem;
+        border-radius: 0 8px 8px 0;
+        margin: 1.5rem 0;
+      }
+
+      .ritual-list {
+        list-style: none;
+        margin-top: 1.5rem;
+      }
+
+      .ritual-item {
+        background: var(--white);
+        margin-bottom: 1rem;
+        padding: 1.2rem;
+        border-radius: 6px;
+        box-shadow: var(--card-shadow);
+      }
+
+      .ritual-item strong {
+        color: var(--secondary-color);
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .comparison-table-wrapper {
+        overflow-x: auto;
+        margin-top: 2rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--card-shadow);
+      }
+
+      th,
+      td {
+        padding: 1rem 1.5rem;
+        text-align: left;
+      }
+
+      th {
+        background-color: var(--dark-color);
+        color: var(--text-light);
+        font-weight: 600;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+
+      tr:border-bottom {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .nav-links {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+        .hero h1 {
+          font-size: 2rem;
+        }
+        section {
+          padding: 4rem 0 1rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">India in Transition</div>
+        <ul class="nav-links">
+          <li><a href="#formen" class="nav-item">Forms of Love</a></li>
+          <li><a href="#ehe" class="nav-item">Love & Marriage</a></li>
+          <li><a href="#rituale" class="nav-item">Rituals</a></li>
+          <li>
+            <a href="#dauer-tod" class="nav-item">Lifespan & Afterlife</a>
+          </li>
+          <li><a href="#wandel" class="nav-item">Change over Time</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="intro">
+        <h1>Love, Duty, and Tradition in India</h1>
+        <p>
+          An insight into a cultural sphere where love is understood not merely
+          as an individual feeling, but as a sacred, familial, and spiritual
+          duty. <br />
+          <br />
+        </p>
+        <br /><br />
+      </div>
+    </div>
+
+    <main>
+      <section id="formen">
+        <h2>The Different Forms of Love</h2>
+        <p>
+          In Indian culture, love is viewed in a far more nuanced linguistic and
+          philosophical way than in the West. The spectrum ranges from divine
+          devotion to familial bonds:
+        </p>
+
+        <div class="love-grid">
+          <div class="love-card">
+            <h3>Bhakti</h3>
+            <p>
+              The highest form of love—an unconditional, deeply religious
+              devotion to the Divine, often symbolized by the love between Radha
+              and the god Krishna.
+            </p>
+          </div>
+          <div class="love-card">
+            <h3>Prem</h3>
+            <p>
+              A pure love characterized by respect. It encompasses affection
+              within the family, toward siblings, toward nature, or even healthy
+              self-love (<em>Aham-Prem</em>).
+            </p>
+          </div>
+          <div class="love-card">
+            <h3>Pyaar / Priya</h3>
+            <p>
+              The classic romantic and emotional bond between two people, but
+              also the deep love of parents for their children.
+            </p>
+          </div>
+          <div class="love-card">
+            <h3>Maitri & Pranay</h3>
+            <p>
+              <strong>Maitri</strong> stands for universal benevolence and deep
+              friendship.<strong>Pranay</strong> describes specific romantic
+              attraction paired with absolute mutual respect.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="ehe">
+        <h2>Love and Marriage</h2>
+        <div class="highlight-box">
+          <p>
+            <strong>"First marriage, then love"</strong> —this principle
+            continues to shape Indian society. While in the West love is the
+            reason for a wedding, marriage in India is traditionally seen as the
+            foundation upon which love can first grow.
+          </p>
+        </div>
+        <p>
+          An estimated 90 percent of all marriages in India are still entered
+          into as<strong>arranged marriages</strong>. In these cases, parents
+          and elder family members select the potential partner. Crucial
+          criteria include social status, caste, religion, and astrological
+          compatibility (horoscopes). It is primarily about the union of two
+          families, not just two individuals.
+        </p>
+        <p>
+          So-called <strong>""Love Marriages"</strong>, where couples find each
+          other independently, are indeed on the rise in urban regions, but they
+          often face considerable resistance in traditional or rural contexts,
+          particularly when they cross caste or religious boundaries.
+        </p>
+      </section>
+
+      <section id="rituale">
+        <h2>Traditional Wedding Rituals</h2>
+        <p>
+          An Indian (especially Hindu) wedding is a colorful, multi-day
+          celebration full of profound rituals and symbols. The core components
+          include:
+        </p>
+
+        <ul class="ritual-list">
+          <li class="ritual-item">
+            <strong>Mehndi & Sangeet Ceremony</strong>
+            The bride's hands and feet are painted with henna (Mehndi) in
+            intricate patterns. During the Sangeet evening, both families
+            celebrate, dance, and sing together.
+          </li>
+          <li class="ritual-item">
+            <strong>Kanyadaan</strong>
+            The solemn ritual in which the father officially hands over his
+            daughter to the groom. It symbolizes the greatest gift a family can
+            bestow.
+          </li>
+          <li class="ritual-item">
+            <strong>Saptapadi (The Seven Steps)</strong>
+            he legally and religiously binding core ritual. The couple walks
+            seven steps together around the sacred fire (Agni). Each step
+            represents a sacred vow: sustenance, strength, prosperity, wisdom,
+            progeny, health, and lifelong fidelity.
+          </li>
+          <li class="ritual-item">
+            <strong>Sindoor & Mangalsutra</strong>
+            As a sign of married status, the groom applies red powder (Sindoor)
+            to the parting of the bride's hair and places a gold-and-black
+            beaded necklace (Mangalsutra) around her neck.
+          </li>
+        </ul>
+      </section>
+
+      <section id="dauer-tod">
+        <h2>Marriage Lifespan and Life After Death</h2>
+        <p>
+          Traditional Indian marriage is considered indissoluble and sacral —
+          bound not only for this life, but for seven consecutive
+          reincarnations. Accordingly, the divorce rate is extremely low,
+          historically hovering at just under <strong>1 percent</strong>, which
+          is remarkably minimal by global standards.
+        </p>
+
+        <h3>What happens after the death of a spouse?</h3>
+        <p>
+          Dealing with the death of a partner was historically heavily
+          patriarchal. The notorious tradition of widow burning (<em>Sati</em>),
+          in which women took their own lives on their deceased husband's
+          funeral pyre, has long been strictly forbidden by law and socially
+          condemned.
+        </p>
+        <p>
+          Nonetheless, widows (particularly in traditional and rural social
+          strata) often face major social hurdles. The traditional image
+          prescribes an ascetic life for widows in white clothing, devoid of
+          jewelry and festive participation in celebrations. While widowers can
+          remarry without issue, the remarriage of widows remains taboo in
+          certain traditional circles, though this is increasingly changing in
+          modern environments.
+        </p>
+      </section>
+
+      <section id="wandel">
+        <h2>Marriage Through the Ages: Past vs. Present</h2>
+        <p>
+          Indian society is undergoing a rapid modernization process that is
+          also permanently altering the institution of marriage, without
+          throwing traditions completely overboard.
+        </p>
+
+        <div class="comparison-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Criterion</th>
+                <th>Past (Traditional)</th>
+                <th>Present (Modern / Urban)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Partner Selection</strong></td>
+                <td>
+                  Determined exclusively by the parents; bride and groom often
+                  met for the first time on the wedding day.
+                </td>
+                <td>
+                  <strong>"Assisted Marriage":</strong> Parents make a
+                  pre-selection, but the individuals involved have a strict say
+                  and veto power.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Technology</strong></td>
+                <td>
+                  Matchmaking via relatives, village matchmakers, or classic
+                  newspaper classifieds.
+                </td>
+                <td>
+                  Digital matchmaking via specialized Indian
+                  <strong>matrimony websites and apps</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Love Marriages</strong></td>
+                <td>
+                  Tabooed and often punished with social ostracization of the
+                  family.
+                </td>
+                <td>
+                  Acceptance of <strong>"Love Marriages"</strong> is rising in
+                  cities, provided status and education align.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Role of the Woman</strong></td>
+                <td>
+                  Early marriage, focus on household, family, and adapting to
+                  the in-laws.
+                </td>
+                <td>
+                  Later marriage age due to higher education; women demand
+                  financial independence and careers.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Divorce</strong></td>
+                <td>
+                  Socially absolutely unthinkable; women often remained trapped
+                  in unhappy marriages.
+                </td>
+                <td>
+                  Slightly rising rates in cities. Acceptance is growing to end
+                  unhappy or toxic marriages.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br />
+        <h1 id="pageTitle">Your journey continues...</h1>
+
+        <div class="action-section" style="margin-top: 40px">
+          <a
+            id="nextStepLink"
+            class="hidden"
+            style="
+              display: inline-block;
+              background-color: #800020;
+              color: white;
+              text-decoration: none;
+              padding: 15px 35px;
+              font-size: 18px;
+              border-radius: 30px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              font-weight: bold;
+              transition: background-color 0.2s;
+            "
+          ></a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll(".nav-links a");
+        const sections = document.querySelectorAll("section");
+
+        function changeActiveNav() {
+          let scrollPosition =
+            document.documentElement.scrollTop || document.body.scrollTop;
+
+          scrollPosition += 150;
+
+          sections.forEach((section) => {
+            if (
+              scrollPosition >= section.offsetTop &&
+              scrollPosition < section.offsetTop + section.offsetHeight
+            ) {
+              const currentId = section.getAttribute("id");
+
+              navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${currentId}`) {
+                  link.classList.add("active");
+                }
+              });
+            }
+          });
+        }
+
+        window.addEventListener("scroll", changeActiveNav);
+
+        changeActiveNav();
+      });
+    </script>
+    <script src="india4Engl.js"></script>
+  </body>
+</html>

@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traditional Indian Medicine – An Insight</title>
+    <style>
+      :root {
+        --bg-color: #f7f5f0;
+        --primary-color: #166183;
+        --accent-color: #d16315;
+        --text-color: #333333;
+        --card-bg: #fae1d3;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        background-image: url(Images/dots.png);
+        color: var(--text-color);
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        background-image: url(Images/girl.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+        border-bottom: 5px solid var(--accent-color);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
+
+      header p {
+        margin: 10px 0 0 0;
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+      .facts {
+        background-color: var(--card-bg);
+        padding: 2.5px 15px;
+        border-radius: 5px;
+      }
+      .card {
+        background: var(--card-bg);
+        padding: 30px;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .card-small {
+        margin: 0;
+        border-top: 4px solid var(--primary-color);
+      }
+
+      h2 {
+        color: var(--primary-color);
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        color: var(--accent-color);
+        margin-top: 0;
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+      }
+
+      .btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #1e422e;
+      }
+
+      .dosha-box {
+        background-color: #f0f4f1;
+        border-left: 5px solid var(--accent-color);
+        padding: 20px;
+        border-radius: 0 5px 5px 0;
+        min-height: 80px;
+      }
+    </style>
+    <script defer>
+      const doshaData = {
+        vata: {
+          title: "Vata – The Principle of Movement",
+          text: "Regulates all movement processes in the body (nervous system, breathing, blood circulation). Represents creativity, lightness, and vitality. According to the teachings, a historical imbalance often manifests as inner restlessness, sleep disorders, or dry skin.",
+        },
+        pitta: {
+          title: "Pitta – The Metabolic Principle",
+          text: "Responsible for transformation, digestion (Agni), and heat regulation. It stands for intellect, capability, and determination. An excess is associated with inflammation or intense heat generation in the body.",
+        },
+        kapha: {
+          title: "Kapha – The Structural Principle",
+          text: "Provides stability, structure, fluid balance, and immune strength. It embodies calmness, endurance, and compassion. According to Ayurvedic diagnostics, if Kapha is imbalanced, the organism tends to experience lethargy or congestion.",
+        },
+      };
+
+      function showDosha(doshaKey) {
+        const infoBox = document.getElementById("dosha-info");
+        const selectedDosha = doshaData[doshaKey];
+
+        if (selectedDosha) {
+          infoBox.innerHTML = `
+            <h3 style="margin-top:0; color:#d97724;">${selectedDosha.title}</h3>
+            <p style="margin:0;">${selectedDosha.text}</p>
+        `;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Traditional Indian Medicine</h1>
+        <p>The Millennia-Old Healing Systems of Ayurveda and Siddha</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Roots and Philosophy</h2>
+        <p>
+          Indian medicine belongs to the oldest documented medical systems of
+          humankind. At its center stands
+          <strong>Ayurveda</strong> (the "knowledge of life"), whose origins
+          date back over 3,000 years. Parallel to this, the<strong
+            >Siddha system</strong
+          >
+          exists in southern India, which is strongly influenced by alchemy.
+          Both systems view health not as the mere absence of disease, but as a
+          dynamic balance of body, mind, and environment.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="facts">Interesting and Historical Facts</h2>
+        <div class="grid">
+          <div class="card card-small">
+            <h3>Sushruta: The Forefather of Surgery</h3>
+            <p>
+              As early as 600 BCE, the Indian physician
+              <em>Sushruta</em> described highly complex surgical procedures in
+              his compendium. He is considered a pioneer of plastic surgery, as
+              he developed methods for nose reconstruction (rhinoplasty) that
+              are still used in their basic principles today.
+            </p>
+          </div>
+          <div class="card card-small">
+            <h3>Focus on Phytotherapy</h3>
+            <p>
+              Indian medicine utilizes thousands of medicinal plants. Modern
+              laboratories research these intensively. A well-known example is
+              <strong>Ashwagandha</strong> (Indian ginseng/poison gooseberry),
+              whose stress-reducing effects (adaptogen) are studied in clinical
+              trials, or the anti-inflammatory effects of
+              <strong>Turmeric </strong> (curcumin).
+            </p>
+          </div>
+          <div class="card card-small">
+            <h3>Recognized Medical System</h3>
+            <p>
+              In India, Ayurveda is legally on equal footing with Western
+              medicine (allopathy). There are state universities, hospitals, and
+              a dedicated ministry (AYUSH) that regulates the education and
+              quality assurance of these traditional healing practices.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card Interactive-section">
+        <h2>The Three Doshas (Bioenergies) of Ayurveda</h2>
+        <p>
+          According to Ayurvedic teachings, every human being is shaped by three
+          life energies. Click on the buttons to learn more about each
+          respective energy:
+        </p>
+
+        <div class="btn-group">
+          <button class="btn" onclick="showDosha('vata')">
+            Vata (Air & Space)
+          </button>
+          <button class="btn" onclick="showDosha('pitta')">
+            Pitta (Fire & Water)
+          </button>
+          <button class="btn" onclick="showDosha('kapha')">
+            Kapha (Earth & Water)
+          </button>
+        </div>
+
+        <div id="dosha-info" class="dosha-box">
+          <p>
+            <em>elect a Dosha to display its description.</em>
+          </p>
+        </div>
+      </section>
+
+      <h1 id="pageTitle" class="facts">And so it continues...</h1>
+
+      <div class="action-section" style="margin-top: 40px">
+        <a
+          id="nextStepLink"
+          class="hidden"
+          style="
+            display: inline-block;
+            background-color: #800020;
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            font-size: 18px;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            transition: background-color 0.2s;
+          "
+        ></a>
+      </div>
+    </main>
+
+    <script src="india4Engl.js"></script>
+  </body>
+</html>

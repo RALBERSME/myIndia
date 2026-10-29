@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chronicle of the Subcontinent: A History of India</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg-color: #c0c0c0;
+        --text-color: #2c2523;
+        --primary: #802c1a;
+        --accent: #d97724;
+        --border-color: #e6dfd5;
+        --card-bg: #ffffff;
+        --sidebar-width: 45%;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
+        line-height: 1.7;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+
+      header {
+        background: url(Images/history.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 40% 50%;
+        color: white;
+        padding: 80px 20px;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 2.8rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin-bottom: 15px;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        max-width: 650px;
+        margin: 0 auto;
+        opacity: 0.9;
+      }
+      .videos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 25px;
+        margin: 2% auto;
+      }
+
+      .story-container {
+        display: flex;
+        position: relative;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .timeline-text {
+        width: var(--sidebar-width);
+        padding: 60px 40px;
+      }
+
+      .epoch-section {
+        margin-bottom: 120px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid var(--border-color);
+        opacity: 0.4;
+        transition: opacity 0.4s ease;
+      }
+
+      .epoch-section.active {
+        opacity: 1;
+      }
+
+      .epoch-section h2 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+      }
+
+      .epoch-date {
+        display: inline-block;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+      }
+
+      .epoch-section p {
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .timeline-visual {
+        width: calc(100% - var(--sidebar-width));
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        background-color: #f3ede2;
+        border-left: 1px solid var(--border-color);
+      }
+
+      .map-display {
+        width: 100%;
+        max-width: 550px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        position: relative;
+      }
+
+      .map-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transform: translateX(50px) scale(0.95);
+        transition:
+          opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+          transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        pointer-events: none;
+      }
+
+      .map-wrapper.visible {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        pointer-events: auto;
+      }
+
+      .india-base {
+        fill: #e6dfd5;
+        stroke: #b3a898;
+        stroke-width: 1.5;
+      }
+
+      .river-line {
+        fill: none;
+        stroke: #a5c3d1;
+        stroke-width: 2;
+      }
+
+      .highlight-zone {
+        stroke-width: 2;
+        stroke-dasharray: 4 4;
+        animation: pulse 3s infinite ease-in-out;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.6;
+        }
+        50% {
+          opacity: 0.9;
+        }
+        100% {
+          opacity: 0.6;
+        }
+      }
+
+      @media (max-width: 968px) {
+        .story-container {
+          flex-direction: column-reverse;
+        }
+        .timeline-text {
+          width: 100%;
+          padding: 30px 20px;
+        }
+        .timeline-visual {
+          width: 100%;
+          position: -webkit-sticky;
+          position: sticky;
+          top: 0;
+          height: 45vh;
+          padding: 15px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .map-display {
+          max-width: 280px;
+        }
+        .epoch-section {
+          margin-bottom: 60px;
+        }
+      }
+
+      @media (min-width: 900px) {
+        .videos {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          gap: 25px;
+          margin: 2% auto;
+        }
+      }
+      footer {
+        background-color: #1c1514;
+        color: #a89a95;
+        text-align: center;
+        padding: 40px 20px;
+        font-size: 0.95rem;
+        border-top: 3px solid var(--primary);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container" style="background-color: rgba(0, 0, 0, 0.4)">
+        <h1>India Through the Ages</h1>
+        <p>
+          A historically documented journey through the millennia of the Indian
+          subcontinent—from the first urban civilizations to modern global
+          superpower status. <br /><br />
+        </p>
+      </div>
+    </header>
+    <div class="videos">
+      <iframe
+        src="https://www.youtube.com/embed/TrExLi4Rbqo"
+        title="Indische Geschichte wie nie zuvor | Von alten Zivilisationen bis zur Unabhängigkeit"
+        frameborder="0"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          web-share;
+        "
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe
+      ><iframe
+        src="https://www.youtube.com/embed/syocq98pAy8"
+        title="The ENTIRE History of India (Ancient to Modern) | 4K Documentary"
+        frameborder="0"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          web-share;
+        "
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe
+      ><iframe
+        src="https://www.youtube.com/embed/3t4EMQ6NGQk"
+        title="The Rise and Fall of the East India Company | Full Documentary | British History"
+        frameborder="0"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          web-share;
+        "
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="story-container">
+      <main class="timeline-text">
+        <section id="era-indus" class="epoch-section active" data-map="map1">
+          <h2>The Indus Valley Civilization</h2>
+          <span class="epoch-date">ca. 3300 – 1900 BC</span>
+          <p>
+            The documented history of urban life on the subcontinent begins in
+            the northwest. Along the Indus River system, one of humanity’s
+            earliest high civilizations emerged concurrently with ancient Egypt
+            and Mesopotamia.
+          </p>
+          <p>
+            Metropolises like Harappa and Mohenjo-Daro were characterized by
+            remarkably advanced urban planning, featuring standardized brick
+            construction, gridiron street layouts, and highly sophisticated
+            underground drainage systems. Historically, the absence of
+            monumental palace or temple structures indicates a heavily
+            trade-oriented, comparatively egalitarian social structure.
+          </p>
+        </section>
+
+        <section id="era-maurya" class="epoch-section" data-map="map2">
+          <h2>The Maurya Empire</h2>
+          <span class="epoch-date">ca. 322 – 185 BC</span>
+          <p>
+            Following the collapse of regional tribal kingdoms (Mahajanapadas),
+            Chandragupta Maurya succeeded in establishing the first true major
+            empire on Indian soil. Favored by the power vacuum left in the wake
+            of Alexander the Great’s Indian campaign, the empire expanded
+            rapidly from its capital, Pataliputra (modern-day Patna).
+          </p>
+          <p>
+            The most significant ruler of this dynasty was Emperor Ashoka.
+            Following the costly and bloody conquest of the Kalinga Kingdom, he
+            renounced violence and converted to Buddhism. He commissioned edicts
+            on social justice, religious tolerance, and non-violence to be
+            carved into rock faces and monumental pillars throughout the
+            country. Under his rule, Buddhism experienced its rise to a global
+            religion.
+          </p>
+        </section>
+
+        <section id="era-gupta" class="epoch-section" data-map="map3">
+          <h2>The Gupta Empire & The Classical Era</h2>
+          <span class="epoch-date">ca. 320 – 550 AD</span>
+          <p>
+            Under the Gupta dynasty, northern India consolidated once again. In
+            historiography, this epoch is commonly referred to as the "Golden
+            Age" of Indian civilization. Culture, art, science, and philosophy
+            experienced an unprecedented golden era.
+          </p>
+          <p>
+            Thinkers from all across Asia gathered at universities such as
+            Nalanda. During this period, Indian mathematicians like Aryabhata
+            defined the concept of the number zero, calculated the mathematical
+            constant Pi more precisely than ever before, and recognized the
+            rotation of the Earth. Concurrently, Hinduism underwent a structural
+            and philosophical renewal, and classical Sanskrit literature (such
+            as the works of Kalidasa) reached its zenith.
+          </p>
+        </section>
+
+        <section id="era-mughal" class="epoch-section" data-map="map4">
+          <h2>The Mughal Empire</h2>
+          <span class="epoch-date">1526 – 1857 AD</span>
+          <p>
+            In 1526, Babur, a Central Asian prince and descendant of Timur,
+            defeated the Sultan of Delhi at the historic Battle of Panipat. He
+            founded the Mughal Empire, a highly efficient Muslim ruling dynasty
+            that governed a predominantly Hindu population and elevated
+            centralization and cultural synthesis to a new level.
+          </p>
+          <p>
+            Under Emperor Akbar the Great, the empire experienced an era of
+            unprecedented religious tolerance, during which Hindus were
+            appointed to the highest state offices. Later rulers left behind
+            world-famous monuments of Indo-Islamic architecture, such as the Taj
+            Mahal in Agra, built under Shah Jahan. By the late 17th century, the
+            Mughals controlled nearly the entire subcontinent, established a
+            highly sophisticated tax system, and transformed India into one of
+            the wealthiest agricultural and textile economies in the world,
+            before internal succession disputes and regional powers like the
+            Maratha Empire weakened the dynasty.
+          </p>
+        </section>
+
+        <section id="era-colonial" class="epoch-section" data-map="map5">
+          <h2>British Colonial Rule (The Raj)</h2>
+          <span class="epoch-date">1757 – 1947 AD</span>
+          <p>
+            The power vacuum left by the collapse of the Mughal Empire was
+            exploited not by a rival state, but by a private British enterprise:
+            the British East India Company. With victory at the Battle of
+            Plassey (1757), the Company gained tax collection rights over Bengal
+            and expanded over the following decades through diplomatic
+            extortion, strategic alliances, and ruthless military force.
+          </p>
+          <p>
+            After the Great Indian Rebellion of 1857 (the Sepoy Mutiny) shook
+            the Company's rule, the British Crown under Queen Victoria assumed
+            direct colonial administration ("British Raj"). As the "Jewel in the
+            Crown," India was systematically exploited economically; traditional
+            industries, such as the Indian weaving sector, were deliberately
+            dismantled to create consumer markets for British goods. Although
+            the British left behind a vast railway network and a unified legal
+            system, these primarily served the efficient extraction of Indian
+            raw materials and troop movements in times of crisis.
+          </p>
+        </section>
+
+        <section id="era-modern" class="epoch-section" data-map="map6">
+          <h2>Independence & The Modern Republic</h2>
+          <span class="epoch-date">since 1947 AD</span>
+          <p>
+            The early 20th century brought the unstoppable rise of the Indian
+            national movement. Under the leadership of Mahatma Gandhi, who
+            gained worldwide renown for the principle of non-violent resistance
+            (Satyagraha) and civil disobedience (such as the legendary Salt
+            March of 1930), alongside the socialist thinker Jawaharlal Nehru,
+            the colonial power came under unsustainable moral and economic
+            pressure.
+          </p>
+          <p>
+            On August 15, 1947, India attained independence. However, this
+            historic hour was overshadowed by a deep tragedy: the rushed
+            partition of the subcontinent along religious demarcation lines into
+            the Republic of India and the Islamic Republic of Pakistan. It
+            triggered one of the largest mass migrations in human history,
+            during which over a million people died in violent riots. In 1950,
+            India’s pioneering, secular constitution came into force, officially
+            banning the caste system. Following decades of a protectionist
+            planned economy, the country opened up economically starting in
+            1991. Today, India presents itself as the world's most populous
+            democracy, a leading IT and technology nation, and a key global
+            geopolitical player.
+          </p>
+        </section>
+      </main>
+
+      <aside class="timeline-visual" aria-hidden="true">
+        <div class="map-display">
+          <div id="map1" class="map-wrapper visible">
+            <svg viewBox="0 0 400 400" width="100%" height="100%">
+              <path
+                class="india-base"
+                d="M160,60 L240,65 L270,110 L300,160 L320,190 L280,240 L230,340 L210,360 L200,340 L210,280 L180,240 L160,200 L140,150 L130,100 Z"
+              />
+
+              <path d="M135,70 Q145,100 155,130 T170,180" class="river-line" />
+              <path
+                d="M140,75 Q155,110 175,120"
+                class="river-line"
+                style="stroke-width: 1px"
+              />
+
+              <path
+                d="M125,80 Q145,70 170,95 Q185,130 175,170 Q145,185 130,140 Z"
+                fill="#802c1a"
+                opacity="0.65"
+                stroke="#802c1a"
+                stroke-width="2"
+                class="highlight-zone"
+              />
+
+              <circle cx="150" cy="105" r="4" fill="#ffd700" />
+
+              <circle cx="140" cy="145" r="4" fill="#ffd700" />
+
+              <text
+                x="145"
+                y="60"
+                font-family="sans-serif"
+                font-size="14"
+                font-weight="bold"
+                fill="#802c1a"
+              >
+                Indus Valley Civilization
+              </text>
+              <text
+                x="110"
+                y="200"
+                font-family="sans-serif"
+                font-size="10"
+                fill="#2c2523"
+                opacity="0.8"
+              >
+                Early urban centers in the northwest
+              </text>
+            </svg>
+          </div>
+
+          <div id="map2" class="map-wrapper">
+            <svg viewBox="0 0 400 400" width="100%" height="100%">
+              <path
+                class="india-base"
+                d="M160,60 L240,65 L270,110 L300,160 L320,190 L280,240 L230,340 L210,360 L200,340 L210,280 L180,240 L160,200 L140,150 L130,100 Z"
+              />
+
+              <path
+                d="M140,80 L240,75 L280,115 L295,170 L305,200 L275,235 L225,320 L195,250 L155,190 L135,135 Z"
+                fill="#d97724"
+                opacity="0.65"
+                stroke="#d97724"
+                stroke-width="2"
+              />
+
+              <circle
+                cx="245"
+                cy="120"
+                r="5"
+                fill="#ffffff"
+                stroke="#d97724"
+                stroke-width="1.5"
+              />
+
+              <text
+                x="170"
+                y="150"
+                font-family="sans-serif"
+                font-size="15"
+                font-weight="bold"
+                fill="white"
+                filter="drop-shadow(1px 1px 2px rgba(0,0,0,0.5))"
+              >
+                Maurya Empire
+              </text>
+              <text
+                x="175"
+                y="170"
+                font-family="sans-serif"
+                font-size="10"
+                fill="#f3ede2"
+                opacity="0.9"
+              >
+                Emperor Ashoka's Edict Pillars
+              </text>
+            </svg>
+          </div>
+
+          <div id="map3" class="map-wrapper">
+            <svg viewBox="0 0 400 400" width="100%" height="100%">
+              <path
+                class="india-base"
+                d="M160,60 L240,65 L270,110 L300,160 L320,190 L280,240 L230,340 L210,360 L200,340 L210,280 L180,240 L160,200 L140,150 L130,100 Z"
+              />
+
+              <path
+                d="M135,90 L255,85 L285,125 L290,160 Q230,180 180,170 L145,150 Z"
+                fill="#b45309"
+                opacity="0.65"
+                stroke="#b45309"
+                stroke-width="2"
+                class="highlight-zone"
+              />
+
+              <circle cx="250" cy="125" r="4" fill="#ffd700" />
+              <text
+                x="165"
+                y="125"
+                font-family="sans-serif"
+                font-size="14"
+                font-weight="bold"
+                fill="white"
+                filter="drop-shadow(1px 1px 2px rgba(0,0,0,0.5))"
+              >
+                Gupta Empire
+              </text>
+              <text
+                x="145"
+                y="145"
+                font-family="sans-serif"
+                font-size="10"
+                fill="#f3ede2"
+                opacity="0.9"
+              >
+                The Classical Golden Age
+              </text>
+            </svg>
+          </div>
+
+          <div id="map4" class="map-wrapper">
+            <svg viewBox="0 0 400 400" width="100%" height="100%">
+              <path
+                class="india-base"
+                d="M160,60 L240,65 L270,110 L300,160 L320,190 L280,240 L230,340 L210,360 L200,340 L210,280 L180,240 L160,200 L140,150 L130,100 Z"
+              />
+              <path
+                d="M140,110 Q190,80 250,90 Q290,120 290,170 Q240,210 190,210 Q150,180 140,110 Z"
+                fill="#4c1d95"
+                opacity="0.65"
+                stroke="#4c1d95"
+                stroke-width="2"
+                class="highlight-zone"
+              />
+              <path d="M170,95 Q210,110 260,125 T300,150" class="river-line" />
+              <text
+                x="165"
+                y="145"
+                font-family="sans-serif"
+                font-size="14"
+                font-weight="bold"
+                fill="white"
+                filter="drop-shadow(1px 1px 2px rgba(0,0,0,0.5))"
+              >
+                Mughal Empire
+              </text>
+              <text
+                x="155"
+                y="165"
+                font-family="sans-serif"
+                font-size="10"
+                fill="#f3ede2"
+                opacity="0.9"
+              >
+                Center: Agra & Delhi
+              </text>
+            </svg>
+          </div>
+
+          <div id="map5" class="map-wrapper">
+            <svg viewBox="0 0 400 400" width="100%" height="100%">
+              <path
+                class="india-base"
+                d="M160,60 L240,65 L270,110 L300,160 L320,190 L280,240 L230,340 L210,360 L200,340 L210,280 L180,240 L160,200 L140,150 L130,100 Z"
+              />
+              <path
+                d="M150,80 L250,85 L285,130 L305,185 L275,235 L225,325 L205,340 L175,230 L155,190 Z"
+                fill="#b91c1c"
+                opacity="0.55"
+                stroke="#b91c1c"
+                stroke-width="1.5"
+              />
+              <line
+                x1="170"
+                y1="120"
+                x2="280"
+                y2="150"
+                stroke="#ffd700"
+                stroke-width="1.5"
+                stroke-dasharray="2 2"
+              />
+              <line
+                x1="170"
+                y1="120"
+                x2="190"
+                y2="250"
+                stroke="#ffd700"
+                stroke-width="1.5"
+                stroke-dasharray="2 2"
+              />
+              <text
+                x="175"
+                y="195"
+                font-family="sans-serif"
+                font-size="15"
+                font-weight="bold"
+                fill="white"
+                filter="drop-shadow(1px 1px 3px rgba(0,0,0,0.6))"
+              >
+                British Raj
+              </text>
+              <text
+                x="150"
+                y="215"
+                font-family="sans-serif"
+                font-size="10"
+                fill="#ffffff"
+                opacity="0.9"
+              >
+                Direct Crown Colonies & Princely States
+              </text>
+            </svg>
+          </div>
+
+          <div id="map6" class="map-wrapper">
+            <svg viewBox="0 0 400 400" width="100%" height="100%">
+              <path
+                class="india-base"
+                d="M160,60 L240,65 L270,110 L300,160 L320,190 L280,240 L230,340 L210,360 L200,340 L210,280 L180,240 L160,200 L140,150 L130,100 Z"
+                fill="#f5f5f5"
+              />
+              <path
+                d="M175,85 L235,90 L265,120 L295,165 L275,230 L228,325 L208,340 L185,245 L170,190 Z"
+                fill="#16a34a"
+                opacity="0.6"
+                stroke="#15803d"
+                stroke-width="2"
+              />
+              <circle cx="180" cy="110" r="5" fill="#ea580c" />
+
+              <circle cx="168" cy="210" r="5" fill="#ea580c" />
+              <circle cx="210" cy="280" r="5" fill="#ea580c" />
+
+              <text
+                x="155"
+                y="160"
+                font-family="sans-serif"
+                font-size="15"
+                font-weight="bold"
+                fill="#2c2523"
+              >
+                Republic of India
+              </text>
+              <text
+                x="145"
+                y="180"
+                font-family="sans-serif"
+                font-size="11"
+                font-weight="500"
+                fill="#1e293b"
+              >
+                The world's largest democracy
+              </text>
+            </svg>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div
+        class="container"
+        style="
+          background-image: linear-gradient(
+            to right bottom,
+            rgb(255, 120, 30),
+            rgb(233, 233, 93) 72%,
+            rgb(169, 232, 169)
+          );
+          color: black;
+        "
+      >
+        <h1 id="pageTitle">Your journey continues...</h1>
+
+        <div class="action-section" style="margin-top: 40px">
+          <a
+            id="nextStepLink"
+            class="hidden"
+            style="
+              display: inline-block;
+              background-color: #800020;
+              color: white;
+              text-decoration: none;
+              padding: 15px 35px;
+              font-size: 18px;
+              border-radius: 30px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              font-weight: bold;
+              transition: background-color 0.2s;
+            "
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".epoch-section");
+        const maps = document.querySelectorAll(".map-wrapper");
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "-35% 0px -45% 0px",
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              sections.forEach((sec) => sec.classList.remove("active"));
+              entry.target.classList.add("active");
+
+              const targetMapId = entry.target.getAttribute("data-map");
+              maps.forEach((map) => {
+                if (map.id === targetMapId) {
+                  map.classList.add("visible");
+                } else {
+                  map.classList.remove("visible");
+                }
+              });
+            }
+          });
+        }, observerOptions);
+
+        sections.forEach((section) => observer.observe(section));
+      });
+    </script>
+    <script src="india4Engl.js"></script>
+  </body>
+</html>

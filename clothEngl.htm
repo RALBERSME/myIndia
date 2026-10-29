@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Clothing: Tradition, Modernity & Industry</title>
+    <style>
+      :root {
+        --primary: #581845;
+        --secondary: #b32b0d;
+        --accent: #900c3f;
+        --bg-light: #fffcf9;
+        --text-dark: #2c2523;
+        --white: #ffffff;
+        --border: #f2e4dc;
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        line-height: 1.7;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+      }
+
+      header {
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+          url(Images/toy.jpg) no-repeat center center/cover;
+        color: var(--white);
+        text-align: center;
+        padding: 90px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      }
+
+      header p {
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto;
+        opacity: 0.95;
+        font-style: italic;
+        color: whitesmoke;
+        text-align: center;
+      }
+
+      nav {
+        background-color: var(--primary);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: var(--white);
+        text-decoration: none;
+        padding: 18px 25px;
+        display: block;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover,
+      nav a.active {
+        background-color: var(--secondary);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      section {
+        background-color: var(--white);
+        padding: 40px;
+        margin-bottom: 40px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--secondary);
+      }
+
+      h2 {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 25px;
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        color: var(--accent);
+        margin: 25px 0 12px 0;
+        font-size: 1.4rem;
+      }
+
+      p {
+        margin-bottom: 18px;
+        text-align: justify;
+        color: #443c3a;
+      }
+
+      .filter-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .btn-filter {
+        background-color: var(--white);
+        border: 1px solid var(--border);
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .btn-filter.active,
+      .btn-filter:hover {
+        background-color: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+      }
+
+      .clothing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+      }
+
+      .clothing-card {
+        background: #fffdfb;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 25px;
+        transition: transform 0.2s ease;
+      }
+
+      .clothing-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+      }
+
+      ul {
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .accordion-item {
+        border: 1px solid var(--border);
+        margin-bottom: 12px;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      .accordion-header {
+        background-color: #fff9f5;
+        padding: 15px 20px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+      }
+
+      .accordion-content {
+        padding: 20px;
+        background-color: var(--white);
+        display: none;
+        border-top: 1px solid var(--border);
+      }
+
+      footer a {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+        background-color: #000080;
+        padding: 5px;
+      }
+      footer a:hover {
+        background-color: green;
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.2rem;
+        }
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+        nav ul {
+          flex-direction: column;
+          text-align: center;
+        }
+        nav a {
+          padding: 12px;
+        }
+        section {
+          padding: 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Indian Clothing</h1>
+      <p>
+        From millennia-old garments of the Indus Valley to the booming
+        high-fashion industry of the present day.
+      </p>
+    </header>
+
+    <nav>
+      <ul>
+        <li>
+          <a href="#tradition" class="nav-link">Traditional Clothing</a>
+        </li>
+        <li>
+          <a href="#materialien" class="nav-link">Material & Cultivation</a>
+        </li>
+        <li>
+          <a href="#industrie" class="nav-link">Industry & Environment</a>
+        </li>
+        <li>
+          <a href="#gesellschaft" class="nav-link">Modernity & Fashion</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <section id="tradition">
+        <h2>Traditional Garments & Their Roots</h2>
+        <p>
+          <strong
+            >The origins of Indian clothing stretch far back into history.
+          </strong>
+          Archaeological findings from the Indus Valley Civilization (c. 2500
+          BCE) prove that artfully draped fabrics were already in use back then.
+          Since needles and the art of tailoring were virtually non-existent in
+          the early eras, unstitched, wrapped clothing dominated, adapting
+          perfectly to the hot climate.
+        </p>
+
+        <div class="filter-buttons">
+          <button class="btn-filter active" data-filter="all">Show All</button>
+          <button class="btn-filter" data-filter="frauen">
+            Women's Clothing
+          </button>
+          <button class="btn-filter" data-filter="maenner">
+            Men's Clothing
+          </button>
+        </div>
+
+        <div class="clothing-grid">
+          <div class="clothing-card" data-category="frauen">
+            <h3>The Saree (Sari)</h3>
+            <iframe
+              src="https://www.youtube.com/embed/3CkiiWtoV-Q"
+              title="Beginners saree draping tutorial | easy saree draping with perfect pleats | sari draping idea"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe
+            ><br /><br />
+            <p>
+              <strong>Origin: </strong> The Saree is considered one of the
+              oldest continuously worn garments in the world (mentioned in the
+              Vedas around 1500 BC). It consists of a single piece of fabric
+              measuring 5 to 9 meters in length.
+            </p>
+            <p>
+              <strong>How it is worn today:</strong> It is still worn today by
+              millions of women of all ages—mostly made of cotton for everyday
+              wear, and crafted from the finest silk with gold threads (Zari)
+              for weddings.
+            </p>
+          </div>
+
+          <div class="clothing-card" data-category="frauen">
+            <h3>Salwar Kameez & Lehengas</h3>
+            <iframe
+              src="https://www.youtube.com/embed/BTDg65ul0N8"
+              title="New trend Indian dresses for Wedding 2026. Salwar suits, Fusion Wear"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe
+            ><br /><br />
+            <p>
+              <strong>Origin:</strong> The Salwar Kameez (trousers and tunic)
+              originates from Central Asia and brought to India by Muslim
+              dynasties. The Lehenga (a richly ornamented, long skirt with a
+              top) has its roots in the Mughal era.
+            </p>
+            <p>
+              <strong>How it is worn today:</strong> The Salwar Kameez is the
+              most popular and comfortable everyday wear in Northern India.
+              Lehengas serve as the classic festive and bridal attire.
+            </p>
+          </div>
+
+          <div class="clothing-card" data-category="maenner">
+            <h3>Dhoti & Kurta</h3>
+            <iframe
+              src="https://www.youtube.com/embed/wQMhNVzgR0I"
+              title="How To Wear South Indian Dhoti ?"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe
+            ><br /><br />
+            <p>
+              <strong>Origin:</strong> The Dhoti is an unstitched cloth wrapped
+              around the legs and hips, deeply rooted in ancient India. It is
+              frequently combined with a Kurta (a long shirt).
+            </p>
+            <p>
+              <strong>How it is worn today:</strong> In everyday life, it is
+              primarily worn by older men and priests in rural regions, as well
+              as in Southern India. For festivals and weddings, the Kurta is the
+              standard nationwide.
+            </p>
+          </div>
+
+          <div class="clothing-card" data-category="maenner">
+            <h3>Sherwani</h3>
+            <iframe
+              src="https://www.youtube.com/embed/YTdPqCG_2MA"
+              title="Indian Mans Groom Sherwani Dress For Wedding | Wedding Outfit For Man | Wedding Dress For Groom"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe
+            ><br /><br />
+            <p>
+              <strong>Origin:</strong> A form-fitting, knee-length frock coat
+              that developed in the 19th century as formal attire for the
+              aristocracy in the Mughal Empire and under British influences.
+            </p>
+            <p>
+              <strong>How it is worn today:</strong> Exclusively festive and
+              wedding attire. It is considered the most elegant garment for an
+              Indian groom.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="materialien">
+        <h2>Raw Materials: Where Do the Materials Come From?</h2>
+        <div class="grid-2">
+          <div>
+            <h3>Cultivation & Natural Resources</h3>
+            <iframe
+              src="https://www.youtube.com/embed/pvLihEBK3O8"
+              title="Schulfilm: Indiens Baumwolle - Stoff aus Schweiß und Tränen (Vorschau)"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe
+            ><br /><br />
+            <p>
+              Historically, India is the<strong>home of cotton</strong>. The
+              plant has been cultivated on the Indian subcontinent for
+              millennia. Today, India is one of the largest cotton producers
+              worldwide, with cultivation concentrated in the so-called "Cotton
+              Belt" (states such as Gujarat and Maharashtra).
+            </p>
+            <p>
+              Besides cotton,<strong>silk</strong> plays an immense role.
+              Regions like Varanasi (Benares) and Kanchipuram are world-famous
+              for their traditional silk weaving mills. Jute is predominantly
+              grown in the humid eastern region (West Bengal).
+            </p>
+          </div>
+          <div>
+            <h3>Manufacturing Process</h3>
+            <iframe
+              src="https://www.youtube.com/embed/adQJtyYpoxc"
+              title="Gefesselt an den Webstuhl: Der 13-jährige Dinash aus Indien"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe
+            ><br /><br />
+            <p>
+              Processing ranges from centuries-old manual labor to highly modern
+              factories. Despite industrialization, millions of people work in
+              the
+              <strong>handloom sector </strong> (hand weaving). Traditional
+              techniques such as block printing, Ikat weaving, and intricate
+              embroideries (Chikan, Zardozi) are living crafts passed down from
+              generation to generation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="industrie">
+        <h2>
+          The Transformation of the Textile Industry & Environmental Impacts
+        </h2>
+        <p>
+          The Indian textile industry has transformed from a decentralized
+          structure of village artisans into the country's second-largest
+          employer (after agriculture) and a global export giant. However, this
+          massive rise demands a heavy toll from nature.
+        </p>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Environmental Impact in the Past <span>+</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Historically speaking, textile production in India was
+              ecologically sustainable. Clothing was woven from local natural
+              fibers. Dyeing was done exclusively with plant-based and mineral
+              substances (such as indigo, turmeric, or pomegranate peels). The
+              wastewater was biodegradable, and the artisanal production volumes
+              remained manageable.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Environmental Impact Today<span>+</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Today, the textile sector is one of the country's largest
+              polluters. The excessive use of chemical pesticides in
+              conventional cotton farming has heavily depleted soils and
+              groundwater. Furthermore, unregulated dye houses in textile hubs
+              (such as Tirupur or Surat) discharge unfiltered, toxic heavy
+              metals and chemical dyes into rivers. The rise of synthetic fibers
+              (polyester) further exacerbates the microplastic problem.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            The Trend Toward Sustainability <span>+</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              In response to the crisis, the market for organically grown cotton
+              and "Khadi" (hand-spun, eco-friendly cotton, once promoted by
+              Mahatma Gandhi as a symbol of resistance) is expanding. An
+              increasing number of contemporary fashion labels are focusing on
+              slow fashion and the recycling of secondhand clothing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      >
+      <section id="gesellschaft">
+        <h2>Significance of Clothing in Modern Society</h2>
+        <p>
+          In India, clothing is a direct indicator of social status, religion,
+          regional origin, and modernity. In today's urban everyday life, an
+          "Indo-Western" mix dominates: young people wear jeans paired with
+          traditional Kurtas. Purely Western business attire (suits, pantsuits)
+          is standard in the modern corporate world.
+        </p>
+        <p>
+          For festive occasions such as weddings, religious celebrations (like
+          Diwali), or family gatherings, however, all generations without
+          exception dress up in the most opulent traditional garments. It is
+          regarded as a sign of respect and cultural pride.
+        </p>
+
+        <div class="grid-2">
+          <div>
+            <h3>Is Modeling Frowned Upon? & Famous Models</h3>
+            <p>
+              In the past, the modeling and fashion industry was viewed
+              critically in moral terms by conservative families and was
+              partially frowned upon. This has changed radically due to the
+              global success of Indian beauties. Today, modeling is a highly
+              respected, extremely competitive career path that frequently
+              serves as a springboard into the Indian film industry (Bollywood).
+            </p>
+            <p><strong>Famous Contemporary Models:</strong></p>
+            <ul>
+              <li>
+                <strong>Pooja Mor:</strong> Internationally successful on the
+                runways of Paris and New York (working for Louis Vuitton, among
+                others). <br /><br /><iframe
+                  src="https://www.youtube.com/embed/AzSRBl9-pHA"
+                  title="Model You Should Know - Pooja Mor"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </li>
+              <li>
+                <strong>Pratik Shetty:</strong> One of India's most successful
+                male models, booked for global campaigns.
+              </li>
+              <li>
+                <strong>Avanti Nagrath:</strong> Considered one of the top
+                models of today and made history as the first Indian model to
+                open runway shows for major European luxury brands (such as
+                Versace).<br /><br /><iframe
+                  src="https://www.youtube.com/embed/eLgvsPdDFEs"
+                  title="AVANTI NAGRATH Top 10 Spaziergänge Herbst 2023 - Fashion Channel"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Famous Indian Fashion Labels</h3>
+            <p>
+              India's haute couture blends traditional craftsmanship with
+              cutting-edge silhouettes, achieving global success:
+            </p>
+            <ul>
+              <li>
+                <strong>Sabyasachi (Sabyasachi Mukherjee):</strong> The
+                undisputed king of Indian bridal wear. His monumental,
+                traditional designs are ultimate status symbols and dress the
+                biggest celebrities.
+              </li>
+              <li>
+                <strong>Manish Malhotra:</strong> Became famous as the head
+                costume designer for the biggest Bollywood blockbusters. His
+                fashion represents glamour, glitter, and contemporary luxury.
+              </li>
+              <li>
+                <strong>Anita Dongre:</strong> Renowned for sustainable high
+                fashion that empowers traditional rural female artisans while
+                making Indian aesthetics wearable for everyday life.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <a href="scienceEngl.html">➥ Let's keep going</a>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const filterButtons = document.querySelectorAll(".btn-filter");
+        const clothingCards = document.querySelectorAll(".clothing-card");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            const filterValue = button.getAttribute("data-filter");
+
+            clothingCards.forEach((card) => {
+              const cardCategory = card.getAttribute("data-category");
+
+              if (filterValue === "all" || filterValue === cardCategory) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+
+        const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+        accordionHeaders.forEach((header) => {
+          header.addEventListener("click", () => {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector("span");
+
+            const isOpen = content.style.display === "block";
+
+            document
+              .querySelectorAll(".accordion-content")
+              .forEach((c) => (c.style.display = "none"));
+            document
+              .querySelectorAll(".accordion-header span")
+              .forEach((i) => (i.textContent = "+"));
+
+            if (!isOpen) {
+              content.style.display = "block";
+              icon.textContent = "−";
+            } else {
+              content.style.display = "none";
+              icon.textContent = "+";
+            }
+          });
+        });
+
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetSection = document.querySelector(
+              link.getAttribute("href"),
+            );
+            if (targetSection) {
+              window.scrollTo({
+                top: targetSection.offsetTop - 70,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+
+        window.addEventListener("scroll", () => {
+          let fromTop = window.scrollY + 100;
+          navLinks.forEach((link) => {
+            const section = document.querySelector(link.getAttribute("href"));
+            if (section) {
+              if (
+                section.offsetTop <= fromTop &&
+                section.offsetTop + section.offsetHeight > fromTop
+              ) {
+                link.classList.add("active");
+              } else {
+                link.classList.remove("active");
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

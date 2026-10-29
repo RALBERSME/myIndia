@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aroma & Culture: The 7 Pillars of Indian Spice Cuisine</title>
+    <style>
+      :root {
+        --bg-main: #fcfaf7;
+        --bg-card: #ffffff;
+        --bg-muted: #fbf6f0;
+
+        --primary: #832710;
+        --accent: #d97706;
+        --accent-light: #fef3c7;
+        --text-main: #2e2522;
+        --text-muted: #6b5a55;
+
+        --nav-bg: #1c1514;
+        --border-color: #e5dcd5;
+        --max-width: 1200px;
+        --radius: 12px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
+        line-height: 1.6;
+        background-color: var(--bg-main);
+        background-image: url(Images/bark.png);
+        background-size: 60cqmax;
+        color: var(--text-main);
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 20px;
+        width: 100%;
+      }
+
+      header {
+        background: url(Images/spices.jpg) center/cover no-repeat;
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 12px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      header p {
+        font-size: 1.3rem;
+        opacity: 0.95;
+        max-width: 700px;
+        margin: 0 auto;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      nav {
+        background-color: var(--nav-bg);
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px 0;
+      }
+
+      nav a {
+        color: #f5eeeb;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 8px 14px;
+        border-radius: 6px;
+        transition: background 0.2s ease;
+      }
+
+      nav a:hover {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      main {
+        padding: 40px 0;
+      }
+
+      .intro-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+      }
+
+      .intro-card h2 {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+
+      .spice-section {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+        padding: 40px;
+        margin-bottom: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        border-top: 6px solid var(--primary);
+      }
+
+      .spice-title {
+        font-size: 2.2rem;
+        color: var(--primary);
+        margin-bottom: 5px;
+      }
+
+      .botanical-name {
+        font-style: italic;
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        display: block;
+      }
+
+      .spice-profile {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 30px;
+        margin-bottom: 35px;
+      }
+
+      .spice-img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--border-color);
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+      }
+
+      .info-box {
+        background-color: var(--bg-muted);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid var(--accent);
+      }
+
+      .info-box strong {
+        display: block;
+        color: var(--primary);
+        margin-bottom: 6px;
+        font-size: 1.05rem;
+      }
+
+      .recipe-box {
+        background: #fffdfa;
+        border: 2px dashed var(--border-color);
+        border-radius: 8px;
+        padding: 30px;
+        margin-top: 30px;
+      }
+
+      .recipe-box h4 {
+        color: var(--primary);
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .recipe-meta {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin-bottom: 15px;
+        font-style: italic;
+      }
+
+      .recipe-steps {
+        margin-left: 20px;
+        margin-top: 10px;
+      }
+
+      .recipe-steps li {
+        margin-bottom: 8px;
+      }
+
+      @media (max-width: 968px) {
+        .spice-profile {
+          grid-template-columns: 1fr;
+        }
+        .spice-img {
+          height: 250px;
+          order: -1;
+        }
+        header h1 {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container" style="background-color: rgba(0, 0, 0, 0.4)">
+        <h1>Aroma & Culture</h1>
+        <p>
+          A botanical-culinary journey through the seven essential spices of the
+          Indian subcontinent
+        </p>
+        <br />
+        <iframe
+          src="https://www.youtube.com/embed/dcTRXWU8bas"
+          style="border-radius: 5px; border: 2px solid white"
+          title="31 Clever Cooking Tricks Indian Restaurants Hope You Never Find Out"
+          frameborder="0"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+            web-share;
+          "
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </header>
+
+    <nav>
+      <div class="container nav-links">
+        <a href="#esskultur">Indian Food Culture</a>
+        <a href="#kurkuma">1. Turmeric</a>
+        <a href="#kardamom">2. Green Cardamom</a>
+        <a href="#kreuzkuemmel">3. Cumin</a>
+        <a href="#senfsaat">4. Black Mustard</a>
+        <a href="#koriander">5. Coriander</a>
+        <a href="#nelken">6. Clove</a>
+        <a href="#asafoetida">7. Asafoetida</a>
+      </div>
+    </nav>
+    <br />
+    <main class="container">
+      <section id="esskultur" class="intro-card">
+        <h2>How India Eats: Insights into a Millennia-Old Food Culture</h2>
+        <p style="margin-bottom: 15px">
+          Food in India is inextricably interwoven with philosophy, geography,
+          and religion. There is no homogeneous "Indian cuisine," but rather a
+          mosaic of regional cuisines. In the north, Persian influences lend
+          prominence to creamy sauces, nuts, and wheat flatbreads (naan, roti).
+          The south cooks spicier, utilizes coconut milk, and relies almost
+          entirely on rice as its base.
+        </p>
+        <p style="margin-bottom: 15px">
+          Two fundamental principles shape daily life in India:
+        </p>
+        <ul style="margin-left: 20px; margin-bottom: 15px">
+          <li style="margin-bottom: 8px">
+            <strong>The Principle of Ayurveda:</strong> Food is regarded as the
+            primary medicine. Spices are rarely used merely for flavor, but
+            rather to regulate digestion. Every dish attempts to balance the six
+            tastes (sweet, sour, salty, pungent, bitter, and astringent).
+          </li>
+          <li style="margin-bottom: 8px">
+            <strong>Traditional Sharing:</strong> Dining is traditionally a
+            communal affair, often enjoyed while sitting on the floor. Meals are
+            served on a large metal platter or banana leaf (<em
+              >called a thali</em
+            >), which holds various small bowls (<em>katoris</em>) filled with
+            lentils, vegetables, yogurt, and chutneys.
+          </li>
+        </ul>
+        <p>
+          <strong>The Right Hand:</strong> Throughout large parts of India,
+          people deliberately eat with the fingers of their right hand. The
+          fingertips are considered sensory organs that signal the temperature
+          and texture of the food to the brain before it even reaches the mouth.
+          The left hand is considered unclean and remains at the edge of the
+          table.
+        </p>
+      </section>
+
+      <section id="kurkuma" class="spice-section">
+        <h2 class="spice-title">1. Turmeric</h2>
+        <span class="botanical-name">Curcuma longa</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Origin & Botany:</strong> Originally native to South Asia.
+              The plant belongs to the ginger family. The part used is the
+              underground rhizome (rootstock), which is boiled, dried, and
+              pulverized after harvesting.
+            </div>
+            <div class="info-box">
+              <strong>Sensory Profile (Aroma & Taste):</strong> Smells woody,
+              earthy, and subtly of ginger. In terms of taste, it is slightly
+              bitter, resinous, and characterized by a mild, unobtrusive
+              pungency.
+            </div>
+            <div class="info-box">
+              <strong>Culinary Use:</strong> The foundation of almost every
+              curry, dal (lentil dish), and rice dish. It gives the food its
+              characteristic, vibrant yellow color.
+            </div>
+            <div class="info-box">
+              <strong>Medicinal Properties (Scientifically Proven):</strong> The
+              active ingredient <em>curcumin</em> has powerful anti-inflammatory
+              and antioxidant properties. It stimulates bile flow, thereby
+              promoting fat digestion. When combined with black pepper
+              (piperine), its biological absorption is significantly enhanced.
+            </div>
+          </div>
+          <img
+            src="Images/curcuma.png"
+            alt="Kurkuma-Wurzeln"
+            class="spice-img"
+          />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Recipe: Classic Yellow Lentil Dal (Tarka Dal)</h4>
+          <p class="recipe-meta">A nutritious, daily ayurvedic staple.</p>
+          <iframe
+            src="https://www.youtube.com/embed/YzzedKg6Gr4"
+            title="The easiest and quickest dal to make at home - healthy dinner in 15 minutes!"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <ol class="recipe-steps">
+            <li>
+              Thoroughly wash 150g of yellow lentils (toor dal or red lentils)
+              and simmer in a pot with 500ml of water,
+              <strong>1 tsp of turmeric powder</strong>, and a pinch of salt for
+              about 20 minutes until soft.
+            </li>
+            <li>
+              In a separate small pan, heat 2 tbsp of ghee or vegetable oil. Fry
+              1 tsp each of cumin seeds and chopped garlic until fragrant.
+            </li>
+            <li>
+              Pour this hot tempered spice oil (called <em>tarka</em>) directly
+              over the cooked, creamy lentils, stir, and serve with fresh
+              coriander.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="kardamom" class="spice-section">
+        <h2 class="spice-title">2. Green Cardamom</h2>
+        <span class="botanical-name">Elettaria cardamomum</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Origin & Botany:</strong> Originates from the moist
+              mountain forests of South India (the Cardamom Hills). It grows as
+              a perennial herb; the pods mature on flower stalks close to the
+              ground. The green pods are harvested by hand before they split
+              open.
+            </div>
+            <div class="info-box">
+              <strong>Sensory Profile (Aroma & Taste):</strong> Intensely sweet
+              and penetratingly aromatic with a distinct eucalyptus and citrus
+              note. It tastes fresh, spicy, and slightly fiery.
+            </div>
+            <div class="info-box">
+              <strong>Culinary Use:</strong> Indispensable in festive rice
+              dishes (biryani), in sweet delicacies (kheer, halwa), and as the
+              defining note in Indian spiced tea (masala chai).
+            </div>
+            <div class="info-box">
+              <strong>Medicinal Properties:</strong> The essential oils it
+              contains (including cineole) have an antispasmodic effect on the
+              gastrointestinal tract, relieve flatulence, and stimulate the
+              appetite. Chewing whole pods eliminates bad breath.
+            </div>
+          </div>
+          <img
+            src="Images/cardamom.jpg"
+            alt="grüne Kardamomkapsel"
+            class="spice-img"
+          />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Recipe: Authentic Indian Masala Chai</h4>
+          <p class="recipe-meta">
+            The ubiquitous elixir of life on Indian streets.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/PBxQdK-NrRc"
+            title="The Secret Behind Perfect Masala Tea - What Makes This Chai So Addictive?"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <ol class="recipe-steps">
+            <li>
+              Lightly crush <strong>4 green cardamom pods</strong> in a mortar
+              so the black seeds become visible. Bring to a boil in 250ml of
+              water along with half a cinnamon stick and a piece of crushed
+              ginger.
+            </li>
+            <li>
+              Add 2 tsp of strong black tea (Assam CTC) and let it simmer for 3
+              minutes.
+            </li>
+            <li>
+              Add 200ml of milk and 2 tsp of cane sugar. Bring everything to a
+              boil, strain directly into glasses, and enjoy hot.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="kreuzkuemmel" class="spice-section">
+        <h2 class="spice-title">3. Cumin (Jeera)</h2>
+        <span class="botanical-name">Cuminum cyminum</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Origin & Botany:</strong> Originally native to the Eastern
+              Mediterranean, it has been cultivated in India (especially Gujarat
+              and Rajasthan) for millennia. The plant is a delicate umbellifer;
+              the dried split fruits are used.
+            </div>
+            <div class="info-box">
+              <strong>Sensory Profile (Aroma & Taste):</strong> Heavy,
+              pervasive, and warmly spicy. Taste-wise, it is slightly bitter,
+              earthy, and pungent, featuring a prominent smoky note that
+              intensifies when dry-roasted.
+            </div>
+            <div class="info-box">
+              <strong>Culinary Use:</strong> Together with coriander, it forms
+              the aromatic backbone of almost all North Indian vegetable and
+              meat gravies. It is toasted in hot oil at the very beginning of
+              the cooking process.
+            </div>
+            <div class="info-box">
+              <strong>Medicinal Properties:</strong> Massively stimulates the
+              production of digestive enzymes in the pancreas. The
+              <em>cuminaldehyde</em> contained in the essential oil relieves
+              flatulence, bloating, and stomach cramps.
+            </div>
+          </div>
+          <img
+            src="Images/Kreuzkümmel.jpg"
+            alt="Getrocknete Kreuzkümmelsamen der Cuminum cyminum Pflanze"
+            class="spice-img"
+          />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Recipe: Aromatic Cumin Rice (Jeera Rice)</h4>
+          <p class="recipe-meta">
+            An elegant upgrade for simple side-dish rice.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/8IMIOEGoVQE"
+            title="Jeera rice recipe | non sticky jeera rice in pressure cooker | quick &amp; easy restaurant style"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <ol class="recipe-steps">
+            <li>
+              Wash 200g of basmati rice and soak in cold water for 20 minutes,
+              then drain.
+            </li>
+            <li>
+              Heat 1 tbsp of ghee in a pot. Add
+              <strong>1 tbsp of whole cumin seeds</strong> and toast for about
+              30 seconds until they begin to crackle and release an intense
+              fragrance.
+            </li>
+            <li>
+              Add the rice and a pinch of salt, tossing briefly with the spices.
+              Pour in 400ml of boiling water, close the lid, and let steam on
+              the lowest heat for 10–12 minutes until done.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="senfsaat" class="spice-section">
+        <h2 class="spice-title">4. Black Mustard Seed</h2>
+        <span class="botanical-name">Brassica nigra</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Origin & Botany:</strong>A cruciferous plant cultivated
+              throughout India. The tiny, spherical seeds mature in thin pods.
+              Once the plant has dried, the seeds are threshed out.
+            </div>
+            <div class="info-box">
+              <strong>Sensory Profile (Aroma & Taste):</strong> Completely
+              odorless and nuttily mild when raw. However, as soon as they are
+              heated in hot oil and pop open, they develop an intensely nutty
+              aroma and a pungent, radish-like sharp flavor.
+            </div>
+            <div class="info-box">
+              <strong>Culinary Use: </strong> The absolute standard spice of
+              South India. Essential for coconut-based sauces, sambar (vegetable
+              stew), and chickpea dishes.
+            </div>
+            <div class="info-box">
+              <strong>Medicinal Properties:</strong> Contains glycosides
+              (sinigrin) that release mustard oils upon popping. These have a
+              powerful antimicrobial effect, stimulate blood circulation in the
+              gastric mucosa, and promote intestinal peristalsis.
+            </div>
+          </div>
+          <img src="Images/senf.jpg" alt="Senfsamen" class="spice-img" />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Recipe: South Indian Potato Masala (for Masala Dosa)</h4>
+          <p class="recipe-meta">
+            The traditional, mild filling for crisp Indian lentil crepes.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/mDqkxZ3UVzc"
+            title="Masala Dosa | Dosa-Teig-Rezept | Kartoffelcurry | Frühstücksrezepte"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <ol class="recipe-steps">
+            <li>
+              Boil, peel, and roughly crush 300g of potatoes with your hands.
+            </li>
+            <li>
+              Heat 2 tbsp of oil. Add
+              <strong>1 tsp of black mustard seeds</strong>. As soon as they
+              begin to splutter, immediately add a handful of curry leaves, 1
+              chopped onion, and 1/2 tsp of turmeric, and sauté until
+              translucent.
+            </li>
+            <li>
+              Stir in the crushed potatoes and 50ml of water, season with salt,
+              and simmer while stirring for 5 minutes until a compact, flavorful
+              mixture forms.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="koriander" class="spice-section">
+        <h2 class="spice-title">5. Coriander (Dhaniya)</h2>
+        <span class="botanical-name">Coriandrum sativum</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Origin & Botany:</strong> One of humanity's oldest
+              cultivated spices. It grows as an annual herb. In Indian culinary
+              traditions, both the fresh leaves and the dried, round seed pods
+              (fruits) are used.
+            </div>
+            <div class="info-box">
+              <strong>Sensory Profile (Aroma & Taste):</strong> The seeds smell
+              sweet, woody, and distinctly of dried orange peel. The taste is
+              mild, nutty, spicy, and slightly citrusy—entirely without the
+              soapy note of the fresh leaves.
+            </div>
+            <div class="info-box">
+              <strong>Culinary Use:</strong> Ground coriander serves as a
+              natural thickening agent. It gives curry sauces density, body, and
+              a mild, balancing flavor that buffers extreme chili heat.
+            </div>
+            <div class="info-box">
+              <strong>Medicinal Properties:</strong> Coriander seeds contain the
+              essential oil <em>inalool.</em> It has been proven to relieve
+              spasms in the smooth muscles of the gut, reduce flatulence, and
+              exhibit anti-inflammatory properties in the urogenital tract.
+            </div>
+          </div>
+          <img src="Images/koriander.jpg" alt="Koriander" class="spice-img" />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Recipe: North Indian Chickpea Curry (Chana Masala)</h4>
+          <p class="recipe-meta">
+            A hearty classic that demands a deep, well-rounded spice flavor.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/W9jQkOyjmAs"
+            title="Chana Masala- Easy Chickpea Curry Recipe"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <ol class="recipe-steps">
+            <li>
+              Sauté 1 chopped onion, 2 garlic cloves, and a piece of ginger in a
+              pan with oil until golden brown. Add one can of chopped tomatoes.
+            </li>
+            <li>
+              Stir in <strong>2 tsp of ground coriander</strong>, 1 tsp of
+              cumin, 1/2 tsp of chili powder, and 1/2 tsp of turmeric until the
+              oil begins to separate at the edges of the spice paste.
+            </li>
+            <li>
+              Add one can of rinsed chickpeas (approx. 400g) and 100ml of water.
+              Let it reduce over medium heat for 15 minutes, then season to
+              taste with lemon juice.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="nelken" class="spice-section">
+        <h2 class="spice-title">6. Clove (Laung)</h2>
+        <span class="botanical-name">Syzygium aromaticum</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Origin & Botany:</strong> Originally from the Moluccas,
+              clove trees now grow in the tropical coastal regions of South
+              India. The parts used are the unopened flower buds, picked by hand
+              and dried until brown and woody.
+            </div>
+            <div class="info-box">
+              <strong>Sensory Profile (Aroma & Taste):</strong> Extremely
+              intense, penetratingly sweet, and heavily aromatic. In the mouth,
+              they taste fiery-spicy, highly astringent, and leave a slightly
+              numb, cooling sensation on the tongue.
+            </div>
+            <div class="info-box">
+              <strong>Culinary Use:</strong> A core component of the classic
+              spice blend<em>Garam Masala</em>. Whole cloves are bloomed in hot
+              oil or ghee to lend depth to meat dishes (such as korma).
+            </div>
+            <div class="info-box">
+              <strong>Medicinal Properties:</strong> Cloves possess the highest
+              antioxidant content among all natural substances. The essential
+              oil <em>eugenol</em> they contain is strongly antiseptic,
+              antiviral, and locally anesthetic — historically proven effective
+              for toothaches.
+            </div>
+          </div>
+          <img
+            src="Images/nelken.jpg"
+            alt="Getrocknete Gewürznelken"
+            class="spice-img"
+          />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Recipe: Festive Mughlai Rice</h4>
+          <p class="recipe-meta">
+            An elegant spiced rice often served on formal occasions.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/TD6n-TmAIgs"
+            title="Mughlai Vegetable Biryani Recipe By Food Fusion"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <ol class="recipe-steps">
+            <li>
+              Melt 1 tbsp of ghee in a deep pot. Add half a cinnamon stick,
+              <strong>3 whole cloves,</strong> and 2 green cardamom pods until
+              they swell slightly.
+            </li>
+            <li>
+              Slowly fry an onion sliced into fine strips until dark brown and
+              crispy.
+            </li>
+            <li>
+              Add 200g of washed basmatireis, a handful of cashews and raisins,
+              pour in 400ml of vegetable broth, and leave to steam covered over
+              minimal heat.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="asafoetida" class="spice-section">
+        <h2 class="spice-title">7. Asafoetida (Hing)</h2>
+        <span class="botanical-name">Ferula foetida / assa-foetida</span>
+
+        <div class="spice-profile">
+          <div class="info-grid">
+            <div class="info-box">
+              <strong>Origin & Botany: </strong> The dried gum-resin obtained
+              from the thick roots of a giant desert umbellifer that grows in
+              arid regions. The sticky resin is air-dried and usually blended
+              with fenugreek powder.
+            </div>
+            <div class="info-box">
+              <strong>Sensory Profile (Aroma & Taste):</strong> In its raw
+              state, the powder emits an extremely pungent sulfurous odor
+              reminiscent of rotten onions. However, as soon as a pinch of it is
+              bloomed in hot fat, the aroma instantly transforms into a
+              delicate, complex note of sautéed onions and garlic (umami).
+            </div>
+            <div class="info-box">
+              <strong>Culinary Use:</strong> The most important spice in Brahmin
+              and Jain cuisine in India, as these communities abstain from
+              garlic and onions for religious and ethical reasons.
+            </div>
+            <div class="info-box">
+              <strong>Medicinal Properties:</strong> Regarded in Ayurveda as the
+              most powerful remedy against flatulence. It breaks down
+              difficult-to-digest proteins and sulfur compounds in lentils and
+              beans, making them instantly digestible.
+            </div>
+          </div>
+          <img
+            src="Images/ASAFOETIDA.webp"
+            alt="Indische Gewürze in Schalen"
+            class="spice-img"
+          />
+        </div>
+
+        <div class="recipe-box">
+          <h4>Recipe: Traditional Chickpea Flour Curry (Kadhi)</h4>
+          <p class="recipe-meta">
+            A tangy, spiced yogurt sauce from Western India.
+          </p>
+          <iframe
+            src="https://www.youtube.com/embed/Ozksm_q1hRU"
+            title="Priya macht Kadhi (cremige indische Suppe) | Aus der Testküche | Guten Appetit"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <br /><br />
+          <ol class="recipe-steps">
+            <li>
+              Whisk 200g of sour natural yogurt with 2 tbsp of chickpea flour,
+              1/2 tsp of turmeric, and 400ml of water until completely smooth
+              and free of lumps. Bring the mixture to a boil in a pot while
+              stirring constantly until it thickens.
+            </li>
+            <li>
+              Heat 1 tbsp of oil in a small pan. Add
+              <strong>a generous pinch of asafoetida (hing)</strong>
+              and 1 tsp of cumin seeds. The resin will foam up immediately.
+            </li>
+            <li>
+              Pour the hot tempered spice oil into the boiling yogurt sauce
+              right away, season with salt, and let it simmer for another 5
+              minutes. Serve hot with roti.
+            </li>
+          </ol>
+        </div>
+        <div class="recipe-box">
+          <h4>Or how about some delicious street food:</h4>
+          <iframe
+            src="https://www.youtube.com/embed/dXUaUJhplXU"
+            title="India’s CRAZIEST Street Food Collection  | Delhi Lucknow Kanpur Mega Food Tour"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+      <div class="recipe-box">
+        <h1 id="pageTitle">And so it continues...</h1>
+
+        <div class="action-section" style="margin-top: 40px">
+          <a
+            id="nextStepLink"
+            class="hidden"
+            style="
+              display: inline-block;
+              background-color: #800020;
+              color: white;
+              text-decoration: none;
+              padding: 15px 35px;
+              font-size: 18px;
+              border-radius: 30px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              font-weight: bold;
+              transition: background-color 0.2s;
+            "
+          ></a>
+        </div>
+      </div>
+      <br /><br />
+    </main>
+    <script src="india4Engl.js"></script>
+  </body>
+</html>

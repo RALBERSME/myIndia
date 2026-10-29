@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vedic Mathematics – Lightning-Fast Mental Math</title>
+    <link rel="stylesheet" href="mathe.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo"><em>Vedic Math Techniques</em></a>
+        <ul class="nav-links">
+          <li><a href="#ursprung">Origins</a></li>
+          <li><a href="#warum-schnell">Why so fast?</a></li>
+          <li><a href="#methoden">The Methods (11-19)</a></li>
+          <li><a href="#rechner">Interactive Trainer</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Vedic Mental Math</h1>
+        <p class="subtitle">
+          Master the Indian art of mental arithmetic and multiply huge numbers
+          in seconds.
+        </p>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="ursprung" class="section card">
+        <h2>Where does Vedic Mathematics come from?</h2>
+        <p>
+          Vedic Mathematics is a system of mental arithmetic that was
+          reconstructed between 1911 and 1918 by Swami Bharati Krishna Tirtha
+          (an Indian scholar and spiritual leader). He studied ancient Indian
+          Sanskrit texts (the Vedas) and extracted an astonishingly efficient
+          mathematical system from them.
+        </p>
+        <p>
+          The entire system is based on just 16 Sutras (core formulas) and 13
+          sub-Sutras. Rather than describing new mathematical laws, these
+          formulas provide highly optimized ways for our brains to recognize and
+          process patterns in numbers.
+        </p>
+      </section>
+
+      <section id="warum-schnell" class="section card">
+        <h2>Why is it so extremely fast to use?</h2>
+        <p>
+          In conventional school mathematics, we calculate rigidly from right to
+          left, write down numerous intermediate steps, and often use
+          time-consuming standard algorithms. Vedic Mathematics breaks these
+          rules:
+        </p>
+        <div class="grid-3">
+          <div class="feature-box">
+            <h4>(1) Patterns instead of rote memorization</h4>
+            <p>
+              It utilizes the brain's natural ability to recognize visual
+              symmetries and patterns in sequences of numbers.
+            </p>
+          </div>
+          <div class="feature-box">
+            <h4>(2) Row-by-row calculation</h4>
+            <p>
+              Most calculations are solved in just a single row – often directly
+              from left to right.
+            </p>
+          </div>
+          <div class="feature-box">
+            <h4>(3) Flexibility</h4>
+            <p>
+              Highly specialized shortcuts exist for various number
+              combinations, drastically minimizing the computational effort
+              required.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="methoden" class="section card">
+        <h2>How does multiplying by 11 to 15 work?</h2>
+        <p>
+          o multiply any number by the numbers 11 through 15, Vedic Mathematics
+          uses an ingenious principle: Mentally place a zero before and after
+          the number and work your way through from right to left.
+        </p>
+
+        <div class="method-block">
+          <h3>✖️ Multiplication by 11 ("Add the neighbor")</h3>
+          <p>Rule: Take each digit and add its right-hand neighbor.</p>
+          <div class="example">
+            <strong>Example: 11 × 134</strong><br />
+            • Think of the number as: 0 1 3 4 0<br />
+            • 4 + 0 = <b>4</b><br />
+            • 3 + 4 = <b>7</b><br />
+            • 1 + 3 = <b>4</b><br />
+            • 0 + 1 = <b>1</b><br />
+            • EResult read from right to left: <b>1474</b>
+          </div>
+        </div>
+
+        <div class="method-block">
+          <h3>✖️ Multiplication by 12 ("Double and add the neighbor")</h3>
+          <p>Rule: Double each digit and add its right-hand neighbor.</p>
+          <div class="example">
+            <strong>Example: 12 × 24</strong> (Think of 0 2 4 0)<br />
+            • (4 × 2) + 0 = <b>8</b><br />
+            • (2 × 2) + 4 = <b>8</b><br />
+            • (0 × 2) + 2 = <b>2</b><br />
+            • Result: <b>288</b>
+          </div>
+        </div>
+
+        <div class="method-block">
+          <h3>✖️ Multiplication by 13, 14, and 15 (The general principle)</h3>
+          <p>
+            The system continues exactly this way. You multiply the digit by the
+            ones place of the multiplier and add the neighbor:
+          </p>
+          <ul>
+            <li>
+              <strong>By 13:</strong> Triple the digit and add the right-hand
+              neighbor.
+            </li>
+            <li>
+              <strong>By 14:</strong> Quadruple the digit and add the right-hand
+              neighbor.
+            </li>
+            <li>
+              <strong>By 15:</strong> Quintuple the digit and add the right-hand
+              neighbor.
+            </li>
+            <li>
+              <strong>By 16, 17, 18, 19:</strong> Multiply the digit by 6, 7, 8,
+              or 9 respectively and add the right-hand neighbor.
+            </li>
+          </ul>
+          <p class="note">
+            ⚠️ <em>important for carries:</em> If a step yields a result of 10
+            or more (e.g., 14), you write down the 4 and carry the 1 over to the
+            next step on the left!
+          </p>
+        </div>
+      </section>
+
+      <section id="rechner" class="section card calculator-box">
+        <h2>Interactive Vedic Math Trainer</h2>
+        <p>
+          Enter any number and choose a multiplier (11-15) to see the exact
+          Vedic calculation path step by step!
+        </p>
+
+        <div class="calc-inputs">
+          <div class="input-group">
+            <label for="input-number">Your number: </label>
+            <input
+              type="number"
+              id="input-number"
+              value="134"
+              min="1"
+              max="99999"
+            />
+          </div>
+          <div class="input-group">
+            <label for="input-multiplier">Multiply by:</label>
+            <select id="input-multiplier">
+              <option value="11">11 (Add neighbor)</option>
+              <option value="12">12 (Double + neighbor)</option>
+              <option value="13">13 (Triple + neighbor)</option>
+              <option value="14">14 (Quadruple + neighbor)</option>
+              <option value="15">15 (Quintuple + neighbor)</option>
+              <option value="16">16 (Sextuple + neighbor)</option>
+              <option value="17">17 (Septuple + neighbor)</option>
+              <option value="18">18 (Octuple + neighbor)</option>
+              <option value="19">19 (Nonuple + neighbor)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="calc-output" class="calc-output"></div>
+      </section>
+    </div>
+
+    <footer>
+      <a href="specialsEngl.html">➥ back to Special Offer page</a>
+    </footer>
+
+    <script src="matheEngl.js"></script>
+  </body>
+</html>

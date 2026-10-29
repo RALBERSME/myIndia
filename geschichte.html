@@ -281,9 +281,7 @@
       ></iframe>
     </div>
     <div class="story-container">
-      <!-- LINKE SPALTE: HISTORISCHE TEXTE -->
       <main class="timeline-text">
-        <!-- Epoche 1 -->
         <section id="era-indus" class="epoch-section active" data-map="map1">
           <h2>Die Indus-Kultur</h2>
           <span class="epoch-date">ca. 3300 – 1900 v. Chr.</span>
@@ -303,7 +301,6 @@
           </p>
         </section>
 
-        <!-- Epoche 2 -->
         <section id="era-maurya" class="epoch-section" data-map="map2">
           <h2>Das Maurya-Großreich</h2>
           <span class="epoch-date">ca. 322 – 185 v. Chr.</span>
@@ -325,7 +322,6 @@
           </p>
         </section>
 
-        <!-- Epoche 3 -->
         <section id="era-gupta" class="epoch-section" data-map="map3">
           <h2>Das Gupta-Reich & Klassische Ära</h2>
           <span class="epoch-date">ca. 320 – 550 n. Chr.</span>
@@ -347,7 +343,6 @@
           </p>
         </section>
 
-        <!-- Epoche 4 -->
         <section id="era-mughal" class="epoch-section" data-map="map4">
           <h2>Das Mogulreich</h2>
           <span class="epoch-date">1526 – 1857 n. Chr.</span>
@@ -373,7 +368,6 @@
           </p>
         </section>
 
-        <!-- Epoche 5 -->
         <section id="era-colonial" class="epoch-section" data-map="map5">
           <h2>Britische Kolonialherrschaft (Raj)</h2>
           <span class="epoch-date">1757 – 1947 n. Chr.</span>
@@ -400,7 +394,6 @@
           </p>
         </section>
 
-        <!-- Epoche 6 -->
         <section id="era-modern" class="epoch-section" data-map="map6">
           <h2>Unabhängigkeit & Moderne Republik</h2>
           <span class="epoch-date">seit 1947 n. Chr.</span>
@@ -431,25 +424,22 @@
         </section>
       </main>
 
-      <!-- RECHTE SPALTE: FIXIERTE HISTORISCHE KARTEN (DYNAMISCH PER JS GESTEUERT) -->
       <aside class="timeline-visual" aria-hidden="true">
         <div class="map-display">
-          <!-- Karte 1: Die Indus-Kultur -->
           <div id="map1" class="map-wrapper visible">
             <svg viewBox="0 0 400 400" width="100%" height="100%">
-              <!-- Kontur des Subkontinents -->
               <path
                 class="india-base"
                 d="M160,60 L240,65 L270,110 L300,160 L320,190 L280,240 L230,340 L210,360 L200,340 L210,280 L180,240 L160,200 L140,150 L130,100 Z"
               />
-              <!-- Das Indus-Flusssystem schematisch -->
+
               <path d="M135,70 Q145,100 155,130 T170,180" class="river-line" />
               <path
                 d="M140,75 Q155,110 175,120"
                 class="river-line"
                 style="stroke-width: 1px"
               />
-              <!-- Das urbane Kerngebiet der Indus-Kultur (Nordwesten) -->
+
               <path
                 d="M125,80 Q145,70 170,95 Q185,130 175,170 Q145,185 130,140 Z"
                 fill="#802c1a"
@@ -458,12 +448,11 @@
                 stroke-width="2"
                 class="highlight-zone"
               />
-              <!-- Archäologische Fundorte als Markierungen -->
+
               <circle cx="150" cy="105" r="4" fill="#ffd700" />
-              <!-- Harappa -->
+
               <circle cx="140" cy="145" r="4" fill="#ffd700" />
-              <!-- Mohenjo-Daro -->
-              <!-- Beschriftung -->
+
               <text
                 x="145"
                 y="60"
@@ -487,15 +476,13 @@
             </svg>
           </div>
 
-          <!-- Karte 2: Das Maurya-Großreich -->
           <div id="map2" class="map-wrapper">
             <svg viewBox="0 0 400 400" width="100%" height="100%">
-              <!-- Kontur des Subkontinents -->
               <path
                 class="india-base"
                 d="M160,60 L240,65 L270,110 L300,160 L320,190 L280,240 L230,340 L210,360 L200,340 L210,280 L180,240 L160,200 L140,150 L130,100 Z"
               />
-              <!-- Die beinahe kontinentale Expansion unter Kaiser Ashoka (Fast ganz Indien eingefärbt) -->
+
               <path
                 d="M140,80 L240,75 L280,115 L295,170 L305,200 L275,235 L225,320 L195,250 L155,190 L135,135 Z"
                 fill="#d97724"
@@ -503,7 +490,7 @@
                 stroke="#d97724"
                 stroke-width="2"
               />
-              <!-- Historische Hauptstadt Pataliputra -->
+
               <circle
                 cx="245"
                 cy="120"
@@ -512,7 +499,7 @@
                 stroke="#d97724"
                 stroke-width="1.5"
               />
-              <!-- Beschriftung -->
+
               <text
                 x="170"
                 y="150"
@@ -537,14 +524,13 @@
             </svg>
           </div>
 
-          <!-- Karte 3: Das Gupta-Reich -->
           <div id="map3" class="map-wrapper">
             <svg viewBox="0 0 400 400" width="100%" height="100%">
               <path
                 class="india-base"
                 d="M160,60 L240,65 L270,110 L300,160 L320,190 L280,240 L230,340 L210,360 L200,340 L210,280 L180,240 L160,200 L140,150 L130,100 Z"
               />
-              <!-- Klassisches Gupta-Territorium vorwiegend im Norden und Zentrum -->
+
               <path
                 d="M135,90 L255,85 L285,125 L290,160 Q230,180 180,170 L145,150 Z"
                 fill="#b45309"
@@ -553,7 +539,7 @@
                 stroke-width="2"
                 class="highlight-zone"
               />
-              <!-- Universitätsstadt Nalanda -->
+
               <circle cx="250" cy="125" r="4" fill="#ffd700" />
               <text
                 x="165"
@@ -579,7 +565,6 @@
             </svg>
           </div>
 
-          <!-- Karte 4: Das Mogulreich -->
           <div id="map4" class="map-wrapper">
             <svg viewBox="0 0 400 400" width="100%" height="100%">
               <path
@@ -619,7 +604,6 @@
             </svg>
           </div>
 
-          <!-- Karte 5: British Raj -->
           <div id="map5" class="map-wrapper">
             <svg viewBox="0 0 400 400" width="100%" height="100%">
               <path
@@ -675,7 +659,6 @@
             </svg>
           </div>
 
-          <!-- Karte 6: Moderne Republik -->
           <div id="map6" class="map-wrapper">
             <svg viewBox="0 0 400 400" width="100%" height="100%">
               <path
@@ -691,11 +674,11 @@
                 stroke-width="2"
               />
               <circle cx="180" cy="110" r="5" fill="#ea580c" />
-              <!-- New Delhi -->
+
               <circle cx="168" cy="210" r="5" fill="#ea580c" />
-              <!-- Mumbai -->
+
               <circle cx="210" cy="280" r="5" fill="#ea580c" />
-              <!-- Bengaluru -->
+
               <text
                 x="155"
                 y="160"

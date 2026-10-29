@@ -1,4 +1,4 @@
-const gewaehlteThemen = ["goodbyeEngl"];
+const gewaehlteThemen = ["bye"];
 
 const draggables = document.querySelectorAll(".draggable");
 const chain = document.getElementById("garlandChain");
