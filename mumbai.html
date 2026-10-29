@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mumbai - Die Metropole des Wandels</title>
+    <style>
+      :root {
+        --primary: #0e2258;
+        --secondary: #11b77d;
+        --accent: #0b7b64;
+        --bg: #f7f6ec;
+        --text: #333333;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        background-color: var(--bg);
+        color: var(--text);
+      }
+
+      header {
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url(Images/mumbai1.jpg) no-repeat center center/cover;
+        color: var(--white);
+        height: 45vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      header h1 {
+        font-size: 3.5rem;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      header p {
+        font-size: 1.3rem;
+        font-style: italic;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      nav {
+        background-color: var(--primary);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: var(--white);
+        text-decoration: none;
+        padding: 15px 20px;
+        display: block;
+        transition:
+          background 0.3s,
+          color 0.3s;
+        font-weight: bold;
+      }
+
+      nav a:hover,
+      nav a.active {
+        background-color: var(--secondary);
+        color: var(--white);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 0 20px;
+      }
+
+      section {
+        background-color: var(--white);
+        padding: 35px;
+        margin-bottom: 30px;
+        border: 2px dashed black;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .poster img {
+        width: 99%;
+      }
+      .poster a {
+        text-decoration: none;
+        padding-left: 30px;
+        color: #3498db;
+      }
+      .poster a:hover {
+        color: orangered;
+      }
+      h2 {
+        color: var(--primary);
+        border-bottom: 3px solid var(--secondary);
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+      }
+
+      h3 {
+        color: var(--accent);
+        margin: 20px 0 10px 0;
+        font-size: 1.3rem;
+      }
+
+      p {
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      ul {
+        margin-left: 25px;
+        margin-bottom: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 14px;
+        text-align: left;
+      }
+
+      th {
+        background-color: var(--primary);
+        color: var(--white);
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      footer a {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+        background-color: #000080;
+        padding: 5px;
+      }
+      footer a:hover {
+        background-color: green;
+      }
+      .videos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        margin: 30px;
+      }
+      @media (min-width: 1200px) {
+        .videos {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+      }
+      @media (max-width: 768px) {
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+        header h1 {
+          font-size: 2.2rem;
+        }
+        nav ul {
+          flex-direction: column;
+          text-align: center;
+        }
+        nav a {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Mumbai (Bombay)</h1>
+      <p>
+        Die Stadt, die niemals schläft – Indiens wirtschaftliches & kulturelles
+        Herz
+      </p>
+    </header>
+    <div class="videos">
+      <iframe
+        src="https://www.youtube.com/embed/tWD_-Rzrn8o"
+        title="Mumbai: Indiens sich wandelnde Megastadt"
+        frameborder="0"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          web-share;
+        "
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe
+      ><iframe
+        src="https://www.youtube.com/embed/60Q5E0KZb38"
+        title="BEST OF INDIA 🇮🇳  - Real Mumbai in 4K HDR Walking Tour of Vibrant Streets, Daily Life &amp; Poverty"
+        frameborder="0"
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          web-share;
+        "
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a href="#entstehung" class="nav-link">Entstehung & Geschichte</a>
+        </li>
+        <li><a href="#bevoelkerung" class="nav-link">Bevölkerung</a></li>
+        <li><a href="#highlights" class="nav-link">Highlights</a></li>
+        <li><a href="#funktion" class="nav-link">Funktion</a></li>
+        <li><a href="#vergleich" class="nav-link">Mumbai vs. Delhi</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <section id="entstehung">
+        <h2>Entstehung, Ursprung & Wesentliche Geschichte</h2>
+        <p>
+          <strong
+            >Mumbai entstand ursprünglich aus einer Gruppe von sieben
+            vulkanischen Inseln</strong
+          >
+          (Colaba, Mazagaon, Old Woman's Island, Wadala, Mahim, Parel und
+          Matunga). Diese Sumpfinseln waren bereits seit der Steinzeit spärlich
+          bewohnt. Der Name der Stadt leitet sich von der lokalen Koli-Göttin
+          <em>Mumba Devi</em> ab.
+        </p>
+
+        <h3>Wieso entstand die Großstadt an diesem Ort?</h3>
+        <p>
+          Die Transformation zu einer der größten Metropolen der Welt verdankt
+          Mumbai seiner einzigartigen Geografie: Ein geschützter, tiefer
+          <strong>Naturhafen</strong> am Arabischen Meer bot die perfekten
+          Bedingungen für den internationalen Seehandel. Wer den Hafen
+          kontrollierte, kontrollierte das Tor zum indischen Subkontinent.
+        </p>
+
+        <h3>Die wesentliche Geschichte im Überblick:</h3>
+        <ul>
+          <li>
+            <strong>Portugiesische Periode (1534–1661):</strong> Die Portugiesen
+            erwarben die Inseln vom Sultanat von Gujarat und nannten den Ort
+            <em>Bom Bahia</em> (Gute Bucht).
+          </li>
+          <li>
+            <strong>Britische Kolonialzeit (ab 1661):</strong> Die Inseln gingen
+            als königliche Mitgift von Katharina von Braganza bei ihrer
+            Vermählung mit dem englischen König Karl II. an die britische Krone
+            über und wurden an die
+            <em>Britische Ostindien-Kompanie</em> verpachtet.
+          </li>
+          <li>
+            <strong>Das Hornby-Vellard-Projekt (ab 1782):</strong> In einer der
+            größten Landgewinnungsmaßnahmen der Geschichte wurden die sieben
+            separaten Inseln durch Dämme und Aufschüttungen schrittweise zu
+            einer einzigen, zusammenhängenden Landmasse verschmolzen.
+          </li>
+          <li>
+            <strong>Der Boom im 19. Jahrhundert:</strong> Der Amerikanische
+            Bürgerkrieg (1861) stoppte die dortige Baumwollproduktion – Mumbai
+            sprang als Hauptlieferant ein. Die Eröffnung des
+            <strong>Suezkanals (1869)</strong> machte den Hafen schließlich zum
+            wichtigsten Handelszentrum Asiens.
+          </li>
+          <li>
+            <strong>Unabhängigkeit & Umbenennung:</strong> Nach Indiens
+            Unabhängigkeit 1947 wurde die Stadt zum Herz des Bundesstaates
+            Maharashtra. Im Jahr <strong>1995</strong> wurde der koloniale Name
+            <em>Bombay</em> offiziell in den ursprünglichen Marathi-Namen
+            <em>Mumbai</em> geändert.
+          </li>
+        </ul>
+      </section>
+
+      <section id="bevoelkerung">
+        <h2>Bevölkerung: Wer lebte früher, wer lebt heute dort?</h2>
+        <div class="grid-2">
+          <div>
+            <h3>Früher</h3>
+            <p>
+              Die indigenen Ureinwohner der Inseln waren die
+              <strong>Kolis</strong>, eine Gemeinschaft von Fischern. Mit dem
+              Aufstieg zur Handelsmetropole unter den Briten zog die Stadt
+              gezielt Händlergruppen an. Es entstand ein Mosaik aus marathischen
+              Einheimischen, wohlhabenden <strong>Parsen</strong> (Zoroastriern
+              aus Persien), jüdischen Händlern (Bene Israel),
+              Gujarati-Kaufleuten sowie muslimischen und christlichen
+              Minderheiten.
+            </p>
+          </div>
+          <div>
+            <h3>Heute</h3>
+            <p>
+              Heute ist Mumbai mit über
+              <strong>21 Millionen Menschen</strong> im Großraum eine der am
+              dichtesten besiedelten Megacitys der Erde. Die Stadt ist ein
+              gigantischer Schmelztiegel („Stadt der Träume“), der Migranten aus
+              allen Bundesstaaten Indiens anzieht. Die größte
+              Religionsgemeinschaft bilden Hindus (ca. 66 %), gefolgt von einer
+              bedeutenden muslimischen Minderheit (ca. 20 %) sowie Christen,
+              Jains, Buddhisten und Sikhs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="highlights">
+        <h2>Die Highlights & Sehenswürdigkeiten</h2>
+        <div class="poster">
+          <img src="Images/Highlights.png" alt="highlights" />
+          <br /><a href="Images/HighlightsMumbai.pdf" download
+            >➥ .pdf herunterladen</a
+          >
+          <br /><br />
+          <hr />
+          <hr />
+          <br /><br />
+        </div>
+        <p>
+          <strong
+            ><u>
+              Die Architektur Mumbais spiegelt seine koloniale Vergangenheit und
+              moderne Gegenwart wider:</u
+            ></strong
+          >
+        </p>
+        <ul>
+          <li>
+            <strong>Gateway of India:</strong> Ein monumentaler Triumphbogen
+            direkt am Hafen, erbaut im Jahr 1924 im indo-sarazenischen Stil zur
+            Erinnerung an den Besuch des britischen Königs Georg V.
+          </li>
+          <li>
+            <strong>Chhatrapati Shivaji Maharaj Terminus (CSMT):</strong> Der
+            historische Hauptbahnhof (früher <em>Victoria Terminus</em>) ist ein
+            architektonisches Meisterwerk des viktorianischen
+            Gothic-Revival-Stils und gehört zum UNESCO-Weltkulturerbe.
+          </li>
+          <li>
+            <strong>Marine Drive:</strong> Eine halbkreisförmige, kilometerlange
+            Uferpromenade. Nachts funkeln die Straßenlaternen so prachtvoll,
+            dass sie auch als „Halskette der Königin“ (Queen’s Necklace)
+            bezeichnet wird.
+          </li>
+          <li>
+            <strong>Elephanta-Höhlen:</strong> Jahrhundertalte, beeindruckende,
+            in den massiven Fels gehauene Höhlentempel für den Gott Shiva auf
+            einer vorgelagerten Insel (UNESCO-Weltkulturerbe).
+          </li>
+          <li>
+            <strong>Dharavi:</strong> Eines der größten Slums Asiens, das jedoch
+            gleichzeitig ein hochentwickeltes wirtschaftliches Ökosystem mit
+            Milliardenumsätzen in den Bereichen Recycling, Lederverarbeitung und
+            Töpferei darstellt.
+          </li>
+          <li>
+            <strong>Dhobi Ghat:</strong> Der weltgrößte Open-Air-Waschsalon, in
+            dem hunderte traditionelle Wäscher (Dhobis) täglich tausende
+            Kleidungsstücke von Hand waschen.
+          </li>
+        </ul>
+      </section>
+
+      <section id="funktion">
+        <h2>Wirtschaftliche & kulturelle Funktion</h2>
+        <p>Mumbai ist der wichtigste Motor der indischen Modernisierung.</p>
+        <h3>Das wirtschaftliche Kraftzentrum</h3>
+        <p>
+          Mumbai steuert über ein Fünftel zum indischen Bruttoinlandsprodukt
+          bei. Es ist das unangefochtene
+          <strong>Finanzzentrum des Landes</strong>. Hier residieren die
+          indische Zentralbank (Reserve Bank of India), die beiden wichtigsten
+          Wertpapierbörsen (NSE und die historische
+          <em>Bombay Stock Exchange</em>) sowie die Hauptquartiere globaler
+          indischer Konzerne wie der Tata-Gruppe und Reliance Industries.
+        </p>
+        <h3>Das kulturelle Epizentrum</h3>
+        <p>
+          Die Stadt ist das weltweite Herz von <strong>Bollywood</strong> – der
+          indischen Filmindustrie, die gemessen an produzierten Filmen und
+          Ticketverkäufen sogar Hollywood übertrifft. Mumbai prägt damit
+          maßgeblich die Popkultur, Mode, Musik und das kollektive Bewusstsein
+          ganz Südasiens.
+        </p>
+      </section>
+
+      <section id="vergleich">
+        <h2>Wesentliche Unterschiede: Mumbai vs. Delhi</h2>
+        <p>
+          Obwohl beide Städte das moderne Indien repräsentieren, besitzen sie
+          völlig unterschiedliche Identitäten:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Merkmal</th>
+              <th>Mumbai</th>
+              <th>Delhi (inkl. New Delhi)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hauptfunktion</strong></td>
+              <td>
+                <strong>Kommerzielles Zentrum:</strong> Finanzen, globaler
+                Handel, Unterhaltung und Medien.
+              </td>
+              <td>
+                <strong>Politisches Zentrum:</strong> Sitz der Regierung,
+                Ministerien, Botschaften und Verwaltung.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Geografie & Klima</strong></td>
+              <td>
+                Küstenstadt am Meer. Tropisch-feucht mit schweren Monsunzeiten,
+                ganzjährig warm.
+              </td>
+              <td>
+                Binnenstadt im Norden. Extremes Kontinentalklima (sehr heiße
+                Sommer, kalte Winter).
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Stadtbild & Architektur</strong></td>
+              <td>
+                <strong>Vertikal:</strong> Enge Landmasse, Wolkenkratzer,
+                koloniale Prachtbauten direkt am Wasser.
+              </td>
+              <td>
+                <strong>Horizontal:</strong> Weitläufig, breite Boulevards,
+                durchzogen von jahrtausendealten Ruinen und Festungen.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Historische DNA</strong></td>
+              <td>
+                Moderne Metropole, stark geprägt durch den maritimen Handel der
+                Kolonialzeit.
+              </td>
+              <td>
+                Historische Kaiserstadt, geformt durch mächtige Dynastien wie
+                das Mogulreich.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <footer>
+      <a href="neighbours.html">➥ weiter geht`s</a>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute("href");
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+              window.scrollTo({
+                top: targetSection.offsetTop - 70,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+
+        window.addEventListener("scroll", () => {
+          let fromTop = window.scrollY + 90;
+
+          navLinks.forEach((link) => {
+            const section = document.querySelector(link.getAttribute("href"));
+            if (section) {
+              if (
+                section.offsetTop <= fromTop &&
+                section.offsetTop + section.offsetHeight > fromTop
+              ) {
+                link.classList.add("active");
+              } else {
+                link.classList.remove("active");
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
