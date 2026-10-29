@@ -143,10 +143,22 @@ body {
 }
 
 .footer-navigation {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   margin-bottom: 60px;
+  gap: 20px;
 }
-
+@media (min-width: 1200px) {
+  .footer-navigation {
+    text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+  }
+}
 .beach-btn {
   position: relative;
   display: inline-flex;
