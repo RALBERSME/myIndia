@@ -1,0 +1,58 @@
+<!doctype html>
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your India Travel Planner</title>
+    <link rel="stylesheet" href="india3.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>What would you like to experience on your journey through India?</h1>
+
+      <div class="workspace">
+        <div class="chain-section">
+          <div class="garland-string" id="garlandChain">
+            <div class="flower fixed-flower">Round Trip</div>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <h3>
+            Add more wishes by stringing the corresponding flower onto the
+            garland. To do this, drag and drop it onto the "Round Trip".
+          </h3>
+          <div class="flower-pool" id="flowerPool">
+            <div class="flower draggable" draggable="true" data-topic="spirit">
+              Spirit
+            </div>
+            <div class="flower draggable" draggable="true" data-topic="history">
+              History
+            </div>
+            <div class="flower draggable" draggable="true" data-topic="love">
+              Love
+            </div>
+            <div class="flower draggable" draggable="true" data-topic="food">
+              Food
+            </div>
+            <div
+              class="flower draggable"
+              draggable="true"
+              data-topic="medicine"
+            >
+              Medicine
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-section">
+        <button id="finishBtn">All set, let's get started!</button>
+        <div id="resultMessage" class="result-message hidden"></div>
+      </div>
+    </div>
+
+    <script src="india3Engl.js"></script>
+  </body>
+</html>

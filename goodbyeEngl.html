@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goodbye</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      background-image: linear-gradient(
+        to right bottom,
+        rgb(249, 196, 196),
+        rgb(248, 236, 236)
+      );
+    }
+    .container {
+      margin: 5%;
+      padding: 5%;
+      height: 60vh;
+      background-image: url(Images/mandala.png);
+      background-size: 2cqmax;
+      border: 5px dashed orange;
+    }
+
+    #person {
+      border-radius: 50%;
+      height: 200px;
+      width: 200px;
+      transform: translateY(100px);
+    }
+    h3 {
+      text-align: center;
+    }
+    .split {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      height: 50vh;
+    }
+    img {
+      height: 270px;
+    }
+    .beach-btn {
+      position: relative;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 60px;
+      background-color: rgb(215, 119, 135);
+      border: 2px solid #0c8fe1;
+      border-radius: 30px;
+      text-decoration: none;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(247, 208, 112, 0.3);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .beach-btn .btn-text {
+      position: relative;
+      z-index: 2;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1px;
+      transition: color 0.4s ease;
+    }
+
+    .beach-btn .wave-bg {
+      position: absolute;
+      top: 100%;
+      left: -50%;
+      width: 200%;
+      height: 400%;
+      background: #3498db;
+      border-radius: 40%;
+      z-index: 1;
+      transition: top 0.6s ease;
+    }
+
+    .beach-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+    }
+
+    .beach-btn:hover .btn-text {
+      color: #ffffff;
+    }
+
+    .beach-btn:hover .wave-bg {
+      top: -60%;
+      animation: ocean-wave 4s linear infinite;
+    }
+
+    @keyframes ocean-wave {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .split {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+        height: 50vh;
+      }
+      img {
+        height: 95%;
+      }
+      #person {
+        overflow: hidden;
+        display: block;
+        border-radius: 50%;
+        height: 450px;
+        width: 450px;
+        transform: translateY(0px);
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>It has been a pleasure traveling through India with you.</h1>
+
+      <h2>
+        Now we have reached the end of our journey <br />and it is time to say
+        goodbye.
+      </h2>
+
+      <div class="split">
+        <img id="person" src="Images/man.jpg" alt="man" />
+        <div class="left">
+          <img src="Images/bye.gif" alt="bye" />
+          <a href="specials.html" class="beach-btn" style="width: 300px">
+            <span class="btn-text">➥ want specials?</span>
+            <span class="wave-bg"></span>
+          </a>
+          <h3>
+            Reinhild's <em>myIndia</em> - copyright &copy; 2026 all rights
+            reserved
+          </h3>
+          <br /><br />
+        </div>
+      </div>
+    </div>
+    <script>
+      const gewaehlteThemen = ["goodbyeEngl"];
+      localStorage.setItem(
+        "indienReiseThemen",
+        JSON.stringify(gewaehlteThemen),
+      );
+    </script>
+    <script src="india4Engl.js"></script>
+  </body>
+</html>
