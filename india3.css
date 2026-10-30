@@ -179,3 +179,8 @@ button:active {
     transform: translateY(0);
   }
 }
+.draggable {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}

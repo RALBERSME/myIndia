@@ -6,26 +6,82 @@ const pool = document.getElementById("flowerPool");
 const finishBtn = document.getElementById("finishBtn");
 const resultMessage = document.getElementById("resultMessage");
 
+// --- Bestehender Maus-Code (bleibt gleich) ---
 draggables.forEach((draggable) => {
-  draggable.addEventListener("dragstart", () => {
-    draggable.classList.add("dragging");
-  });
+  draggable.addEventListener("dragstart", () =>
+    draggable.classList.add("dragging"),
+  );
+  draggable.addEventListener("dragend", () =>
+    draggable.classList.remove("dragging"),
+  );
 
-  draggable.addEventListener("dragend", () => {
+  // --- NEU: Touch-Events für mobile Geräte ---
+  draggable.addEventListener(
+    "touchstart",
+    (e) => {
+      draggable.classList.add("dragging");
+      // Verhindert Scrollen des Bildschirms während des Ziehens
+      e.preventDefault();
+    },
+    { passive: false },
+  );
+
+  draggable.addEventListener(
+    "touchmove",
+    (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+
+      // Element visuell dem Finger folgen lassen
+      draggable.style.position = "fixed";
+      draggable.style.left = `${touch.clientX - draggable.offsetWidth / 2}px`;
+      draggable.style.top = `${touch.clientY - draggable.offsetHeight / 2}px`;
+      draggable.style.zIndex = "1000";
+    },
+    { passive: false },
+  );
+
+  draggable.addEventListener("touchend", (e) => {
     draggable.classList.remove("dragging");
+
+    // Zurücksetzen der fixierten Positionierung
+    draggable.style.position = "";
+    draggable.style.left = "";
+    draggable.style.top = "";
+    draggable.style.zIndex = "";
+
+    // Prüfen, über welchem Element der Finger losgelassen wurde
+    const touch = e.changedTouches[0];
+    const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
+
+    // Finde heraus, ob das Ziel die Kette oder der Pool ist (oder deren Kinder)
+    const hitChain = dropTarget?.closest("#chainID"); // Ersetzen Sie #chainID mit Ihrem echten Selektor für 'chain'
+    const hitPool = dropTarget?.closest("#flowerPool");
+
+    const topic = draggable.getAttribute("data-topic");
+
+    if (hitChain) {
+      chain.appendChild(draggable);
+      if (!gewaehlteThemen.includes(topic)) {
+        gewaehlteThemen.unshift(topic);
+      }
+    } else if (hitPool) {
+      pool.appendChild(draggable);
+      const index = gewaehlteThemen.indexOf(topic);
+      if (index > -1) {
+        gewaehlteThemen.splice(index, 1);
+      }
+    }
   });
 });
 
-chain.addEventListener("dragover", (e) => {
-  e.preventDefault();
-});
-
+// --- Bestehender Maus-Drop-Code (bleibt gleich) ---
+chain.addEventListener("dragover", (e) => e.preventDefault());
 chain.addEventListener("drop", (e) => {
   e.preventDefault();
   const draggable = document.querySelector(".dragging");
   if (draggable) {
     chain.appendChild(draggable);
-
     const topic = draggable.getAttribute("data-topic");
     if (!gewaehlteThemen.includes(topic)) {
       gewaehlteThemen.unshift(topic);
@@ -33,16 +89,12 @@ chain.addEventListener("drop", (e) => {
   }
 });
 
-pool.addEventListener("dragover", (e) => {
-  e.preventDefault();
-});
-
+pool.addEventListener("dragover", (e) => e.preventDefault());
 pool.addEventListener("drop", (e) => {
   e.preventDefault();
   const draggable = document.querySelector(".dragging");
   if (draggable) {
     pool.appendChild(draggable);
-
     const topic = draggable.getAttribute("data-topic");
     const index = gewaehlteThemen.indexOf(topic);
     if (index > -1) {
