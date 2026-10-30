@@ -574,14 +574,15 @@
             totalRuns = 0;
             scoreDisplay.textContent = totalRuns;
             commentaryDisplay.textContent = comments["Wicket!"];
-            commentaryDisplay.style.color = "#ff007f";
+            commentaryDisplay.style.color = "#ea1212";
+            commentaryDisplay.style.fontWeight = "bold";
           } else {
             totalRuns += result;
             scoreDisplay.textContent = totalRuns;
             commentaryDisplay.textContent = comments[result];
 
             if (result === 6) {
-              commentaryDisplay.style.color = "#ffcc00";
+              commentaryDisplay.style.color = "orange";
               commentaryDisplay.style.fontWeight = "bold";
             } else {
               commentaryDisplay.style.color = "white";

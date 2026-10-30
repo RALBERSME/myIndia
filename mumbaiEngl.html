@@ -211,6 +211,68 @@
           padding: 10px;
         }
       }
+      .table-scroll-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 30px 0;
+        border: 1px solid #cccccc;
+        border-radius: 8px;
+        background-color: #ffffff !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      #vergleich table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #ffffff !important;
+        margin: 0;
+      }
+
+      #vergleich th,
+      #vergleich td {
+        padding: 14px 18px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #2c3e50 !important;
+        border: 1px solid #e0e0e0 !important;
+        text-align: left;
+        vertical-align: top;
+        background-color: #ffffff !important;
+      }
+
+      #vergleich th {
+        background-color: #f8f9fa !important;
+        font-weight: 700;
+        color: #16a085 !important;
+      }
+
+      #vergleich tbody tr:nth-child(even) td {
+        background-color: #fcfcfc !important;
+      }
+
+      @media (max-width: 768px) {
+        #vergleich table {
+          min-width: 680px !important;
+          display: table !important;
+        }
+
+        #vergleich th,
+        #vergleich td {
+          white-space: normal !important;
+        }
+
+        .table-scroll-container::-webkit-scrollbar {
+          height: 6px;
+        }
+        .table-scroll-container::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+        .table-scroll-container::-webkit-scrollbar-thumb {
+          background: #bdc3c7;
+          border-radius: 3px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -444,61 +506,63 @@
           Although both cities represent modern India, they possess entirely
           distinct identities:
         </p>
-        <table>
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th>Mumbai</th>
-              <th>Delhi (incl. New Delhi)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Primary Function</strong></td>
-              <td>
-                <strong>Commercial Center:</strong> Finance, global trade,
-                entertainment, and media.
-              </td>
-              <td>
-                <strong>Political Center:</strong> Seat of government,
-                ministries, embassies, and administration.
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Geography & Climate</strong></td>
-              <td>
-                Coastal city by the sea. Tropical and humid with heavy monsoon
-                seasons, warm year-round.
-              </td>
-              <td>
-                Inland city in the north. Extreme continental climate (very hot
-                summers, cold winters).
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Cityscape & Architecture</strong></td>
-              <td>
-                <strong>Vertical:</strong> Narrow landmass, skyscrapers,
-                colonial heritage buildings right by the waterfront.
-              </td>
-              <td>
-                <strong>Horizontal:</strong> Sprawling, wide boulevards,
-                interspersed with millennia-old ruins and forts.
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Historical DNA</strong></td>
-              <td>
-                Modern metropolis, heavily shaped by the maritime trade of the
-                colonial era.
-              </td>
-              <td>
-                Historic imperial city, shaped by powerful dynasties such as the
-                Mughal Empire.
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-scroll-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Mumbai</th>
+                <th>Delhi (incl. New Delhi)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Primary Function</strong></td>
+                <td>
+                  <strong>Commercial Center:</strong> Finance, global trade,
+                  entertainment, and media.
+                </td>
+                <td>
+                  <strong>Political Center:</strong> Seat of government,
+                  ministries, embassies, and administration.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Geography & Climate</strong></td>
+                <td>
+                  Coastal city by the sea. Tropical and humid with heavy monsoon
+                  seasons, warm year-round.
+                </td>
+                <td>
+                  Inland city in the north. Extreme continental climate (very
+                  hot summers, cold winters).
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Cityscape & Architecture</strong></td>
+                <td>
+                  <strong>Vertical:</strong> Narrow landmass, skyscrapers,
+                  colonial heritage buildings right by the waterfront.
+                </td>
+                <td>
+                  <strong>Horizontal:</strong> Sprawling, wide boulevards,
+                  interspersed with millennia-old ruins and forts.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Historical DNA</strong></td>
+                <td>
+                  Modern metropolis, heavily shaped by the maritime trade of the
+                  colonial era.
+                </td>
+                <td>
+                  Historic imperial city, shaped by powerful dynasties such as
+                  the Mughal Empire.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
 

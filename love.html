@@ -31,11 +31,14 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
         color: var(--text-dark);
-        background-image: url(Images/woman.jpg);
-        background-repeat: repeat-y;
-        background-size: 15cqmax;
       }
-
+      @media (min-width: 1024px) {
+        body {
+          background-image: url(Images/woman.jpg);
+          background-repeat: repeat-y;
+          background-size: 15cqmax;
+        }
+      }
       header {
         position: fixed;
         top: 0;

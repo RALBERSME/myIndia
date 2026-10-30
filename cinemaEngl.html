@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Time</title>
+    <link rel="stylesheet" href="cinema.css" />
+    <link href="https://googleapis.com" rel="stylesheet" />
+  </head>
+  <body class="cinema-ambient">
+    <main class="cinema-theater">
+      <div class="intro-trigger-wrapper" id="introWrapper">
+        <button id="enterCinemaBtn" class="action-btn primary-btn">
+          Enter Theater & Dim Lights
+        </button>
+      </div>
+
+      <div class="screen-viewport hidden-screen" id="cinemaScreen">
+        <div class="screen-surface">
+          <div class="video-wrapper" id="videoContainer">
+            <iframe
+              src="https://www.youtube.com/embed/fGhad-h0Gns"
+              title="UNFASSBARES INDIEN – Der atemberaubendste Ort der Welt, den Sie vielleicht nie zu sehen bekommen!!"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="modern-fallback" id="fallbackCard">
+            <div class="fallback-message">
+              <h3>Notice</h3>
+              <p>Sorry. No screenings currently available.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cinema-controls-bar">
+          <button id="lightsToggleBtn" class="action-btn outline-btn">
+            💡 Turn On Lights
+          </button>
+          <button id="continueBtn" class="action-btn primary-btn">
+            ➥ Back to Specials Page
+          </button>
+        </div>
+      </div>
+
+      <div class="seating-area" id="seatingArea">
+        <div class="projector-glow"></div>
+        <div class="row-chairs">
+          <div class="minimal-chair"></div>
+          <div class="minimal-chair VIP"></div>
+          <div class="minimal-chair VIP focus"></div>
+          <div class="minimal-chair VIP"></div>
+          <div class="minimal-chair"></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="cinemaEngl.js"></script>
+  </body>
+</html>

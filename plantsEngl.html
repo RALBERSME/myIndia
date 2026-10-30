@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Fascinating Flora of India</title>
+    <link rel="stylesheet" href="plants.css" />
+    <link href="https://googleapis.com" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="plant-hero">
+      <div class="hero-content">
+        <h1>The Plants of India</h1>
+        <p>
+          An interactive journey through sacred forests, Ayurvedic wonders, and
+          towering giants of the jungle.
+        </p>
+      </div>
+    </header>
+    <section class="section-poster">
+      <div class="poster-scroll-hint">
+        <span>↔️ Swipe or 🔍 Click to zoom for full details </span>
+      </div>
+
+      <div class="poster-viewport" id="posterContainer">
+        <img src="Images/PflanzenIndiens.png" id="posterImage" alt="Plants" />
+      </div>
+    </section>
+
+    <main class="main-wrapper">
+      <section class="plant-section section-lotus">
+        <div class="section-header">
+          <h2>1. The National Plants of India</h2>
+          <p>
+            Click on the closed lotus bud to make it bloom and reveal its
+            secret!
+          </p>
+        </div>
+
+        <div class="lotus-interactive-container">
+          <div class="lotus-flower" id="lotusFlower">
+            <div class="petal petal-1"></div>
+            <div class="petal petal-2"></div>
+            <div class="petal petal-3"></div>
+            <div class="petal petal-4"></div>
+            <div class="petal petal-5"></div>
+            <div class="lotus-core">🌸</div>
+          </div>
+        </div>
+
+        <div class="reveal-box" id="lotusInfoBox">
+          <h3>Indian Lotus (Nelumbo nucifera)</h3>
+          <div class="info-grid">
+            <p>
+              <strong>Lifespan: </strong> An annual to perennial aquatic plant
+              whose seeds can survive for centuries.
+            </p>
+            <p>
+              <strong>Medicinal Properties:</strong> In traditional medicine,
+              its roots and seeds are used to reduce fever, soothe the body, and
+              aid digestion.
+            </p>
+            <p>
+              <strong>Requirements & Location:</strong> Thrives in still waters
+              with muddy beds and plenty of sunlight. Found in ponds all across
+              India.
+            </p>
+            <p>
+              <strong>Value & Function:</strong> Symbolizes spiritual purity and
+              divine beauty. Provides shade and shelter for aquatic ecosystems.
+            </p>
+          </div>
+        </div>
+
+        <div class="banyan-display">
+          <div class="banyan-text">
+            <h3>The Bengal Banyan Tree (Ficus benghalensis)</h3>
+            <p>
+              <strong>The Living Wonder: </strong> This giant tree grows
+              ceaselessly outward. Its branches drop aerial roots that turn into
+              new trunks. A single tree can live to be
+              <strong>200 to 500 years old</strong> and cover the area of an
+              entire forest!
+            </p>
+            <p>
+              <strong>Requirements & Location:</strong> Prefers a warm, humid
+              tropical climate. The world's largest Banyan tree stands in the
+              Botanical Garden in <em>Kolkata</em>.
+            </p>
+            <p>
+              <strong>Medicinal Uses:</strong> In Ayurvedic medicine, its milky
+              sap is used to treat skin inflammation and toothaches.
+            </p>
+            <p>
+              <strong>Value:</strong> A massive ecosystem in itself. It provides
+              shelter and food for thousands of birds, monkeys, and insects.
+            </p>
+          </div>
+          <div class="banyan-visual">
+            <img id="banyan" src="Images/banyan.jpg" alt="tree" />
+          </div>
+        </div>
+      </section>
+
+      <section class="plant-section section-puzzle">
+        <div class="section-header">
+          <h2>2. Sacred & Culturally Revered Trees</h2>
+          <p>
+            Solve nature's sliding puzzle! Click on the squares next to the
+            empty space to piece together the image of the sacred Neem tree.
+            Once the picture is complete, the hidden facts will be unlocked!
+          </p>
+        </div>
+
+        <div class="puzzle-game-area">
+          <div id="puzzleBoard" class="puzzle-board"></div>
+
+          <div id="puzzleSecretContent" class="secret-content locked">
+            <div class="lock-overlay" id="lockOverlay">
+              <div class="lock-icon">🔒</div>
+              <p>
+                Solve the puzzle on the left to unlock knowledge about the
+                <strong>Bodhi Tree</strong> and the <strong>Neem Tree!</strong>!
+              </p>
+            </div>
+            <div class="unlocked-text">
+              <h3>The Neem Tree (The Village Pharmacy)</h3>
+              <p>
+                <strong>Lifespan & Function: </strong> Can live up to 200 years.
+                It filters pollutants from the air with exceptional efficiency.
+              </p>
+              <p>
+                <strong>Medicinal Value:</strong> A true Ayurvedic wonder! Its
+                leaves have powerful antibacterial, antiviral, and
+                anti-inflammatory properties. Ideal for treating skin conditions
+                and acting as a natural insect repellent.
+              </p>
+
+              <h3>The Bodhi Tree (Sacred Fig)</h3>
+              <p>
+                <strong>Lifespan & Significance:</strong> Lives well over 1,000
+                years. It was beneath this tree that Buddha attained
+                enlightenment.
+              </p>
+              <p>
+                <strong>Value & Location:</strong> Grows majestically near
+                nearly every temple (especially in<em>Bodhgaya</em>). For
+                humans, it represents the ultimate symbol of inner peace.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="plant-section section-giants">
+        <div class="section-header">
+          <h2>3. Essential Crops & Jungle Giants</h2>
+          <p>Scroll down to explore India's economic and ecological pillars.</p>
+        </div>
+
+        <div class="giant-flex-row">
+          <div class="giant-badge-card card-tea">
+            <div class="card-icon">🍃</div>
+            <h3>Assam Tea Plant</h3>
+            <p>
+              <strong>Uses & Value:</strong> Shapes the economy of entire
+              states. Provides caffeine and antioxidants, securing millions of
+              jobs.
+            </p>
+            <p>
+              <strong>Requirements: </strong> Demands acidic soil, heavy
+              rainfall, and hillside locations in Northeast India.
+            </p>
+          </div>
+
+          <div class="giant-badge-card card-coconut">
+            <div class="card-icon">🥥</div>
+            <h3>The Coconut Palm</h3>
+            <p>
+              <strong>Lifespan & Function:</strong> Lives around 80 to 100
+              years. Also known as the "Tree of Heaven" because every single
+              part can be used (wood, fiber, water, oil).
+            </p>
+            <p>
+              <strong>Medicinal Uses: </strong> Coconut water is rich in
+              electrolytes and helps reduce fever, while the oil nourishes
+              damaged skin.
+            </p>
+          </div>
+
+          <div class="giant-badge-card card-sandal">
+            <div class="card-icon">🪵</div>
+            <h3>Indian Sandalwood</h3>
+            <p>
+              <strong>Jungle Giant:</strong> A precious tree that takes 30 years
+              to fully develop its rich aroma. The wood is highly valuable for
+              fine perfumes and religious incense ceremonies.
+            </p>
+            <p>
+              <strong>Conservation: </strong> Vulnerable in the wild; logging is
+              now under strict government control.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="videos"></section>
+    </main>
+
+    <footer class="playful-footer">
+      <a href="cinemaEngl.html" class="beach-btn">
+        <span class="btn-text">➥ Let's continue</span>
+        <span class="wave-bg"></span>
+      </a>
+    </footer>
+
+    <script src="plants.js"></script>
+  </body>
+</html>

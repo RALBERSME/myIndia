@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indiens wilde Tierwelt</title>
+    <link rel="stylesheet" href="animals.css" />
+
+    <link href="https://googleapis.com" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="hero-playful">
+      <div id="header-intro-overlay">
+        <img src="Images/lamp.gif" alt="Loading Animation" class="intro-gif" />
+      </div>
+
+      <div class="hero-bubble">
+        <span class="emoji-sticker animate-bounce"
+          ><img id="tiger" src="Images/tigerBaby.png"
+        /></span>
+        <span class="emoji-sticker animate-grow"
+          ><img id="cobra" src="Images/cobrahigh.png"
+        /></span>
+        <span class="emoji-sticker"
+          ><img id="pfau" src="Images/pfau.gif"
+        /></span>
+        <h1>
+          The Animals <br />
+          of India
+        </h1>
+        <br />
+        <hr />
+        <br /><br />
+        <h2><em>Die Tiere Indiens</em></h2>
+        <br />
+        <hr />
+        <br />
+        <h3>
+          ↡ Scroll nach unten, <br />um in die <br />geheimnisvolle Tierwelt
+          Indiens <br />einzutauchen!
+        </h3>
+      </div>
+    </header>
+
+    <section class="section-poster">
+      <div class="poster-scroll-hint">
+        <span>↔️ Wischen oder 🔍 Klicken zum Zoomen für alle Details</span>
+      </div>
+
+      <div class="poster-viewport" id="posterContainer">
+        <img
+          src="Images/animalsIndia.png"
+          id="posterImage"
+          alt="The Animals of India Poster"
+        />
+      </div>
+    </section>
+
+    <section class="section-national">
+      <div class="section-intro">
+        <h2 class="title-comic">1. Die majestätischen Nationaltiere</h2>
+        <p>
+          Hier regieren die offiziellen Ikonen des Subkontinents. Atemberaubend
+          schön, tief verwurzelt und streng geschützt!
+        </p>
+      </div>
+
+      <div class="comic-grid">
+        <div class="comic-card tiger-card">
+          <div class="comic-img-wrapper">
+            <iframe
+              class="national"
+              src="https://www.youtube.com/embed/ja4GNdU2vYc"
+              title="Bengal tiger mum&#39;s fierce hunt to feed her family | Asia - BBC"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <span class="badge danger-badge">Stark gefährdet!</span>
+          </div>
+          <div class="comic-text">
+            <h3>Königstiger</h3>
+            <p>
+              <strong>Wie viele?</strong> Ca. 3.680 Raubkatzen (Tendenz dank
+              strenger Schutzprojekte leicht steigend!).
+            </p>
+            <p>
+              <strong>Das Besondere:</strong> Absolut einzigartige
+              Streifenmuster und sie lieben Wasser! Sie sind fantastische
+              Schwimmer.
+            </p>
+            <p>
+              <strong>Warum ist es wichtig?</strong> Seit 1973 das offizielle
+              Nationaltier. Steht für pure Kraft und ist das Reittier der
+              hinduistischen Göttin Durga.
+            </p>
+            <p>
+              <strong>Wo zu finden?</strong> In den dichten Wäldern von
+              <em>Ranthambore</em> oder den wilden Mangroven der
+              <em>Sundarbans</em>.
+            </p>
+          </div>
+        </div>
+
+        <div class="comic-card elephant-card">
+          <div class="comic-img-wrapper">
+            <iframe
+              class="national"
+              src="https://www.youtube.com/embed/p5LpCK0JxtA"
+              title="Elephant Kingdom (Full Episode) | Secrets of Wild India | Nat Geo Animals"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <span class="badge danger-badge">Stark gefährdet!</span>
+          </div>
+          <div class="comic-text">
+            <h3>Asiatischer Elefant</h3>
+            <p>
+              <strong>Wie viele?</strong> Rund 27.000 bis 31.000 sanfte Riesen
+              wandern durch die indischen Regionen.
+            </p>
+            <p>
+              <strong>Das Besondere:</strong> Kleiner als die afrikanischen
+              Verwandten, aber extrem schlau, feinfühlig und hochsozial.
+            </p>
+            <p>
+              <strong>Warum wichtig?</strong> Gilt als nationales Kulturerbe
+              ("National Heritage Animal") und verkörpert den beliebten Gott
+              Ganesha.
+            </p>
+            <p>
+              <strong>Wo zu finden?</strong> Vor allem im grünen Süden, perfekt
+              geschützt im <em>Periyar Nationalpark</em> oder in Assam.
+            </p>
+          </div>
+        </div>
+
+        <div class="comic-card peacock-card">
+          <div class="comic-img-wrapper">
+            <iframe
+              class="national"
+              src="https://www.youtube.com/embed/aYH_s2_6yso"
+              title="Blauer Pfau / Indian Peacock (HD 1080p)"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <span class="badge safe-badge">Nicht gefährdet</span>
+          </div>
+          <div class="comic-text">
+            <h3>Indischer Pfau</h3>
+            <p>
+              <strong>Wie viele?</strong> Weit verbreitet, stabile Populationen
+              im ganzen Land (streng geschützt unter dem Wildlife Protection
+              Act).
+            </p>
+            <p>
+              <strong>Das Besondere:</strong> Die Männchen besitzen ein
+              schillerndes Rad aus über 200 Prachtfedern, um die Weibchen zu
+              beeindrucken.
+            </p>
+            <p>
+              <strong>Warum wichtig?</strong> Seit 1963 der offizielle
+              Nationalvogel Indiens. Symbolisiert Schönheit, Anmut und Freude,
+              eng verbunden mit Gott Krishna.
+            </p>
+            <p>
+              <strong>Wo zu finden?</strong> Praktisch überall in Dörfern,
+              offenen Wäldern und Tempelgärten, besonders häufig im
+              halbtrockenen <em>Rajasthan</em>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-holy">
+      <div class="section-intro">
+        <h2 class="title-retro">2. Heilige & verehrte Tiere</h2>
+        <p>
+          In Indien verschmelzen Natur und Spiritualität. Fahre mit der Maus
+          über die Kacheln oder klicke sie an, um ihre faszinierenden
+          Geschichten zu enthüllen!
+        </p>
+      </div>
+
+      <div class="flip-container">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front cow-front">
+              <img
+                width="160px"
+                height="160px"
+                src="Images/cowImg.jpg"
+                alt="cow"
+              />
+              <h3>Die heilige Kuh</h3>
+              <p class="status-safe">✅ Absolut geschützt</p>
+            </div>
+            <div class="flip-back">
+              <h3>Mutter der Nation</h3>
+              <p><strong>Wie viele?</strong> Über 190 Millionen!</p>
+              <p>
+                <strong>Besonderheit:</strong> Besitzen den typischen Fettbuckel
+                und sind extrem hitzeresistent.
+              </p>
+              <p>
+                <strong>Bedeutung:</strong> Im Hinduismus das Symbol für
+                Gewaltlosigkeit (Ahimsa) und Überfluss. Sie wird niemals
+                geschlachtet.
+              </p>
+              <p>
+                <strong>Wo?</strong> Sie spazieren völlig tiefenentspannt durch
+                den dichtesten Straßenverkehr aller indischen Großstädte.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front monkey-front">
+              <img
+                width="160px"
+                height="160px"
+                src="Images/languren.png"
+                alt="ape"
+              />
+              <h3>Hulman-Languren</h3>
+              <p class="status-safe">✅ Weit verbreitet</p>
+            </div>
+            <div class="flip-back">
+              <h3>Die Tempelwächter</h3>
+              <p><strong>Wie viele?</strong> Hunderttausende im ganzen Land.</p>
+              <p>
+                <strong>Besonderheit:</strong> Rabenschwarzes Gesicht mit hellem
+                Haarkranz und unendlich langen Kletterschwänzen.
+              </p>
+              <p>
+                <strong>Bedeutung:</strong> Gelten als lebende Abbilder des
+                treuen Affengottes Hanuman und werden in Tempelanlagen mit
+                Früchten verwöhnt.
+              </p>
+              <p>
+                <strong>Wo?</strong> Besonders spektakulär am berühmten
+                Jakhu-Tempel in Shimla oder überall in Rajasthan.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front rat-front">
+              <img
+                width="160px"
+                height="160px"
+                src="Images/houserats.jpg"
+                alt="rat"
+              />
+              <h3>Die heiligen Ratten</h3>
+              <p class="status-safe">✅ Tempel-VIPs</p>
+            </div>
+            <div class="flip-back">
+              <h3>Die Kabbas von Deshnoke</h3>
+              <p>
+                <strong>Wie viele?</strong> Über 25.000 heilige Ratten leben im
+                Karni-Mata-Tempel.
+              </p>
+              <p>
+                <strong>Besonderheit:</strong> Werden dort liebevoll "Kabbas"
+                genannt. Läuft eine über deine Füße, bringt das großes Glück!
+              </p>
+              <p>
+                <strong>Bedeutung:</strong> Gelten als Reinkarnationen der
+                Geschichtenerzähler und stehen unter dem Schutz der Göttin Karni
+                Mata.
+              </p>
+              <p>
+                <strong>Wo?</strong> Ausschließlich im weltberühmten
+                <em>Karni-Mata-Tempel</em> in Deshnoke (Rajasthan).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-front cobra-front-tile">
+              <img
+                width="160px"
+                height="160px"
+                src="Images/cobraActive.jpg"
+                alt="cobra"
+              />
+              <h3>Die Königskobra</h3>
+              <p class="status-safe">⚠️ Vorsicht, giftig!</p>
+            </div>
+            <div class="flip-back">
+              <h3>Die göttliche Schlange</h3>
+              <p>
+                <strong>Wie viele?</strong> Genaue Zahlen fehlen, der Bestand
+                gilt als gefährdet (Vulnerable).
+              </p>
+              <p>
+                <strong>Besonderheit:</strong> Die längste Giftschlange der Welt
+                (bis zu 5,5 Meter!). Kann sich meterhoch aufrichten.
+              </p>
+              <p>
+                <strong>Bedeutung:</strong> Eng mit Gott Shiva verbunden (der
+                sie um den Hals trägt). Am Schlangenfest "Nag Panchami" wird sie
+                tief verehrt.
+              </p>
+              <p>
+                <strong>Wo?</strong> In den dichten Regenwäldern der Western
+                Ghats oder den Dschungeln im Nordosten Indiens.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-bigfive">
+      <div class="section-intro">
+        <h2 class="title-pop">3. Indiens „Big Five“ Wildtier-Giganten</h2>
+        <p>
+          Die unangefochtenen Schwergewichte der indischen Nationalparks. Alle
+          fünf wilden Wunder im Überblick!
+        </p>
+      </div>
+
+      <div class="pop-row slide-left spec-tiger">
+        <div class="pop-visual">
+          <img src="Images/kingtiger.jpg" alt="Königstiger" />
+          <div class="pop-sticker warning">Stark gefährdet</div>
+        </div>
+        <div class="pop-info">
+          <h3>1. Königstiger</h3>
+          <p>
+            <strong>Bestand:</strong> Ca. 3.680 Raubkatzen in Indien. Ein
+            vorsichtiger Erfolg des Artenschutzes!
+          </p>
+          <p>
+            <strong>Besonderheit:</strong> Absolut wasserliebend, exzellente
+            Schwimmer und extrem muskulöse Einzelgänger.
+          </p>
+          <p>
+            <strong>Bedeutung:</strong> Als ultimativer Herrscher des Dschungels
+            ist er das stolze Symbol für Indiens unberührte Natur.
+          </p>
+          <p>
+            <strong>Wo findet man sie?</strong> Die besten Sichtungschancen hast
+            du in <em>Ranthambore</em> oder <em>Bandhavgarh</em>.
+          </p>
+        </div>
+      </div>
+
+      <div class="pop-row slide-right spec-elephant">
+        <div class="pop-info">
+          <h3>2. Asiatischer Elefant</h3>
+          <p>
+            <strong>Bestand:</strong> Rund 27.000 bis 31.000 Tiere wandern durch
+            die indischen Wälder.
+          </p>
+          <p>
+            <strong>Besonderheit:</strong> Hochintelligent, ausgeprägtes
+            Trauerverhalten und kleinere Ohren als afrikanische Elefanten.
+          </p>
+          <p>
+            <strong>Bedeutung:</strong> Ein unersetzlicher
+            "Ökosystem-Ingenieur", der Pfade durch dichte Wälder für andere
+            Tiere schlägt.
+          </p>
+          <p>
+            <strong>Wo findet man sie?</strong> Im dichten Grün des Südens, wie
+            dem wunderschönen <em>Periyar-Nationalpark</em>.
+          </p>
+        </div>
+        <div class="pop-visual">
+          <img src="Images/elefants.png" alt="Asiatischer Elefant" />
+          <div class="pop-sticker warning">Stark gefährdet</div>
+        </div>
+      </div>
+
+      <div class="pop-row slide-left spec-lion">
+        <div class="pop-visual">
+          <img src="Images/lioness.jpg" alt="Asiatischer Löwe" />
+          <div class="pop-sticker warning">Akut bedroht</div>
+        </div>
+        <div class="pop-info">
+          <h3>3. Asiatischer Löwe</h3>
+          <p>
+            <strong>Bestand:</strong> Nur noch ca. 674 Tiere weltweit! Akut vom
+            Aussterben bedroht.
+          </p>
+          <p>
+            <strong>Besonderheit:</strong> Kleiner als afrikanische Löwen,
+            kürzere Mähne, aber eine markante Hautfalte am Bauch.
+          </p>
+          <p>
+            <strong>Bedeutung:</strong> Sie lebten einst bis Europa, überlebten
+            das letzte Jahrhundert aber nur durch radikalen Schutz in Indien.
+          </p>
+          <p>
+            <strong>Wo findet man sie?</strong> Exklusiv an einem einzigen Ort
+            auf der Erde: Im <em>Gir-Nationalpark</em> in Gujarat.
+          </p>
+        </div>
+      </div>
+
+      <div class="pop-row slide-right spec-rhino">
+        <div class="pop-info">
+          <h3>4. Indisches Panzernashorn</h3>
+          <p>
+            <strong>Bestand:</strong> Rund 4.000 stolze Kolosse (Eine
+            gigantische Rettungsaktion, da es um 1900 fast ausgestorben war).
+          </p>
+          <p>
+            <strong>Besonderheit:</strong> Seine dicke Haut liegt in Falten wie
+            eine Ritterrüstung. Es besitzt nur ein einziges Horn.
+          </p>
+          <p>
+            <strong>Bedeutung:</strong> Der unangefochtene Panzer-König der
+            indischen Feuchtgebiete und Sumpflandschaften.
+          </p>
+          <p>
+            <strong>Wo findet man sie?</strong> Im hohen, überfluteten Grasland
+            des <em>Kaziranga-Nationalparks</em> in Assam.
+          </p>
+        </div>
+        <div class="pop-visual">
+          <img src="Images/nashorn.jpg" alt="Panzernashorn" />
+          <div class="pop-sticker success">Gefährdet</div>
+        </div>
+      </div>
+
+      <div class="pop-row slide-left spec-leopard">
+        <div class="pop-visual">
+          <img src="Images/leopard.jpg" alt="Indischer Leopard" />
+          <div class="pop-sticker success">Gefährdet</div>
+        </div>
+        <div class="pop-info">
+          <h3>5. Indischer Leopard</h3>
+          <p>
+            <strong>Bestand:</strong> Ca. 12.000 bis 14.000 Tiere. Die
+            Population gilt als vergleichsweise stabil.
+          </p>
+          <p>
+            <strong>Besonderheit:</strong> Meister der Tarnung und extrem
+            kletterbegabt. Er zieht Beutetiere oft auf Bäume hoch.
+          </p>
+          <p>
+            <strong>Bedeutung:</strong> Hält als listiger Jäger das biologische
+            Gleichgewicht kleinerer Säugetiere in den Wäldern aufrecht.
+          </p>
+          <p>
+            <strong>Wo findet man sie?</strong> Sehr anpassungsfähig, oft im
+            <em>Jhalana Leopard Reserve</em> oder im felsigen Terrain von
+            <em>Jawai</em>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-video-gallery">
+      <div class="section-header">
+        <h2 class="title-video">🎬 Indiens Wildnis im Bewegtbild</h2>
+
+        <p class="hint-text hint-desktop">
+          Schaue dir rechts die Vorschau-Videos an. Klicke auf ein Video, damit
+          es auf die große Leinwand in der Mitte wandert!
+        </p>
+
+        <p class="hint-text hint-mobile">
+          Schaue dir unten die Vorschau-Videos an. Klicke auf ein Video, damit
+          es auf die große Leinwand oben wandert!
+        </p>
+      </div>
+
+      <div class="gallery-container">
+        <div class="video-main-display">
+          <div class="video-responsive-wrapper" id="mainCinemaScreen">
+            <iframe
+              src="https://www.youtube.com/embed/k_--LQXbK98"
+              title="Hidden Paradises of India | Destination Wild: India&#39;s Lost Worlds | Episode 1"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="main-video-info">
+            <h3 id="mainVideoTitle">Hidden Paradises of India</h3>
+            <p id="mainVideoDesc">
+              Destination Wild: India's Lost Worlds | Episode 1
+            </p>
+          </div>
+        </div>
+
+        <div class="video-playlist">
+          <div
+            class="playlist-item active"
+            data-title="Hidden Paradises of India"
+            data-desc="Destination Wild: India's Lost Worlds | Episode 1"
+          >
+            <div class="mini-video-box">
+              <iframe
+                src="https://www.youtube.com/embed/k_--LQXbK98"
+                title="Hidden Paradises of India | Destination Wild: India&#39;s Lost Worlds | Episode 1"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="playlist-text">
+              <h4>Hidden Paradises of India</h4>
+              <p>Episode 1</p>
+            </div>
+          </div>
+
+          <div
+            class="playlist-item"
+            data-title="India Unveiled: The Hidden Treasures of Nature"
+            data-desc="Destination Wild: India's Lost Worlds | Episode 2"
+          >
+            <div class="mini-video-box">
+              <iframe
+                src="https://www.youtube.com/embed/MoZXe3LoHxM"
+                title="India Unveiled: The Hidden Treasures of Nature | Destination Wild: India&#39;s Lost Worlds | Episode 2"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="playlist-text">
+              <h4>India Unveiled: The Hidden Treasures</h4>
+              <p>Episode 2</p>
+            </div>
+          </div>
+
+          <div
+            class="playlist-item"
+            data-title="Untouched India: Secrets of the Sacred Wilderness"
+            data-desc="Destination Wild: India's Lost Worlds | Episode 3"
+          >
+            <div class="mini-video-box">
+              <iframe
+                src="https://www.youtube.com/embed/j9EdDz9I2wo"
+                title="Untouched India:Secrets of the Sacred Wilderness | Destination Wild: India&#39;s Lost Worlds | Episode 3"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="playlist-text">
+              <h4>Untouched India: Secrets of Wilderness</h4>
+              <p>Episode 3</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="playful-footer">
+      <a href="plants.html" class="beach-btn">
+        <span class="btn-text">➥ weiter geht's</span>
+        <span class="wave-bg"></span>
+      </a>
+    </footer>
+
+    <script src="animals.js"></script>
+  </body>
+</html>

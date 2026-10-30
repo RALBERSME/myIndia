@@ -208,7 +208,7 @@ iframe {
   color: white;
   font-size: 1.2rem;
   font-size: bold;
-  border: 2px solid white;
+  border: 3px solid white;
   padding: 7.5px 15px;
   border-radius: 7.5px;
 }
@@ -218,16 +218,16 @@ iframe {
 }
 #more {
   text-decoration: none;
-  color: rgb(236, 229, 130);
+  color: orange;
   font-size: 1.2rem;
   font-size: bold;
-  border: 2px solid rgb(236, 229, 130);
+  border: 3px solid orange;
   padding: 7.5px 15px;
   border-radius: 7.5px;
 }
 #more:hover {
   color: rgb(88, 194, 2);
-  border: 2px solid rgb(88, 194, 2);
+  border: 3px solid rgb(88, 194, 2);
 }
 .links {
   display: flex;

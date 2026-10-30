@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Die faszinierende Pflanzenwelt Indiens</title>
+    <link rel="stylesheet" href="plants.css" />
+    <link href="https://googleapis.com" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="plant-hero">
+      <div class="hero-content">
+        <h1>Die Pflanzen Indiens</h1>
+        <p>
+          Ein interaktiver Streifzug durch heilige Wälder, ayurvedische Wunder
+          und gigantische Urwald-Riesen.
+        </p>
+      </div>
+    </header>
+    <section class="section-poster">
+      <div class="poster-scroll-hint">
+        <span>↔️ Wischen oder 🔍 Klicken zum Zoomen für alle Details</span>
+      </div>
+
+      <div class="poster-viewport" id="posterContainer">
+        <img src="Images/PflanzenIndiens.png" id="posterImage" alt="Plants" />
+      </div>
+    </section>
+
+    <main class="main-wrapper">
+      <section class="plant-section section-lotus">
+        <div class="section-header">
+          <h2>1. Die Nationalpflanzen Indiens</h2>
+          <p>
+            Klicke auf die geschlossene Lotusblüte, um sie aufblühen zu lassen
+            und ihr Geheimnis zu enthüllen!
+          </p>
+        </div>
+
+        <div class="lotus-interactive-container">
+          <div class="lotus-flower" id="lotusFlower">
+            <div class="petal petal-1"></div>
+            <div class="petal petal-2"></div>
+            <div class="petal petal-3"></div>
+            <div class="petal petal-4"></div>
+            <div class="petal petal-5"></div>
+            <div class="lotus-core">🌸</div>
+          </div>
+        </div>
+
+        <div class="reveal-box" id="lotusInfoBox">
+          <h3>Indische Lotusblume (Nelumbo nucifera)</h3>
+          <div class="info-grid">
+            <p>
+              <strong>Lebensdauer:</strong> Einjährige bis ausdauernde
+              Wasserpflanze, deren Samen Jahrhunderte überdauern können.
+            </p>
+            <p>
+              <strong>Heilwirkung:</strong> In der traditionellen Medizin wirken
+              Wurzeln und Samen fiebersenkend, beruhigend und
+              verdauungsfördernd.
+            </p>
+            <p>
+              <strong>Anforderungen & Ort:</strong> Braucht stehende Gewässer
+              mit schlammigem Untergrund und viel Sonne. Überall in indischen
+              Teichen zu finden.
+            </p>
+            <p>
+              <strong>Wert & Funktion:</strong> Symbolisiert spirituelle
+              Reinheit und göttliche Schönheit. Bietet aquatischen Ökosystemen
+              Schatten und Schutz.
+            </p>
+          </div>
+        </div>
+
+        <div class="banyan-display">
+          <div class="banyan-text">
+            <h3>Der Bengalische Banyan-Baum (Ficus benghalensis)</h3>
+            <p>
+              <strong>Das lebende Wunder:</strong> Dieser Baumriese wächst
+              unaufhörlich nach außen. Seine Äste bilden Luftwurzeln, die zu
+              neuen Stämmen werden. Ein einziger Baum kann bis zu
+              <strong>200 bis 500 Jahre alt</strong> werden und die Fläche eines
+              ganzen Waldes einnehmen!
+            </p>
+            <p>
+              <strong>Anforderungen & Fundort:</strong> Liebt feucht-warmes
+              Tropenklima. Der größte Banyan-Baum der Welt steht im Botanischen
+              Garten in <em>Kolkata</em>.
+            </p>
+            <p>
+              <strong>Heilzwecke:</strong> Der milchige Saft wird in der
+              ayurvedischen Medizin zur Behandlung von Hautentzündungen und
+              Zahnschmerzen eingesetzt.
+            </p>
+            <p>
+              <strong>Wert:</strong> Ein gigantischer Lebensraum. Er bietet
+              Tausenden Vögeln, Affen und Insekten Schutz und Nahrung.
+            </p>
+          </div>
+          <div class="banyan-visual">
+            <img id="banyan" src="Images/banyan.jpg" alt="tree" />
+          </div>
+        </div>
+      </section>
+
+      <section class="plant-section section-puzzle">
+        <div class="section-header">
+          <h2>2. Heilige & kulturell verehrte Bäume</h2>
+          <p>
+            Löse das Schiebe-Puzzle der Natur! Klicke auf die Quadrate neben dem
+            freien Feld, um das Bild des heiligen Neem-Baumes zusammenzusetzen.
+            Sobald das Bild komplett ist, schalten sich die geheimen Fakten
+            frei!
+          </p>
+        </div>
+
+        <div class="puzzle-game-area">
+          <div id="puzzleBoard" class="puzzle-board"></div>
+
+          <div id="puzzleSecretContent" class="secret-content locked">
+            <div class="lock-overlay" id="lockOverlay">
+              <div class="lock-icon">🔒</div>
+              <p>
+                Löse das Puzzle links, um das Wissen über den
+                <strong>Bodhi-Baum</strong> und den
+                <strong>Neem-Baum</strong> freizuschalten!
+              </p>
+            </div>
+            <div class="unlocked-text">
+              <h3>Der Neem-Baum (Der Dorf-Apotheker)</h3>
+              <p>
+                <strong>Alter & Funktion:</strong> Kann bis zu 200 Jahre alt
+                werden. Er filtert Schadstoffe extrem effizient aus der Luft.
+              </p>
+              <p>
+                <strong>Medizinischer Wert:</strong> Ein wahres ayurvedisches
+                Wunder! Seine Blätter wirken stark antibakteriell, antiviral und
+                entzündungshemmend. Perfekt gegen Hautkrankheiten und als
+                natürliches Insektenschutzmittel.
+              </p>
+
+              <h3>Der Bodhi-Baum (Heiliger Feigenbaum)</h3>
+              <p>
+                <strong>Alter & Bedeutung:</strong> Lebt weit über 1.000 Jahre.
+                Unter diesem Baum erlangte Buddha seine Erleuchtung.
+              </p>
+              <p>
+                <strong>Wert & Ort:</strong> Er wächst prachtvoll in der Nähe
+                fast jedes Tempels (besonders in <em>Bodhgaya</em>). Für den
+                Menschen stellt er das ultimative Symbol des inneren Friedens
+                dar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="plant-section section-giants">
+        <div class="section-header">
+          <h2>3. Wichtige Nutzpflanzen & Dschungel-Giganten</h2>
+          <p>
+            Scrolle weiter, um die wirtschaftlichen und ökologischen Säulen
+            Indiens zu erkunden.
+          </p>
+        </div>
+
+        <div class="giant-flex-row">
+          <div class="giant-badge-card card-tea">
+            <div class="card-icon">🍃</div>
+            <h3>Assam-Teepflanze</h3>
+            <p>
+              <strong>Nutzung & Wert:</strong> Prägt die Wirtschaft ganzer
+              Bundesstaaten. Liefert Koffein, Antioxidantien und sichert
+              Millionen Arbeitsplätze.
+            </p>
+            <p>
+              <strong>Anforderungen:</strong> Braucht saure Böden, viel Regen
+              und Hanglagen im Nordosten Indiens.
+            </p>
+          </div>
+
+          <div class="giant-badge-card card-coconut">
+            <div class="card-icon">🥥</div>
+            <h3>Die Kokospalme</h3>
+            <p>
+              <strong>Lebensdauer & Funktion:</strong> Lebt ca. 80 bis 100
+              Jahre. Wird auch "Baum des Himmels" genannt, da jeder Teil genutzt
+              werden kann (Holz, Fasern, Wasser, Öl).
+            </p>
+            <p>
+              <strong>Heilzwecke:</strong> Kokoswasser wirkt elektrolytreich und
+              fiebersenkend; das Öl pflegt strapazierte Haut.
+            </p>
+          </div>
+
+          <div class="giant-badge-card card-sandal">
+            <div class="card-icon">🪵</div>
+            <h3>Echtes Sandelholz</h3>
+            <p>
+              <strong>Dschungel-Gigant:</strong> Ein kostbarer Baum, der erst
+              nach 30 Jahren sein volles Aroma entwickelt. Das Holz ist extrem
+              wertvoll für edle Parfüms und religiöse Räucherzeremonien.
+            </p>
+            <p>
+              <strong>Schutz:</strong> Wild stark gefährdet, der Einschlag wird
+              heute streng staatlich kontrolliert.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="videos"></section>
+    </main>
+
+    <footer class="playful-footer">
+      <a href="cinema.html" class="beach-btn">
+        <span class="btn-text">➥ weiter geht's</span>
+        <span class="wave-bg"></span>
+      </a>
+    </footer>
+
+    <script src="plants.js"></script>
+  </body>
+</html>
