@@ -6,7 +6,6 @@ const pool = document.getElementById("flowerPool");
 const finishBtn = document.getElementById("finishBtn");
 const resultMessage = document.getElementById("resultMessage");
 
-// --- Bestehender Maus-Code (bleibt gleich) ---
 draggables.forEach((draggable) => {
   draggable.addEventListener("dragstart", () =>
     draggable.classList.add("dragging"),
@@ -102,7 +101,75 @@ pool.addEventListener("drop", (e) => {
     }
   }
 });
+// --- Desktop Maus-Events ---
+draggables.forEach((draggable) => {
+  draggable.addEventListener("dragstart", () =>
+    draggable.classList.add("dragging"),
+  );
+  draggable.addEventListener("dragend", () =>
+    draggable.classList.remove("dragging"),
+  );
 
+  // --- KORRIGIERT: Touch-Events für mobile Geräte ---
+  draggable.addEventListener(
+    "touchstart",
+    (e) => {
+      draggable.classList.add("dragging");
+      e.preventDefault();
+    },
+    { passive: false },
+  );
+
+  draggable.addEventListener(
+    "touchmove",
+    (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+
+      // Element folgt dem Finger absolut flüssig
+      draggable.style.position = "fixed";
+      draggable.style.left = `${touch.clientX - draggable.offsetWidth / 2}px`;
+      draggable.style.top = `${touch.clientY - draggable.offsetHeight / 2}px`;
+      draggable.style.zIndex = "1000";
+      draggable.style.pointerEvents = "none"; // WICHTIG: Verhindert, dass das Element sich selbst beim Touch-Check blockiert
+    },
+    { passive: false },
+  );
+
+  draggable.addEventListener("touchend", (e) => {
+    draggable.classList.remove("dragging");
+
+    // Touch-Styles sauber zurücksetzen
+    draggable.style.position = "";
+    draggable.style.left = "";
+    draggable.style.top = "";
+    draggable.style.zIndex = "";
+    draggable.style.pointerEvents = "";
+
+    const touch = e.changedTouches[0];
+    const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
+
+    // KORREKTUR 1: Richtige ID benutzen (#garlandChain statt #chainID)
+    // KORREKTUR 2: .closest() fängt jetzt auch Treffer auf der ".fixed-flower" ab
+    const hitChain = dropTarget?.closest("#garlandChain");
+    const hitPool = dropTarget?.closest("#flowerPool");
+
+    const topic = draggable.getAttribute("data-topic");
+
+    if (hitChain) {
+      chain.appendChild(draggable);
+      if (!gewaehlteThemen.includes(topic)) {
+        gewaehlteThemen.unshift(topic);
+      }
+    } else if (hitPool) {
+      pool.appendChild(draggable);
+      const index = gewaehlteThemen.indexOf(topic);
+      if (index > -1) {
+        gewaehlteThemen.splice(index, 1);
+      }
+    }
+  });
+});
 let pageCount = 3;
 finishBtn.addEventListener("click", () => {
   localStorage.setItem("indienReiseThemen", JSON.stringify(gewaehlteThemen));
