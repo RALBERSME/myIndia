@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const webLinkButton = document.getElementById("weblink");
 
+  const previewSection = document.getElementById("preview");
+
   if (webLinkButton) {
     webLinkButton.style.display = "none";
   }
@@ -13,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     card.addEventListener("click", () => {
       cards.forEach((c) => c.classList.remove("active"));
       card.classList.add("active");
-
+      previewSection.scrollIntoView({ behavior: "smooth", block: "start" });
       const targetUrl = card.getAttribute("data-url");
 
       if (webLinkButton) {
