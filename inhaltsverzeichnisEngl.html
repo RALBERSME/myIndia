@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Archive room</title>
+    <style>
+      :root {
+        --bg-dark: #0f172a;
+        --text-light: #f8fafc;
+        --shadow-color: rgba(0, 0, 0, 0.4);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-dark);
+        background-image: url(Images/redRoom.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0% 50%;
+        color: var(--text-light);
+        min-height: 100vh;
+        overflow-x: hidden;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+        max-width: 600px;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        color: rgb(248, 240, 227);
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        margin-bottom: 0.5rem;
+      }
+
+      header p {
+        color: #e7eaef;
+        font-weight: bold;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .tower-container {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        max-width: 450px;
+        margin: 2rem auto;
+        position: relative;
+      }
+
+      .box {
+        width: 100%;
+        padding: 1.2rem;
+        margin-bottom: -8px;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 5px 10px 20px var(--shadow-color);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        transition:
+          transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+          filter 0.3s,
+          box-shadow 0.3s;
+        transform-style: preserve-3d;
+        perspective: 500px;
+      }
+
+      .box:hover {
+        filter: brightness(1.2);
+        box-shadow: 0 15px 30px rgba(255, 255, 255, 0.15);
+        z-index: 100;
+      }
+
+      .box-label {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .box-number {
+        font-size: 0.8rem;
+        opacity: 0.7;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+
+      .box-1 {
+        background: #ed8888;
+        transform: rotate(2deg) translateX(5px);
+        width: 102%;
+      }
+      .box-2 {
+        background: #c2410c;
+        transform: rotate(-3deg) translateX(-10px);
+        width: 98%;
+      }
+      .box-3 {
+        background: #d97706;
+        transform: rotate(4deg) translateX(12px);
+        width: 100%;
+      }
+      .box-4 {
+        background: #15803d;
+        transform: rotate(-2deg) translateX(-5px);
+        width: 104%;
+      }
+      .box-5 {
+        background: #0369a1;
+        transform: rotate(3deg) translateX(8px);
+        width: 95%;
+      }
+      .box-6 {
+        background: #4d7c0f;
+        transform: rotate(-4deg) translateX(-15px);
+        width: 101%;
+      }
+      .box-7 {
+        background: #6d28d9;
+        transform: rotate(2deg) translateX(4px);
+        width: 97%;
+      }
+      .box-8 {
+        background: #be185d;
+        transform: rotate(-1deg) translateX(-8px);
+        width: 103%;
+      }
+      .box-9 {
+        background: #a21caf;
+        transform: rotate(5deg) translateX(14px);
+        width: 96%;
+      }
+      .box-10 {
+        background: #047857;
+        transform: rotate(-3deg) translateX(-12px);
+        width: 100%;
+      }
+      .box-11 {
+        background: #1d4ed8;
+        transform: rotate(3deg) translateX(6px);
+        width: 102%;
+      }
+      .box-12 {
+        background: #b45309;
+        transform: rotate(-4deg) translateX(-6px);
+        width: 99%;
+      }
+      .box-13 {
+        background: #f0ba9c;
+        transform: rotate(2deg) translateX(10px);
+        width: 94%;
+      }
+      .box-14 {
+        background: #0e7490;
+        transform: rotate(-2deg) translateX(-4px);
+        width: 105%;
+      }
+      .box-15 {
+        background: #701a75;
+        transform: rotate(4deg) translateX(15px);
+        width: 97%;
+      }
+      .box-16 {
+        background: #4c1d95;
+        transform: rotate(-5deg) translateX(-10px);
+        width: 101%;
+      }
+      .box-17 {
+        background: #991b1b;
+        transform: rotate(1deg) translateX(3px);
+        width: 103%;
+      }
+      .box-18 {
+        background: #065f46;
+        transform: rotate(-3deg) translateX(-9px);
+        width: 96%;
+      }
+      .box-19 {
+        background: #9a3412;
+        transform: rotate(4deg) translateX(11px);
+        width: 100%;
+      }
+      .box-20 {
+        background: #075985;
+        transform: rotate(-2deg) translateX(-2px);
+        width: 98%;
+      }
+      .box-21 {
+        background: #3f6212;
+        transform: rotate(3deg) translateX(7px);
+        width: 104%;
+      }
+      .box-22 {
+        background: #918bee;
+        transform: rotate(-4deg) translateX(-12px);
+        width: 95%;
+      }
+      .box-22 {
+        background: #918bee;
+        transform: rotate(-4deg) translateX(-12px);
+        width: 95%;
+      }
+      .box-23 {
+        background: #c2410c;
+        transform: rotate(3deg) translateX(8px);
+        width: 105%;
+      }
+      .box-24 {
+        background: #dc66f1;
+        transform: rotate(1deg) translateX(12px);
+        width: 98%;
+      }
+      .box-25 {
+        background: #15803d;
+        transform: rotate(-2deg) translateX(-5px);
+        width: 104%;
+      }
+      .box-26 {
+        background: #0369a1;
+        transform: rotate(3deg) translateX(8px);
+        width: 95%;
+      }
+      .box-27 {
+        background: #ad9d07;
+        transform: rotate(-4deg) translateX(-15px);
+        width: 101%;
+      }
+      .box-1:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-2:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-3:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-4:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-5:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-6:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-7:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-8:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-9:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-10:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-11:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-12:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-13:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-14:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-15:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-16:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-17:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-18:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-19:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-20:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-21:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-22:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-23:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-24:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-25:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-26:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .box-27:hover {
+        transform: rotate(0deg) scale(1.05) translateY(-5px);
+      }
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+      }
+      .overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .content-card {
+        background: #1e293b;
+        padding: 3rem;
+        border-radius: 20px;
+        max-width: 600px;
+        width: 90%;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        border: 2px solid #ff9933;
+        transform: scale(0.7) rotate(-10deg);
+        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+      }
+
+      .overlay.active .content-card {
+        transform: scale(1) rotate(0deg);
+      }
+
+      .content-card h2 {
+        font-size: 2.2rem;
+        color: #ff9933;
+        margin-bottom: 1rem;
+      }
+
+      .content-card p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #cbd5e1;
+        margin-bottom: 2rem;
+      }
+
+      .close-btn {
+        background: #ff9933;
+        color: #0f172a;
+        border: none;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 30px;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+
+      .close-btn:hover {
+        background: #138808;
+        color: #fff;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <br /><br />
+
+      <h1>Archive room</h1>
+
+      <p>
+        Are you looking for something specific about India? Then click on the
+        corresponding box with the label you need.
+      </p>
+    </header>
+
+    <main class="tower-container">
+      <div class="box box-1" onclick="navigateToPage('india4Engl.html')">
+        <div class="box-label">
+          <span>General Country Information </span
+          ><span class="box-number">01 </span>
+        </div>
+      </div>
+      <div class="box box-2" onclick="navigateToPage('ghandiEngl.html')">
+        <div class="box-label">
+          <span>Mahatma Gandhi</span><span class="box-number">02</span>
+        </div>
+      </div>
+      <div class="box box-3" onclick="navigateToPage('kasteEngl.html')">
+        <div class="box-label">
+          <span>The Indian Caste System</span><span class="box-number">03</span>
+        </div>
+      </div>
+      <div class="box box-4" onclick="navigateToPage('itEngl.html')">
+        <div class="box-label">
+          <span>India's IT Industry</span><span class="box-number">04</span>
+        </div>
+      </div>
+      <div class="box box-5" onclick="navigateToPage('musicEngl.html')">
+        <div class="box-label">
+          <span>The Music of India</span><span class="box-number">05</span>
+        </div>
+      </div>
+      <div class="box box-6" onclick="navigateToPage('matheEngl.html')">
+        <div class="box-label">
+          <span>Vedic Mathematics</span><span class="box-number">06</span>
+        </div>
+      </div>
+      <div class="box box-7" onclick="navigateToPage('mumbaiEngl.html')">
+        <div class="box-label">
+          <span>Mumbai (Bombay)</span><span class="box-number">07</span>
+        </div>
+      </div>
+      <div class="box box-8" onclick="navigateToPage('neighboursEngl.html')">
+        <div class="box-label">
+          <span>India's Neighbors</span><span class="box-number">08</span>
+        </div>
+      </div>
+      <div class="box box-9" onclick="navigateToPage('traditionEngl.html')">
+        <div class="box-label">
+          <span>Indian Culture & Traditions</span
+          ><span class="box-number">09</span>
+        </div>
+      </div>
+      <div class="box box-10" onclick="navigateToPage('clothEngl.html')">
+        <div class="box-label">
+          <span>Indian Attire</span><span class="box-number">10</span>
+        </div>
+      </div>
+      <div class="box box-11" onclick="navigateToPage('scienceEngl.html')">
+        <div class="box-label">
+          <span>Innovation in India</span><span class="box-number">11</span>
+        </div>
+      </div>
+      <div class="box box-12" onclick="navigateToPage('leisureTimeEngl.html')">
+        <div class="box-label">
+          <span>Masti, Maza & Leisure time!</span
+          ><span class="box-number">12</span>
+        </div>
+      </div>
+      <div class="box box-13" onclick="navigateToPage('animalsEngl.html')">
+        <div class="box-label">
+          <span>The Wildlife of India </span><span class="box-number">13</span>
+        </div>
+      </div>
+      <div class="box box-14" onclick="navigateToPage('plantsEngl.html')">
+        <div class="box-label">
+          <span>The Flora of India </span><span class="box-number">14</span>
+        </div>
+      </div>
+      <div class="box box-15" onclick="navigateToPage('cinemaEngl.html')">
+        <div class="box-label">
+          <span>Cinema</span><span class="box-number">15</span>
+        </div>
+      </div>
+      <div class="box box-16" onclick="navigateToPage('india5Engl.html')">
+        <div class="box-label">
+          <span>The Taj Mahal (Agra)</span><span class="box-number">16</span>
+        </div>
+      </div>
+      <div class="box box-17" onclick="navigateToPage('reise1Engl.html')">
+        <div class="box-label">
+          <span>Jaipur: The 'Pink City'</span><span class="box-number">17</span>
+        </div>
+      </div>
+      <div class="box box-18" onclick="navigateToPage('reise1bEngl.html')">
+        <div class="box-label">
+          <span>Neu-Delhi: The Roaring Heart</span
+          ><span class="box-number">18</span>
+        </div>
+      </div>
+      <div class="box box-19" onclick="navigateToPage('reise2Engl.html')">
+        <div class="box-label">
+          <span>The Spiritual Heart of India</span
+          ><span class="box-number">19</span>
+        </div>
+      </div>
+      <div class="box box-20" onclick="navigateToPage('reise3Engl.html')">
+        <div class="box-label">
+          <span>Where Nature Breathes Romance</span
+          ><span class="box-number">20</span>
+        </div>
+      </div>
+      <div class="box box-21" onclick="navigateToPage('reise4Engl.html')">
+        <div class="box-label">
+          <span>Enjoy Goa!</span><span class="box-number">21</span>
+        </div>
+      </div>
+      <div class="box box-22" onclick="navigateToPage('india2Engl.html')">
+        <div class="box-label">
+          <span>The Birth of a Subcontinent</span
+          ><span class="box-number">22</span>
+        </div>
+      </div>
+      <div class="box box-23" onclick="navigateToPage('love.html')">
+        <div class="box-label">
+          <span>Love in India</span><span class="box-number">23</span>
+        </div>
+      </div>
+      <div class="box box-24" onclick="navigateToPage('food.html')">
+        <div class="box-label">
+          <span>Indian Cuisine</span><span class="box-number">24</span>
+        </div>
+      </div>
+      <div class="box box-25" onclick="navigateToPage('history.html')">
+        <div class="box-label">
+          <span>Indian History</span><span class="box-number">25</span>
+        </div>
+      </div>
+      <div class="box box-26" onclick="navigateToPage('medicine.html')">
+        <div class="box-label">
+          <span>Medicine in India</span><span class="box-number">26</span>
+        </div>
+      </div>
+      <div class="box box-27" onclick="navigateToPage('spirit.html')">
+        <div class="box-label">
+          <span>Spirituality in India</span><span class="box-number">27</span>
+        </div>
+      </div>
+    </main>
+    <script>
+      function navigateToPage(url) {
+        const gewaehlteThemen = ["bye"];
+        localStorage.setItem(
+          "indienReiseThemen",
+          JSON.stringify(gewaehlteThemen),
+        );
+        window.location.href = url;
+      }
+    </script>
+  </body>
+</html>

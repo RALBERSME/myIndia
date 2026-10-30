@@ -104,7 +104,11 @@
         transform: rotate(360deg);
       }
     }
-
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
     @media (min-width: 900px) {
       .split {
         display: flex;
@@ -139,10 +143,19 @@
         <img id="person" src="Images/man.jpg" alt="man" />
         <div class="left">
           <img src="Images/bye.gif" alt="bye" />
-          <a href="specials.html" class="beach-btn" style="width: 300px">
-            <span class="btn-text">➥ want specials?</span>
-            <span class="wave-bg"></span>
-          </a>
+          <div class="links">
+            <a href="specialsEngl.html" class="beach-btn" style="width: 300px">
+              <span class="btn-text">➥ want specials?</span>
+              <span class="wave-bg"></span> </a
+            ><a
+              href="inhaltsverzeichnisEngl.html"
+              class="beach-btn"
+              style="width: 300px"
+            >
+              <span class="btn-text">➥ Table of Contents</span>
+              <span class="wave-bg"></span>
+            </a>
+          </div>
           <h3>
             Reinhild's <em>myIndia</em> - copyright &copy; 2026 all rights
             reserved
