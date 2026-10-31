@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const secretContent = document.getElementById("puzzleSecretContent");
 
   const winningLayout = ["1", "2", "3", "4", "5", "6", "7", "8", ""];
-
   let currentLayout = ["1", "2", "3", "4", "5", "6", "7", "8", ""];
 
   const shuffleArray = (array) => {
@@ -44,18 +43,19 @@ document.addEventListener("DOMContentLoaded", () => {
         tileElement.classList.add("empty");
       } else {
         tileElement.innerText = tile;
-
         if (tile === "1") tileElement.innerText = "🌱 1";
         if (tile === "3") tileElement.innerText = "🍃 3";
         if (tile === "5") tileElement.innerText = "🌿 5";
         if (tile === "7") tileElement.innerText = "🌳 7";
       }
 
-      tileElement.addEventListener("click", () => moveTile(index));
+      tileElement.addEventListener("pointerdown", (e) => {
+        moveTile(index);
+      });
+
       puzzleBoard.appendChild(tileElement);
     });
   };
-
   const moveTile = (index) => {
     const emptyIndex = currentLayout.indexOf("");
 
@@ -81,16 +81,30 @@ document.addEventListener("DOMContentLoaded", () => {
       secretContent.classList.add("unlocked");
     }
   };
-
   shuffleArray(currentLayout);
   renderPuzzle();
 });
-
 const posterContainer = document.getElementById("posterContainer");
 const posterImage = document.getElementById("posterImage");
 
 if (posterContainer && posterImage) {
   const isSmallDevice = () => window.innerWidth <= 768;
+
+  const zoomEffect = (e) => {
+    if (!isSmallDevice() || !posterContainer.classList.contains("zoomed-in"))
+      return;
+
+    const rect = posterContainer.getBoundingClientRect();
+    const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+    const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+
+    if (!clientX || !clientY) return;
+
+    const x = ((clientX - rect.left) / rect.width) * 100;
+    const y = ((clientY - rect.top) / rect.height) * 100;
+
+    posterImage.style.transformOrigin = `${x}% ${y}%`;
+  };
 
   posterContainer.addEventListener("click", (e) => {
     if (!isSmallDevice()) return;
@@ -104,23 +118,6 @@ if (posterContainer && posterImage) {
     }
   });
 
-  const zoomEffect = (e) => {
-    if (!isSmallDevice() || !posterContainer.classList.contains("zoomed-in"))
-      return;
-
-    const rect = posterContainer.getBoundingClientRect();
-
-    const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-    const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-
-    if (!clientX || !clientY) return;
-
-    const x = ((clientX - rect.left) / rect.width) * 100;
-    const y = ((clientY - rect.top) / rect.height) * 100;
-
-    posterImage.style.transformOrigin = `${x}% ${y}%`;
-  };
-
   posterContainer.addEventListener("mousemove", zoomEffect);
-  posterContainer.addEventListener("touchmove", zoomEffect);
+  posterContainer.addEventListener("touchmove", zoomEffect, { passive: true });
 }
