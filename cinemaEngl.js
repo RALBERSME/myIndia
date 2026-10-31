@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
       body.classList.toggle("lights-on");
 
       if (body.classList.contains("lights-on")) {
-        lightsToggleBtn.innerText = "🎬 Licht dimmen";
+        lightsToggleBtn.innerText = "🎬 Dim the lights";
       } else {
-        lightsToggleBtn.innerText = "💡 Licht einschalten";
+        lightsToggleBtn.innerText = "💡 Turn on the lights";
       }
     });
   }
