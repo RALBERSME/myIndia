@@ -6,6 +6,9 @@
     <title>Goodbye</title>
   </head>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       height: 100vh;
       background-image: linear-gradient(
@@ -25,9 +28,10 @@
 
     #person {
       border-radius: 50%;
-      height: 200px;
-      width: 200px;
-      transform: translateY(100px);
+      height: 180px;
+      width: 180px;
+      object-fit: cover;
+      transform: translateY(0);
     }
     h3 {
       text-align: center;
@@ -35,9 +39,11 @@
     .split {
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: center;
-      gap: 5px;
-      height: 50vh;
+      gap: 20px;
+      min-height: 100vh;
+      padding: 20px 20px 60px 20px;
     }
     img {
       height: 270px;
@@ -47,8 +53,9 @@
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      width: 200px;
-      height: 60px;
+      width: 100%;
+      max-width: 300px;
+      height: 55px;
       background-color: rgb(215, 119, 135);
       border: 2px solid #0c8fe1;
       border-radius: 30px;
@@ -58,16 +65,18 @@
       transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
+      padding: 0 20px;
     }
 
     .beach-btn .btn-text {
       position: relative;
       z-index: 2;
-      font-size: 20px;
+      font-size: 15px;
       font-weight: bold;
       color: white;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       transition: color 0.4s ease;
+      white-space: nowrap;
     }
 
     .beach-btn .wave-bg {
@@ -104,34 +113,51 @@
         transform: rotate(360deg);
       }
     }
+    .left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      width: 100%;
+    }
+    #byeGif {
+      height: auto;
+      max-height: 200px;
+      width: auto;
+      max-width: 100%;
+    }
     .links {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 15px;
+      width: 100%;
+      align-items: center;
     }
     @media (min-width: 900px) {
       .split {
-        display: flex;
         flex-direction: row;
-        justify-content: center;
-        gap: 50px;
-        height: 50vh;
+        gap: 60px;
+        height: 60vh;
+        min-height: auto;
+        padding: 20px;
+        margin-bottom: 0;
       }
-      img {
-        height: 95%;
-      }
+
       #person {
-        overflow: hidden;
-        display: block;
-        border-radius: 50%;
-        height: 450px;
-        width: 450px;
-        transform: translateY(0px);
+        height: 400px;
+        width: 400px;
       }
+
+      .left {
+        align-items: flex-start;
+      }
+
       .links {
-        display: flex;
         flex-direction: row;
-        gap: 5px;
+        width: auto;
+      }
+      .beach-btn {
+        max-width: 320px;
       }
     }
   </style>
@@ -147,20 +173,18 @@
       <div class="split">
         <img id="person" src="Images/man.jpg" alt="man" />
         <div class="left">
-          <img src="Images/bye.gif" alt="bye" />
+          <img id="byeGif" src="Images/bye.gif" alt="bye" />
           <div class="links">
-            <a href="specialsEngl.html" class="beach-btn" style="width: 300px">
+            <a href="specialsEngl.html" class="beach-btn">
               <span class="btn-text">➥ want specials?</span>
-              <span class="wave-bg"></span> </a
-            ><a
-              href="inhaltsverzeichnisEngl.html"
-              class="beach-btn"
-              style="width: 300px"
-            >
+              <span class="wave-bg"></span>
+            </a>
+            <a href="inhaltsverzeichnisEngl.html" class="beach-btn">
               <span class="btn-text">➥ Table of Contents</span>
               <span class="wave-bg"></span>
             </a>
           </div>
+
           <h3>
             Reinhild's <em>myIndia</em> - copyright &copy; 2026 all rights
             reserved
