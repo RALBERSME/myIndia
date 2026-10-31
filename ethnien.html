@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Die Ethnien Indiens – Ein lebendiges Mosaik</title>
+    <style>
+      :root {
+        --bg-dark: #1c2948;
+        --card-bg: #071b39;
+        --accent-orange: #f97316;
+        --accent-green: #22c55e;
+        --text-light: #f8fafc;
+        --text-muted: #b3bdcc;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      header {
+        text-align: center;
+        padding: 5rem 1rem;
+        background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+        background-image: url(Images/elephantPattern.png);
+        background-repeat: repeat;
+        background-size: contain;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        color: var(--accent-orange);
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        font-weight: bold;
+        margin: 0 auto;
+        color: var(--text-muted);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
+      .header-context {
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 5px;
+      }
+      .infographic-section {
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 4rem;
+        border: 1px solid #334155;
+        text-align: center;
+      }
+
+      .infographic-section h2 {
+        margin-bottom: 1rem;
+        color: var(--accent-orange);
+      }
+
+      .infographic-container {
+        width: 100%;
+        overflow-x: auto;
+        border: 2px dashed #475569;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+        background: #020617;
+        position: relative;
+      }
+
+      .infographic-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+      }
+
+      @media (max-width: 1024px) {
+        .infographic-image {
+          min-width: 1000px;
+          max-width: none;
+          .scroll-hint {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--accent-green);
+            margin-top: 0.5rem;
+            font-style: italic;
+          }
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .scroll-hint {
+          display: none;
+        }
+      }
+
+      .ethnie-card {
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        padding: 2.5rem;
+        margin-bottom: 3rem;
+        border-left: 6px solid var(--accent-orange);
+        transform: translateY(50px);
+        opacity: 0;
+        transition: all 0.8s ease-out;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .ethnie-card.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .ethnie-card:nth-child(even) {
+        border-left-color: var(--accent-green);
+      }
+
+      .ethnie-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #334155;
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .ethnie-title h2 {
+        font-size: 2.2rem;
+        color: #fff;
+      }
+
+      .ethnie-meta {
+        font-size: 1.1rem;
+        background: #0f172a;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: bold;
+        color: var(--accent-orange);
+      }
+
+      .ethnie-card:nth-child(even) .ethnie-meta {
+        color: var(--accent-green);
+      }
+
+      .grid-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .detail-block h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: #e2e8f0;
+      }
+
+      .detail-block p {
+        color: var(--text-muted);
+        font-size: 1rem;
+      }
+
+      .subgroups-list {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .subgroups-list li {
+        padding: 0.3rem 0;
+        border-bottom: 1px solid #334155;
+        color: #cbd5e1;
+      }
+
+      .subgroups-list li strong {
+        color: var(--accent-orange);
+      }
+
+      .ethnie-card:nth-child(even) .subgroups-list li strong {
+        color: var(--accent-green);
+      }
+      footer {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--text-muted);
+      }
+      .india-btn {
+        position: relative;
+        display: inline-block;
+        padding: 6px 35px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #0b0f19;
+        border: none;
+        border-radius: 50px;
+        border: 3px solid black;
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 1;
+
+        box-shadow: 0 5px 15px rgba(255, 153, 51, 0.2);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+        background: linear-gradient(
+          to right bottom,
+          #ff9933 0%,
+          #ff9933 35%,
+          #ffffff 35%,
+          #ffffff 65%,
+          #138808 65%,
+          #138808 100%
+        );
+      }
+
+      .india-btn span {
+        position: relative;
+        z-index: 3;
+      }
+
+      .india-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to left top,
+          #ff9933 0%,
+          #ff9933 35%,
+          #ffffff 35%,
+          #ffffff 65%,
+          #138808 65%,
+          #138808 100%
+        );
+        opacity: 0;
+        z-index: 2;
+        transition: opacity 0.4s ease-in-out;
+      }
+
+      .india-btn:hover {
+        transform: scale(0.9);
+        box-shadow: 0 10px 25px rgba(19, 136, 8, 0.4);
+      }
+
+      .india-btn:hover::before {
+        opacity: 1;
+      }
+
+      .india-btn:active {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+      @media screen and (max-width: 768px) {
+        .india-btn {
+          padding: 12px 28px;
+          font-size: 1rem;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .india-btn {
+          padding: 10px 24px;
+          font-size: 0.9rem;
+          letter-spacing: 1px;
+          width: 80%;
+          max-width: 280px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-context">
+        <h1>Die Ethnien Indiens</h1>
+        <p>
+          Ein tiefer Einblick in das historisch gewachsene, demografische und
+          kulturelle Mosaik des indischen Subkontinents.
+        </p>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="infographic-section">
+        <h2>Visuelle Übersichtskarte & Demografie</h2>
+        <p>
+          Die nachfolgende Grafik verdeutlicht die geografische Verteilung sowie
+          das visuelle Erscheinungsbild der Hauptgruppen.
+        </p>
+        <div class="infographic-container">
+          <img
+            src="Images/Ethnien.png"
+            alt="Zentrale ethnolinguistische Landkarte Indiens"
+            class="infographic-image"
+          />
+        </div>
+        <p class="scroll-hint">
+          ↔️ Wische nach links oder rechts, um die vollständige Karte mit
+          Details zu betrachten.
+        </p>
+      </section>
+
+      <div class="ethnie-card">
+        <div class="ethnie-header">
+          <div class="ethnie-title">
+            <h2>Indoarier</h2>
+            <p style="color: var(--text-muted)">
+              Größte ethnolinguistische Familie
+            </p>
+          </div>
+          <div class="ethnie-meta">
+            Bevölkerungsanteil: ~72% (Historisch stabil)
+          </div>
+        </div>
+        <div class="grid-details">
+          <div class="detail-block">
+            <h3>Subgruppen & Verbreitung</h3>
+            <ul class="subgroups-list">
+              <li>
+                <strong>Hindustani:</strong> Uttar Pradesh, Bihar, Madhya
+                Pradesh
+              </li>
+              <li><strong>Bengalen:</strong> Westbengalen (Ostregion)</li>
+              <li><strong>Marathen:</strong> Maharashtra (Westindien)</li>
+              <li>
+                <strong>Gujarati & Punjabis:</strong> Gujarat, Punjab
+                (Nordwesten)
+              </li>
+              <li>
+                <strong>Kaschmiris:</strong> Jammu & Kashmir (Äußerster Norden)
+              </li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>Herkunft & Geschichte</h3>
+            <p>
+              Die indoarischen Sprachen stammen historisch vom Sanskrit ab. Die
+              Vorfahren wanderten ab ca. 1500 v. Chr. schrittweise aus
+              Zentralasien in den Norden Indiens ein und vermischten sich im
+              Laufe der Jahrtausende stark mit der ansässigen Bevölkerung.
+              Früher lebten sie primär in agrarischen Großreichen entlang der
+              fruchtbaren Ganges-Ebene.
+            </p>
+          </div>
+          <div class="detail-block">
+            <h3>Lebensweise Heute</h3>
+            <p>
+              Heute prägen sie das wirtschaftliche und politische Herzland
+              Nord-, West- und Ostindiens. Ihre Lebensweise reicht von
+              hochentwickelten urbanen Metropolen (wie Mumbai, Delhi, Kalkutta)
+              bis hin zu dicht besiedelten Agrardörfern.
+            </p>
+          </div>
+          <div class="detail-block">
+            <h3>Traditionen & Besonderheiten</h3>
+            <p>
+              Prägung durch große hinduistische Epen (Ramayana, Mahabharata).
+              Spezifische Feste wie Holi, Diwali und Durga Puja (besonders in
+              Bengalen) sowie hochentwickelte klassische Musiksysteme
+              (Hindustani-Musik) und reiche Textiltraditionen.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ethnie-card">
+        <div class="ethnie-header">
+          <div class="ethnie-title">
+            <h2>Draviden</h2>
+            <p style="color: var(--text-muted)">Die Ur-Siedler des Südens</p>
+          </div>
+          <div class="ethnie-meta">Bevölkerungsanteil: ~23% - 25%</div>
+        </div>
+        <div class="grid-details">
+          <div class="detail-block">
+            <h3>Subgruppen & Verbreitung</h3>
+            <ul class="subgroups-list">
+              <li><strong>Tamilen:</strong> Tamil Nadu (Äußerster Süden)</li>
+              <li>
+                <strong>Telugu:</strong> Andhra Pradesh & Telangana (Südosten)
+              </li>
+              <li><strong>Kannadiga:</strong> Karnataka (Südwesten)</li>
+              <li>
+                <strong>Malayali:</strong> Kerala (Südwestküste / Malabarküste)
+              </li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>Herkunft & Geschichte</h3>
+            <p>
+              Die dravidische Urbevölkerung war bereits vor der indoarischen
+              Migration auf dem Subkontinent präsent und wird in der Forschung
+              stark mit der hochentwickelten, antiken Indus-Kultur in Verbindung
+              gebracht. Durch das Vordringen der Indoarier von Norden her
+              verlagerte sich ihr Hauptsiedlungs- und Kulturraum dauerhaft in
+              den Süden Indiens. Ihr Bevölkerungsanteil war historisch vor
+              Jahrtausenden prozentual höher und hat sich seither im Süden
+              stabilisiert.
+            </p>
+          </div>
+          <div class="detail-block">
+            <h3>Lebensweise Heute</h3>
+            <p>
+              Die dravidisch geprägten Bundesstaaten gehören heute zu den
+              fortschrittlichsten Regionen des Landes. Sie zeichnen sich durch
+              den höchsten Bildungsstand, eine hohe Alphabetisierungsrate
+              (besonders in Kerala) und eine starke technologische Entwicklung
+              aus, darunter weltbekannte IT-Zentren wie Bengaluru und Hyderabad.
+            </p>
+          </div>
+          <div class="detail-block">
+            <h3>Traditionen & Besonderheiten</h3>
+            <p>
+              Die Draviden besitzen mit der Sangam-Literatur eine der ältesten
+              ununterbrochenen klassischen Literaturtraditionen der Welt.
+              Kulturelle Auffälligkeiten sind die monumentalen, farbenfrohen
+              Tempelanlagen im Dravida-Stil, der klassische Tanz Bharatanatyam
+              sowie das mehrtägige, farbenprächtige Erntedankfest Pongal.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ethnie-card">
+        <div class="ethnie-header">
+          <div class="ethnie-title">
+            <h2>Adivasi</h2>
+            <p style="color: var(--text-muted)">Indigene Stammesbevölkerung</p>
+          </div>
+          <div class="ethnie-meta">Bevölkerungsanteil: ~8,6%</div>
+        </div>
+        <div class="grid-details">
+          <div class="detail-block">
+            <h3>Subgruppen & Verbreitung</h3>
+            <ul class="subgroups-list">
+              <li>
+                <strong>Bhil:</strong> Größter Stamm (Zentral- und Westindien:
+                Gujarat, M.P., Rajasthan)
+              </li>
+              <li>
+                <strong>Gond:</strong> Großes Kulturvolk in Zentralindien
+                (Madhya Pradesh, Chhattisgarh)
+              </li>
+              <li>
+                <strong>Santal & Munda:</strong> Ostindien (Jharkhand, Odisha,
+                Westbengalen)
+              </li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>Herkunft & Geschichte</h3>
+            <p>
+              Der Name bedeutet wörtlich „erste Einwohner“. Sie bilden die
+              älteste nachweisbare ethnische Schicht des Landes. Historisch
+              lebten die Adivasi weitgehend autark und vom Kastensystem
+              unberührt als Jäger, Sammler und Brandrodungsbauern in den dichten
+              Wäldern und unzugänglichen Bergketten des indischen Kernlands. Ihr
+              Anteil an der Gesamtbevölkerung sank im Zuge der historischen
+              Expansion anderer Kulturen, blieb in ihren Rückzugsgebieten aber
+              dominant.
+            </p>
+          </div>
+          <div class="detail-block">
+            <h3>Lebensweise Heute</h3>
+            <p>
+              Heute sind die Adivasi offiziell als „Scheduled Tribes“ geschützt.
+              Während viele Gemeinschaften zunehmend in die moderne Wirtschaft
+              und das Bildungssystem integriert sind, kämpfen andere in ihren
+              angestammten Regionen mit dem Verlust von Lebensraum durch
+              Industrialisierung und Bergbau. Sie bewahren dennoch eine
+              bemerkenswert egalitäre Sozialstruktur.
+            </p>
+          </div>
+          <div class="detail-block">
+            <h3>Traditionen & Besonderheiten</h3>
+            <p>
+              Die Kultur ist stark von Animismus und einer tiefen Naturverehrung
+              geprägt, die oft mit hinduistischen Elementen verschmilzt. Berühmt
+              sind die Adivasi für ihre einzigartige Kunst (wie die farbenfrohe
+              Gond-Malerei), rhythmische Stammestänze, kollektive Dorffeste und
+              das Fehlen der im restlichen Indien üblichen hierarchischen
+              Kastenstrukturen.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ethnie-card">
+        <div class="ethnie-header">
+          <div class="ethnie-title">
+            <h2>Tibeto-Birmanen & Himalayaner</h2>
+            <p style="color: var(--text-muted)">
+              Die ethnische Brücke nach Asien
+            </p>
+          </div>
+          <div class="ethnie-meta">Bevölkerungsanteil: ~1% - 2%</div>
+        </div>
+        <div class="grid-details">
+          <div class="detail-block">
+            <h3>Subgruppen & Verbreitung</h3>
+            <ul class="subgroups-list">
+              <li>
+                <strong>Nagas & Mizos:</strong> Nordostindien (Nagaland,
+                Mizoram)
+              </li>
+              <li><strong>Khasi, Garo & Bodo:</strong> Assam und Meghalaya</li>
+              <li>
+                <strong>Ladakhis & Sikkimesen:</strong> Grenzkämme des Himalayas
+                (Ladakh, Sikkim)
+              </li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h3>Herkunft & Geschichte</h3>
+            <p>
+              Diese Gruppen stammen aus historischen ost- und südostasiatischen
+              Migrationswellen, die über das tibetische Hochplateau und die
+              birmanischen Gebirgspässe nach Indien gelangten. In den
+              abgeschiedenen Tälern des Himalayas und des Nordostens („Seven
+              Sister States“) blieben sie über Jahrhunderte weitgehend isoliert
+              vom restlichen indischen Kulturraum, wodurch sich ihre
+              eigenständigen Sprachen und Phänotypen erhielten.
+            </p>
+          </div>
+          <div class="detail-block">
+            <h3>Lebensweise Heute</h3>
+            <p>
+              Heute durchläuft die Region eine rasche Modernisierung. Die
+              Gemeinschaften legen jedoch extremen Wert auf politische Autonomie
+              und den Schutz ihrer indigenen Identität. Die Lebensweise ist
+              stark gemeinschaftsorientiert und von der Berglandwirtschaft sowie
+              modernen Dienstleistungen geprägt.
+            </p>
+          </div>
+          <div class="detail-block">
+            <h3>Traditionen & Besonderheiten</h3>
+            <p>
+              Die Region weist eine enorme Vielfalt an sinotibetischen Sprachen
+              auf. Eine absolute Besonderheit bilden die Khasi in Meghalaya, die
+              bis heute ein traditionelles matriarchales Gesellschaftssystem
+              pflegen (Erbfolge und Name werden über die weibliche Linie
+              weitergegeben). Kulturell sind die Gruppen im Nordosten heute
+              mehrheitlich christlich, während im rauen Norden (Ladakh) der
+              tibetische Buddhismus das tägliche Leben bestimmt.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <button
+        class="india-btn"
+        onclick="document.location.href = 'india3.html'"
+      >
+        <span onclick="document.location.href = 'india3.html'"
+          >➥ klicke für weiter</span
+        >
+      </button>
+    </footer>
+
+    <script>
+      const cards = document.querySelectorAll(".ethnie-card");
+      const observerOptions = {
+        root: null,
+        threshold: 0.15,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      }, observerOptions);
+
+      cards.forEach((card) => observer.observe(card));
+    </script>
+  </body>
+</html>
