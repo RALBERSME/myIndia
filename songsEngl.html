@@ -470,43 +470,42 @@
         {
           title: "India Drums",
           genre: "Alex Morgan",
-          src: "songs/alex-morgan-india-drums.mp3",
+          src: "alex-morgan-india-drums.mp3",
         },
         {
           title: "Indian Classical Raga",
           genre: "Alex Morgan",
-          src: "songs/alex-morgan-indian-classical-raga.mp3",
+          src: "alex-morgan-indian-classical-raga.mp3",
         },
         {
-          title: "Percursion of India",
+          title: "Perccursion of India",
           genre: "Fidelfortune",
-          src: "songs/fidelfortune-perccusion-of-india.mp3",
+          src: "fidelfortune-perccusion-of-india.mp3",
         },
         {
           title: "Festival of joy",
           genre: "NKBloom",
-          src: "songs/nkbloom-festival-of-joy.mp3",
+          src: "nkbloom-festival-of-joy.mp3",
         },
         {
           title: "chudiyan (Indian Song)",
           genre: "Bannyboy",
-          src: "songs/bannyboy-chudiyan.mp3",
+          src: "bannyboy-chudiyan.mp3",
         },
         {
           title: "Colors of Joy (Holi Festival India)",
           genre: "Liberty Beats",
-          src: "songs/libertybeats-colors-of-joy.mp3",
+          src: "libertybeats-colors-of-joy.mp3",
         },
         {
           title: "Romantic Song",
           genre: "Teri Ye Adaa",
-          src: "songs/kontraa-teri-ye-adaa.mp3",
+          src: "kontraa-teri-ye-adaa.mp3",
         },
       ];
       let currentTrackIndex = 0;
       let isPlaying = false;
 
-      // Holt das Audio-Element direkt aus dem DOM
       const audioPlayer = document.getElementById("audioPlayer");
       const btnPlay = document.getElementById("btnPlay");
       const btnPrev = document.getElementById("btnPrev");
@@ -517,19 +516,15 @@
       const feathers = document.querySelectorAll(".feather");
       const peacockBody = document.getElementById("peacockBody");
 
-      // Funktion zum Laden eines Tracks
       function loadTrack(index) {
         currentTrackIndex = index;
         const track = playlist[index];
 
-        // Setzt die Quelle sauber neu
         audioPlayer.src = track.src;
 
-        // UI-Texte aktualisieren
         trackTitle.textContent = track.title;
         trackGenre.textContent = track.genre;
 
-        // Hebt die geklickte Feder optisch hervor
         feathers.forEach((f, i) => {
           if (i === index) {
             f.classList.add("active");
@@ -539,7 +534,6 @@
         });
       }
 
-      // Spielt den geladenen Track ab
       function playTrack() {
         audioPlayer
           .play()
@@ -559,7 +553,6 @@
           });
       }
 
-      // Pausiert die Wiedergabe
       function pauseTrack() {
         audioPlayer.pause();
         isPlaying = false;
@@ -567,7 +560,6 @@
         peacockContainer.classList.remove("playing");
       }
 
-      // Wechselt zwischen Play und Pause
       function togglePlay() {
         if (isPlaying) {
           pauseTrack();
@@ -576,14 +568,12 @@
         }
       }
 
-      // Springt zum nächsten Track
       function nextTrack() {
         let nextIndex = (currentTrackIndex + 1) % playlist.length;
         loadTrack(nextIndex);
         playTrack();
       }
 
-      // Springt zum vorherigen Track
       function prevTrack() {
         let prevIndex =
           (currentTrackIndex - 1 + playlist.length) % playlist.length;
@@ -591,13 +581,16 @@
         playTrack();
       }
 
-      // --- EVENT LISTENERS FÜR DIREKTE KLICKS ---
-      btnPlay.addEventListener("click", togglePlay);
+      btnPlay.addEventListener("click", () => {
+        if (!audioPlayer.src || audioPlayer.src === window.location.href) {
+          loadTrack(0);
+        }
+        togglePlay();
+      });
       peacockBody.addEventListener("click", togglePlay);
       btnNext.addEventListener("click", nextTrack);
       btnPrev.addEventListener("click", prevTrack);
 
-      // Klicks auf die Pfauenfedern (nutzt den Array-Index statt HTML-data-Attribute)
       feathers.forEach((feather, index) => {
         feather.addEventListener("click", () => {
           loadTrack(index);
@@ -605,10 +598,8 @@
         });
       });
 
-      // Schaltet automatisch weiter, wenn ein Song fertig gespielt wurde
       audioPlayer.addEventListener("ended", nextTrack);
 
-      // Initiale Einrichtung beim ersten Laden der Seite (erster Song)
       loadTrack(currentTrackIndex);
     </script>
   </body>
