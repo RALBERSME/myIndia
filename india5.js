@@ -9,7 +9,7 @@ const tajData = {
   },
   architektur: {
     title: "Perfekte Symmetrie & Optische Täuschungen",
-    text: "Das Taj Mahal gilt als das schönste Beispiel der Mogul-Architektur. Das gesamte Areal ist **vollkommen symmetrisch** aufgebaut.<br /><br />Ein faszinierender Trick: Die vier Minarette (Türme) an den Ecken neigen sich **ganz leicht nach außen**. Das hat zwei Gründe: Zum einen stürzen sie bei einem Erdbeben nicht auf das Hauptgebäude. Zum anderen wirken sie aus der Ferne für das menschliche Auge exakt gerade.",
+    text: "Das Taj Mahal gilt als das schönste Beispiel der Mogul-Architektur. Das gesamte Areal ist <strong>vollkommen symmetrisch</strong> aufgebaut.<br /><br />Ein faszinierender Trick: Die vier Minarette (Türme) an den Ecken neigen sich <strong>ganz leicht nach außen</strong>. Das hat zwei Gründe: Zum einen stürzen sie bei einem Erdbeben nicht auf das Hauptgebäude. Zum anderen wirken sie aus der Ferne für das menschliche Auge exakt gerade.",
   },
   bedeutung: {
     title: "Weltwunder damals und heute",

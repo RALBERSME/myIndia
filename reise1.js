@@ -7,7 +7,7 @@ const jaipurData = {
   "warum-pink": `
     <h3>Der Anstrich für die Ewigkeit</h3>
     Das absolute Markenzeichen Jaipurs ist seine Farbe. Im Jahr <strong>1876</strong> kündigte sich der britische Thronfolger <strong>Prinz Albert</strong> (der spätere König Edward VII.) zu einem Staatsbesuch an.<br /><br />
-    Um den Prinzen gebührend zu ehren und die Stadt in vollem Glanz erstrahlen zu lassen, befahl der damalige Maharaja Ram Singh, die gesamte Stadt in einem traditionellen Terrakotta-Rosa anzustreichen – einer Farbe, die in Rajasthan seit jeher als **Symbol für herzliche Gastfreundschaft** gilt. Das Gesetz war so populär, dass es bis heute ein Dekret gibt, welches den Rosa-Anstrich für Gebäude in der Altstadt vorschreibt.
+    Um den Prinzen gebührend zu ehren und die Stadt in vollem Glanz erstrahlen zu lassen, befahl der damalige Maharaja Ram Singh, die gesamte Stadt in einem traditionellen Terrakotta-Rosa anzustreichen – einer Farbe, die in Rajasthan seit jeher als <strong>Symbol für herzliche Gastfreundschaft</strong> gilt. Das Gesetz war so populär, dass es bis heute ein Dekret gibt, welches den Rosa-Anstrich für Gebäude in der Altstadt vorschreibt.
   `,
   bedeutung: `
     <h3>Schutzfestung gestern, Kulturmetropole heute</h3>
