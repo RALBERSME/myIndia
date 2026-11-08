@@ -167,7 +167,7 @@ finishBtn.addEventListener("click", () => {
   let themenText =
     extraThemen.length > 0 ? extraThemen.join(", ") : "keine weiteren Themen";
 
-  resultMessage.innerHTML = `<strong>Super.</strong> Du hast gewählt: Rundreise & <em>${themenText}</em>. Wir beginnen mit der Rundreise.`;
+  resultMessage.innerHTML = `<strong>Super.</strong> You've chosen: Round trip & <em>${themenText}</em>. We start with the round trip.`;
   resultMessage.classList.remove("hidden");
 
   console.log("Gespeicherte Themenübersicht für Folgeseiten:", gewaehlteThemen);
@@ -177,6 +177,6 @@ finishBtn.addEventListener("click", () => {
   );
   setTimeout(() => {
     pageCount++;
-    window.location.href = `india${pageCount}.html`;
+    window.location.href = `india${pageCount}Engl.html`;
   }, 2000);
 });
