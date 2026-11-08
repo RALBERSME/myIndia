@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bollywood Vintage Section</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #0b111e;
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+      }
+
+      .bollywood-section {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+        background: radial-gradient(circle at 50% 30%, #1a233a 0%, #0b111e 70%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem 2rem;
+        overflow: hidden;
+      }
+
+      .bollywood-section::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        border: 2px solid #d4af37;
+        opacity: 0.3;
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      .container {
+        max-width: 1200px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        z-index: 5;
+      }
+
+      .spotlight {
+        position: absolute;
+        top: -20%;
+        left: 20%;
+        width: 600px;
+        height: 120vh;
+        background: conic-gradient(
+          from 160deg at 50% 0%,
+          rgba(212, 175, 55, 0.08) 0deg,
+          rgba(212, 175, 55, 0) 30deg,
+          rgba(212, 175, 55, 0) 330deg,
+          rgba(212, 175, 55, 0.08) 360deg
+        );
+        filter: blur(10px);
+        pointer-events: none;
+        transform-origin: top center;
+        animation: swingSpotlight 12s ease-in-out infinite alternate;
+      }
+
+      @keyframes swingSpotlight {
+        0% {
+          transform: rotate(-15deg);
+        }
+        100% {
+          transform: rotate(15deg);
+        }
+      }
+
+      .content-box {
+        color: #f4efe6;
+      }
+
+      .vintage-badge {
+        font-family: "Playfair Display", serif;
+        color: #d4af37;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        display: inline-block;
+        border-bottom: 1px solid #d4af37;
+        padding-bottom: 4px;
+      }
+
+      .main-title {
+        font-family: "Playfair Display", serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        color: #f4efe6;
+        text-shadow:
+          2px 2px 4px rgba(0, 0, 0, 0.6),
+          0 0 20px rgba(212, 175, 55, 0.2);
+      }
+
+      .main-title span {
+        color: #d4af37;
+        font-style: italic;
+      }
+
+      .description {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: #b0b7c6;
+        margin-bottom: 2.5rem;
+      }
+
+      .retro-btn {
+        display: inline-block;
+        font-family: "Playfair Display", serif;
+        color: #0b111e;
+        background-color: #d4af37;
+        padding: 1rem 2.5rem;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        border: 2px solid #d4af37;
+        position: relative;
+        transition: all 0.4s ease;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+      }
+
+      .retro-btn:hover {
+        background-color: transparent;
+        color: #d4af37;
+        box-shadow: 0 4px 25px rgba(212, 175, 55, 0.4);
+        transform: translateY(-2px);
+      }
+
+      .visual-box {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .poster-frame {
+        position: relative;
+        padding: 15px;
+        border: 3px double #d4af37;
+        background: #0f182a;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+        transform: rotate(-1deg);
+        transition: transform 0.5s ease;
+        animation: gentleFloat 6s ease-in-out infinite alternate;
+      }
+
+      .poster-frame:hover {
+        transform: rotate(0deg) scale(1.02);
+      }
+
+      .poster-image {
+        width: 340px;
+        height: 480px;
+        background: linear-gradient(
+          to bottom,
+          rgba(15, 24, 42, 0.2),
+          rgba(11, 17, 30, 0.9)
+        );
+        filter: sepia(0.4) contrast(1.1) brightness(0.85);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 2rem;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .poster-image::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
+          linear-gradient(
+            90deg,
+            rgba(255, 0, 0, 0.03),
+            rgba(0, 255, 0, 0.01),
+            rgba(0, 255, 0, 0.03)
+          );
+        background-size:
+          100% 4px,
+          6px 100%;
+        pointer-events: none;
+      }
+
+      .poster-title {
+        font-family: "Playfair Display", serif;
+        color: #d4af37;
+        font-size: 2rem;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 4px #000;
+      }
+
+      @keyframes gentleFloat {
+        0% {
+          transform: translateY(0px) rotate(-1deg);
+        }
+        100% {
+          transform: translateY(-15px) rotate(1deg);
+        }
+      }
+
+      .particle {
+        position: absolute;
+        background-color: rgba(212, 175, 55, 0.3);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: floatUp 8s linear infinite;
+        z-index: 1;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(100vh) translateX(0);
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.6;
+        }
+        100% {
+          transform: translateY(-10vh) translateX(50px);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .container {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+          text-align: center;
+        }
+        .main-title {
+          font-size: 2.8rem;
+        }
+        .vintage-badge {
+          justify-self: center;
+        }
+        .spotlight {
+          left: -10%;
+          width: 120%;
+        }
+      }
+      .poster-frame {
+        position: relative;
+        padding: 15px;
+        border: 3px double #d4af37;
+        background: #0f182a;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+        transform: rotate(-1deg);
+        transition: transform 0.5s ease;
+        animation: gentleFloat 6s ease-in-out infinite alternate;
+      }
+
+      .poster-frame:hover {
+        transform: rotate(0deg) scale(1.02);
+      }
+
+      .video-container {
+        width: 420px;
+        max-width: 100%;
+        position: relative;
+        overflow: hidden;
+        background: #000;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+
+        aspect-ratio: 16 / 9;
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .video-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%),
+          linear-gradient(
+            90deg,
+            rgba(255, 0, 0, 0.04),
+            rgba(0, 255, 0, 0.01),
+            rgba(0, 255, 0, 0.04)
+          );
+        background-size:
+          100% 4px,
+          6px 100%;
+        backdrop-filter: sepia(0.2) contrast(1.1) brightness(0.95);
+        pointer-events: none;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="bollywood-section" id="bollywood-hero">
+      <div class="spotlight"></div>
+
+      <div class="container">
+        <div class="content-box">
+          <span class="vintage-badge">Erste Anfänge einer Weltstadt</span>
+          <h1 class="main-title">Bombay <span>Cinema</span> Nostalgia</h1>
+          <p class="description">
+            Schau dir das alte Mumbai des 19. und 20. Jahrhunderts an, um die
+            Geschichte Mumbais besser zu verstehen. Hier findest du seltene
+            Bilder.
+          </p>
+          <a
+            href="https://www.youtube.com/watch?v=6bHFK6BGLpY"
+            target="_blank"
+            class="retro-btn"
+            >➥ noch mehr aus dieser Zeit</a
+          >
+        </div>
+
+        <div class="visual-box">
+          <div class="poster-frame">
+            <div class="video-container">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/h7IWFaZ6ae4"
+                title="Old Mumbai in 1800&#39;s and 1900&#39;s| history of mumbai | Rare Images | The World&#39;s Facts"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bollywood-section" id="bollywood-hero">
+      <div class="spotlight"></div>
+
+      <div class="container">
+        <div class="content-box">
+          <span class="vintage-badge">Die Goldene Ära Mumbais</span>
+          <h1 class="main-title">Bombay <span>Cinema</span> Nostalgia</h1>
+          <p class="description">
+            Das Leben in Bombay im Jahr 1965 war geprägt von einem
+            kosmopolitischen Charme und spürbarem Optimismus, während die
+            Straßen von den typischen gelb-schwarzen Fiat-Taxis und dem
+            unverkennbaren Hupkonzert belebt wurden. Die Menschen strömten in
+            die neu eröffneten, majestätischen Art-Deco-Kinosäle, um die
+            goldenen Klassiker von Bollywood zu feiern, oder genossen die
+            Meeresbrise am frisch ausgebauten Marine Drive. Trotz des
+            beginnenden urbanen Wachstums bewahrte sich die Stadt eine fast
+            poetische Leichtigkeit, in der die Welten von Jazz-Musik, feiner
+            Schneiderkunst und traditionellem Streetfood harmonisch
+            verschmolzen.
+          </p>
+          <a
+            href="https://www.youtube.com/watch?v=j5a92e5MN3Q"
+            target="_blank"
+            class="retro-btn"
+            >➥ noch mehr aus dieser Zeit</a
+          >
+        </div>
+
+        <div class="visual-box">
+          <div class="poster-frame">
+            <div class="video-container">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/nQv6C4ITcUU"
+                title="Bombay: Leben in den Sechzigern"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bollywood-section" id="bollywood-hero">
+      <div class="spotlight"></div>
+
+      <div class="container">
+        <div class="content-box">
+          <span class="vintage-badge"
+            >Bollywood - die größte Filmindustrie der Welt</span
+          >
+          <h1 class="main-title">Bombay <span>Cinema</span> Nostalgia</h1>
+          <p class="description">
+            Bollywood, die in Mumbai ansässige Hindi-Filmindustrie, entstand
+            Anfang des 20. Jahrhunderts und feierte 1913 mit dem ersten
+            indischen Stummfilm Raja Harishchandra ihr offizielles Debüt. Als
+            größte Filmindustrie der Welt hat sie für Indien eine immense
+            kulturelle und wirtschaftliche Bedeutung, da sie Millionen
+            Arbeitsplätze schafft und als einigendes Element in einem Land mit
+            Hunderten Sprachen fungiert. Weltweit dient Bollywood als mächtiges
+            Werkzeug der Soft Power, das indische Kultur, Mode, Tanz und Musik
+            rund um den Globus exportiert und populär macht.
+          </p>
+          <a
+            href="mumbai.html"
+            style="text-decoration: underline overline"
+            class="retro-btn"
+            >➥ zurück zur Mumbai Page</a
+          >
+        </div>
+
+        <div class="visual-box">
+          <div class="poster-frame">
+            <div class="video-container">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/j1hiNKVATbo"
+                title="Wie sieht die Geschichte von Bollywood aus? Vom Goldenen Zeitalter bis heute | Encyclopaedia Brit..."
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const section = document.getElementById("bollywood-hero");
+
+        function createParticle() {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          const size = Math.random() * 4 + 2;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+
+          particle.style.left = `${Math.random() * 100}vw`;
+
+          const duration = Math.random() * 5 + 6;
+          particle.style.animationDuration = `${duration}s`;
+
+          if (Math.random() > 0.5) {
+            particle.style.boxShadow = "0 0 8px #d4af37";
+          }
+
+          section.appendChild(particle);
+
+          setTimeout(() => {
+            particle.remove();
+          }, duration * 1000);
+        }
+
+        setInterval(createParticle, 300);
+      });
+    </script>
+  </body>
+</html>

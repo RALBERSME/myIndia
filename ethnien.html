@@ -137,6 +137,9 @@
       }
 
       .ethnie-header {
+        background-image: url(Images/elephantPattern.png);
+        background-size: 25cqmax;
+        background-position: 20% 50%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -148,9 +151,13 @@
 
       .ethnie-title h2 {
         font-size: 2.2rem;
+      }
+      .ethnie-title {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 2px 10px;
+        border-radius: 5px;
         color: #fff;
       }
-
       .ethnie-meta {
         font-size: 1.1rem;
         background: #0f172a;
@@ -325,11 +332,13 @@
 
       <div class="ethnie-card">
         <div class="ethnie-header">
-          <div class="ethnie-title">
-            <h2>Indoarier</h2>
-            <p style="color: var(--text-muted)">
-              Größte ethnolinguistische Familie
-            </p>
+          <div class="ethnie-wrapper">
+            <div class="ethnie-title">
+              <h2>Indoarier</h2>
+              <p style="color: var(--text-muted)">
+                Größte ethnolinguistische Familie
+              </p>
+            </div>
           </div>
           <div class="ethnie-meta">
             Bevölkerungsanteil: ~72% (Historisch stabil)

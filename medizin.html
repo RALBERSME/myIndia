@@ -112,6 +112,59 @@
         border-radius: 0 5px 5px 0;
         min-height: 80px;
       }
+      .beach-btn {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 230px;
+        height: 40px;
+        background-color: #f7d070;
+        border: 2px solid #e5ba55;
+        border-radius: 30px;
+        text-decoration: none;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(247, 208, 112, 0.3);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .beach-btn .btn-text {
+        position: relative;
+        z-index: 2;
+        font-family: "Arial", sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        color: #2c3e50;
+        transition: color 0.4s ease;
+      }
+
+      .beach-btn .wave-bg {
+        position: absolute;
+        top: 100%;
+        left: -50%;
+        width: 200%;
+        height: 400%;
+        background: var(--accent-color);
+        border-radius: 40%;
+        z-index: 1;
+        transition: top 0.6s ease;
+      }
+
+      .beach-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(41, 128, 185, 0.4);
+      }
+
+      .beach-btn:hover .btn-text {
+        color: #ffffff;
+      }
+
+      .beach-btn:hover .wave-bg {
+        top: -60%;
+        animation: ocean-wave 4s linear infinite;
+      }
     </style>
     <script defer>
       const doshaData = {
@@ -227,9 +280,13 @@
             <em>Wählen Sie ein Dosha aus, um die Beschreibung anzuzeigen.</em>
           </p>
         </div>
+        <br /><a href="doshas.html" class="beach-btn">
+          <span class="btn-text">➥ Teste, welcher Typ du bist</span>
+          <span class="wave-bg"></span>
+        </a>
       </section>
 
-      <h1 id="pageTitle" class="facts">Und so geht es weiter...</h1>
+      <h1 id="pageTitle" class="facts">➥ Und so geht es weiter...</h1>
 
       <div class="action-section" style="margin-top: 40px">
         <a

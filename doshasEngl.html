@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Alchemy of the Doshas: Your Ayurveda Compass</title>
+
+    <style>
+      :root {
+        --bg-deep: #0f141c;
+        --text-light: #f5f3ef;
+        --text-muted: #a3a8b2;
+        --gold: #d4af37;
+        --gold-glow: rgba(212, 175, 55, 0.3);
+
+        --vata-color: #4a90e2;
+        --pitta-color: #e65c00;
+        --kapha-color: #2ecc71;
+
+        --current-dosha-color: var(--gold);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--bg-deep);
+        color: var(--text-light);
+        font-family:
+          "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        transition: background 1s ease;
+      }
+
+      h1,
+      h2,
+      h3,
+      .dosha-title {
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        letter-spacing: 2px;
+      }
+
+      .ambient-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.15;
+        transition: all 1.5s ease;
+      }
+      .orb-1 {
+        top: -10%;
+        left: -10%;
+        width: 50vw;
+        height: 50vw;
+        background: var(--vata-color);
+        animation: floatOrb 20s infinite alternate;
+      }
+      .orb-2 {
+        bottom: -10%;
+        right: -10%;
+        width: 45vw;
+        height: 45vw;
+        background: var(--pitta-color);
+        animation: floatOrb 25s infinite alternate-reverse;
+      }
+      .orb-3 {
+        top: 40%;
+        left: 50%;
+        width: 35vw;
+        height: 35vw;
+        background: var(--kapha-color);
+        opacity: 0.08;
+      }
+
+      @keyframes floatOrb {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        100% {
+          transform: translate(5vw, 5vh) scale(1.1);
+        }
+      }
+
+      header {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+      }
+
+      .hero-glow {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        color: var(--gold);
+        margin-bottom: 1rem;
+        animation: pulseGlow 3s ease-in-out infinite;
+      }
+
+      @keyframes pulseGlow {
+        0%,
+        100% {
+          opacity: 0.6;
+          text-shadow: 0 0 10px rgba(212, 175, 55, 0);
+        }
+        50% {
+          opacity: 1;
+          text-shadow: 0 0 15px var(--gold-glow);
+        }
+      }
+
+      header h1 {
+        font-size: 4rem;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(to right, #fff, var(--gold), #fff);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      header p {
+        max-width: 600px;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin-bottom: 3rem;
+      }
+
+      .mandala-container {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 2rem;
+        opacity: 0.7;
+        animation: spinMandala 40s linear infinite;
+      }
+
+      @keyframes spinMandala {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .cta-btn {
+        background: transparent;
+        color: var(--text-light);
+        border: 1px solid var(--gold);
+        border-radius: 10px;
+        padding: 1.2rem 3rem;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        font-size: 1.1rem;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+      }
+
+      .cta-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(212, 175, 55, 0.2),
+          transparent
+        );
+        transition: all 0.6s ease;
+      }
+
+      .cta-btn:hover::before {
+        left: 100%;
+      }
+      .cta-btn:hover {
+        box-shadow: 0 0 25px var(--gold-glow);
+        border-color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .test-section {
+        padding: 8rem 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        display: none;
+      }
+
+      .quiz-card {
+        background: rgba(25, 33, 49, 0.4);
+        border: 1px solid rgba(212, 175, 55, 0.15);
+        backdrop-filter: blur(20px);
+        padding: 4rem 3rem;
+        border-radius: 4px;
+        position: relative;
+      }
+
+      .progress-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: var(--gold);
+        width: 0%;
+        transition: width 0.4s ease;
+        box-shadow: 0 0 10px var(--gold);
+      }
+
+      .question-number {
+        font-family: "Cinzel", serif;
+        color: var(--gold);
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .quiz-card h2 {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+        font-weight: 400;
+      }
+
+      .options-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .option-btn {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text-light);
+        padding: 1.5rem;
+        text-align: left;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family:
+          "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", Arial,
+          sans-serif;
+      }
+
+      .option-btn:hover {
+        background: rgba(212, 175, 55, 0.08);
+        border-color: var(--gold);
+        transform: translateX(5px);
+      }
+
+      .result-section {
+        padding: 6rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: none;
+      }
+
+      .result-header {
+        text-align: center;
+        margin-bottom: 5rem;
+      }
+
+      .result-header h2 {
+        font-size: 1.5rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+      .dominant-dosha-title {
+        font-size: 4.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        letter-spacing: 4px;
+        transition: color 0.5s ease;
+      }
+
+      .dosha-subtitle {
+        font-size: 1.3rem;
+        font-style: italic;
+        color: var(--text-muted);
+      }
+
+      .guide-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .guide-card {
+        background: rgba(15, 20, 28, 0.6);
+        border-top: 3px solid var(--current-dosha-color);
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 3rem 2rem;
+        backdrop-filter: blur(10px);
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
+      }
+
+      .guide-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .guide-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .guide-card ul {
+        list-style: none;
+      }
+
+      .guide-card li {
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+        line-height: 1.6;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .guide-card li::before {
+        content: "✦";
+        position: absolute;
+        left: 0;
+        color: var(--current-dosha-color);
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.8rem;
+        }
+        .dominant-dosha-title {
+          font-size: 3rem;
+        }
+        .quiz-card {
+          padding: 2rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ambient-bg">
+      <div class="orb orb-1" id="orb-left"></div>
+      <div class="orb orb-2" id="orb-right"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <header id="hero-section">
+      <div class="mandala-container">
+        <svg
+          viewBox="0 0 100 100"
+          fill="none"
+          stroke="#d4af37"
+          stroke-width="0.5"
+        >
+          <circle cx="50" cy="50" r="45" />
+          <circle cx="50" cy="50" r="35" />
+          <circle cx="50" cy="50" r="25" />
+          <path
+            d="M50 5 L50 95 M5 50 L95 50 M18.2 18.2 L81.8 81.8 M18.2 81.8 L81.8 18.2"
+            opacity="0.5"
+          />
+        </svg>
+      </div>
+
+      <p class="hero-glow">The Alchemy of Ayurveda</p>
+      <h1>Awaken your<br />inner bio-energy</h1>
+      <p>
+        Everything in the universe is made of five elements. In the human body,
+        they manifest as three fundamental forces: Vata, Pitta, and Kapha. Which
+        element governs you?
+      </p>
+      <button class="cta-btn" onclick="startQuiz()">
+        Find your constitution
+      </button>
+    </header>
+
+    <section class="test-section" id="quiz-section">
+      <div class="quiz-card">
+        <div class="progress-bar" id="progress"></div>
+        <div class="question-number" id="q-num">Question 1 of 5</div>
+        <h2 id="q-text">How would you best describe your physique?</h2>
+        <div class="options-grid" id="options-box"></div>
+      </div>
+    </section>
+
+    <section class="result-section" id="results-portal">
+      <div class="result-header">
+        <h2>Your primary constitution is</h2>
+        <h3 class="dominant-dosha-title" id="dosha-outcome">Vata</h3>
+        <p class="dosha-subtitle" id="dosha-elements">Ether & Wind</p>
+      </div>
+
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>🍲 Nutrition</h3>
+          <ul id="diet-list"></ul>
+        </div>
+
+        <div class="guide-card">
+          <h3>🧘 Lifestyle</h3>
+          <ul id="lifestyle-list"></ul>
+        </div>
+
+        <div class="guide-card">
+          <h3>🌿 Health</h3>
+          <ul id="health-list"></ul>
+        </div>
+      </div>
+
+      <div style="text-align: center; gap: 4px; margin-top: 4rem">
+        <div
+          class="links"
+          style="display: flex; flex-direction: column; gap: 25px"
+        >
+          <button class="cta-btn" onclick="resetQuiz()">➥ Retake test</button>
+          <button
+            class="cta-btn"
+            onclick="window.location.href = 'medicine.html'"
+          >
+            ➥ back to medicine page
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const questions = [
+        {
+          text: "How would you best describe your physical build and bone structure?",
+          options: [
+            {
+              text: "Rather slender, delicate, with difficulty gaining weight.",
+              type: "vata",
+            },
+            {
+              text: "Medium build, athletic, builds muscle easily.",
+              type: "pitta",
+            },
+            {
+              text: "Sturdy build, broad shoulders/hips, tends to gain weight easily.",
+              type: "kapha",
+            },
+          ],
+        },
+        {
+          text: "How do you mentally react to intense, sudden stress?",
+          options: [
+            {
+              text: "I become restless, start overthinking, or experience anxious thoughts.",
+              type: "vata",
+            },
+            {
+              text: "I become easily irritable, impatient, or react with focused frustration.",
+              type: "pitta",
+            },
+            {
+              text: "I remain outwardly calm, withdraw, or tend to procrastinate.",
+              type: "kapha",
+            },
+          ],
+        },
+        {
+          text: "How does your natural digestive system behave in daily life?",
+          options: [
+            {
+              text: "Irregular. Sometimes I have a strong appetite, other times I forget to eat entirely.",
+              type: "vata",
+            },
+            {
+              text: "Very strong and fiery. I tolerate large portions and get hangry if a meal is delayed.",
+              type: "pitta",
+            },
+            {
+              text: "Slow but steady. I can easily skip meals, but often feel heavy afterward.",
+              type: "kapha",
+            },
+          ],
+        },
+        {
+          text: "Which climate or weather does your body tolerate the least?",
+          options: [
+            {
+              text: "Cold, windy, and dry weather — it chills me to the bone instantly.",
+              type: "vata",
+            },
+            {
+              text: "Hot summer days and bright sunshine — it drives me crazy.",
+              type: "pitta",
+            },
+            {
+              text: "Damp, foggy, and cold, wet weather — it makes me sluggish.",
+              type: "kapha",
+            },
+          ],
+        },
+        {
+          text: "How would you best describe your sleep patterns?",
+          options: [
+            {
+              text: "Light, often restless, and interrupted by many thoughts or dreams.",
+              type: "vata",
+            },
+            {
+              text: "Normal, I fall asleep quickly but wake up easily in intense heat.",
+              type: "pitta",
+            },
+            {
+              text: "Deep, sound, and long. I find it hard to get out of bed in the morning.",
+              type: "kapha",
+            },
+          ],
+        },
+      ];
+
+      const doshaProfiles = {
+        vata: {
+          title: "Vata",
+          elements: "Ether & Wind (The Principle of Movement)",
+          color: "#4a90e2",
+          diet: [
+            "Favor warm, cooked, and nourishing foods (e.g., stews, soups).",
+            "Use healthy fats like ghee, sesame oil, or olive oil abundantly.",
+            "Sweet, sour, and salty tastes soothe your nervous system.",
+            "Avoid raw, cold foods and dry snacks like crackers.",
+          ],
+          lifestyle: [
+            "Establish a fixed morning routine to bring stability to your day.",
+            "Practice grounding activities like gentle Hatha yoga, Tai Chi, or walking.",
+            "Always keep your body warm and protect yourself from drafts.",
+            "Massage your body with warm sesame oil before your morning shower (Abhyanga).",
+          ],
+          health: [
+            "Your nervous system is highly sensitive; schedule conscious digital detox breaks.",
+            "Ensure adequate hydration by drinking warm water or herbal teas.",
+            "You are prone to constipation, dry skin, and joint pain when out of balance.",
+            "Get plenty of sleep, ideally being in bed by 10:00 PM.",
+          ],
+        },
+        pitta: {
+          title: "Pitta",
+          elements: "Fire & Water (The Principle of Metabolism)",
+          color: "#e65c00",
+          diet: [
+            "Favor cooling, refreshing foods (ripe fruit, green salads).",
+            "Sweet, bitter, and astringent tastes reduce internal fire.",
+            "Use mild spices like coriander, fennel, cardamom, and fresh mint.",
+            "Avoid extremely spicy foods, alcohol, coffee, and fermented products.",
+          ],
+          lifestyle: [
+            "Avoid excessive competition; learn to take a more playful approach to things.",
+            "Avoid direct midday sun and cool down with walks in the forest or by the water.",
+            "Practice cooling breathing exercises (Sitali Pranayama) when feeling inner heat or anger.",
+            "Set realistic goals and do not force perfection.",
+          ],
+          health: [
+            "Prone to inflammation, heartburn, skin rashes, and acne.",
+            "Do not skip meals to appease aggressive stomach acid.",
+            "Use coconut oil for skincare, as it possesses strong cooling properties.",
+            "Protect your eyes from bright light and give them regular rests.",
+          ],
+        },
+        kapha: {
+          title: "Kapha",
+          elements: "Earth & Water (The Principle of Structure)",
+          color: "#2ecc71",
+          diet: [
+            "Favor light, warm, dry, and easily digestible foods.",
+            "Pungent, bitter, and astringent tastes stimulate your digestion.",
+            "Use warming spices like ginger, chili, black pepper, and mustard seeds generously.",
+            "Radically reduce heavy dairy products, sugar, wheat, and greasy oils.",
+          ],
+          lifestyle: [
+            "Consciously seek out new inspiration every day and vary your habits.",
+            "Practice dynamic, sweat-inducing workouts (Vinyasa yoga, jogging, HIIT).",
+            "Avoid oversleeping; it is best to wake up before 6:00 AM.",
+            "Strictly avoid afternoon naps, as they slow down your system.",
+          ],
+          health: [
+            "Prone to sluggishness, weight gain, congestion, and water retention.",
+            "Use dry massages with a silk glove (Garshan) to stimulate lymphatic flow.",
+            "Regular fasting or skipping breakfast is highly beneficial for your system.",
+            "Keep your mind active through continuous learning and diverse social interactions.",
+          ],
+        },
+      };
+
+      let currentQuestionIndex = 0;
+      let scores = { vata: 0, pitta: 0, kapha: 0 };
+
+      function startQuiz() {
+        document.getElementById("hero-section").style.display = "none";
+        document.getElementById("quiz-section").style.display = "block";
+        showQuestion();
+      }
+
+      function showQuestion() {
+        const currentQ = questions[currentQuestionIndex];
+
+        const progressPercent = (currentQuestionIndex / questions.length) * 100;
+        document.getElementById("progress").style.width = `${progressPercent}%`;
+
+        document.getElementById("q-num").innerText =
+          `Frage ${currentQuestionIndex + 1} von ${questions.length}`;
+        document.getElementById("q-text").innerText = currentQ.text;
+
+        const optionsBox = document.getElementById("options-box");
+        optionsBox.innerHTML = "";
+
+        currentQ.options.forEach((option) => {
+          const button = document.createElement("button");
+          button.classList.add("option-btn");
+          button.innerText = option.text;
+          button.onclick = () => selectOption(option.type);
+          optionsBox.appendChild(button);
+        });
+      }
+
+      function selectOption(type) {
+        scores[type]++;
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < questions.length) {
+          showQuestion();
+        } else {
+          document.getElementById("progress").style.width = `100%`;
+          setTimeout(evaluateResults, 400);
+        }
+      }
+
+      function evaluateResults() {
+        document.getElementById("quiz-section").style.display = "none";
+        document.getElementById("results-portal").style.display = "block";
+
+        let dominantDosha = "vata";
+        if (scores.pitta > scores.vata && scores.pitta > scores.kapha)
+          dominantDosha = "pitta";
+        if (scores.kapha > scores.vata && scores.kapha > scores.pitta)
+          dominantDosha = "kapha";
+
+        const profile = doshaProfiles[dominantDosha];
+
+        document.getElementById("dosha-outcome").innerText = profile.title;
+        document.getElementById("dosha-elements").innerText = profile.elements;
+
+        document.documentElement.style.setProperty(
+          "--current-dosha-color",
+          profile.color,
+        );
+        document.getElementById("dosha-outcome").style.color = profile.color;
+
+        document.getElementById("orb-left").style.background = profile.color;
+        document.getElementById("orb-left").style.opacity = "0.3";
+        document.getElementById("orb-right").style.background = "#0f141c";
+
+        fillList("diet-list", profile.diet);
+        fillList("lifestyle-list", profile.lifestyle);
+        fillList("health-list", profile.health);
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function fillList(elementId, itemsArray) {
+        const list = document.getElementById(elementId);
+        list.innerHTML = "";
+        itemsArray.forEach((item) => {
+          const li = document.createElement("li");
+          li.innerText = item;
+          list.appendChild(li);
+        });
+      }
+
+      function resetQuiz() {
+        currentQuestionIndex = 0;
+        scores = { vata: 0, pitta: 0, kapha: 0 };
+
+        document.documentElement.style.setProperty(
+          "--current-dosha-color",
+          "var(--gold)",
+        );
+        document.getElementById("orb-left").style.background =
+          "var(--vata-color)";
+        document.getElementById("orb-left").style.opacity = "0.15";
+        document.getElementById("orb-right").style.background =
+          "var(--pitta-color)";
+
+        document.getElementById("results-portal").style.display = "none";
+        document.getElementById("hero-section").style.display = "flex";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>

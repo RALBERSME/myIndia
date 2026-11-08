@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guna Milan – Das Gesetz der 36 kosmischen Punkte</title>
+
+    <style>
+      :root {
+        --bg-dark: #070b14;
+        --card-bg: rgba(19, 28, 48, 0.75);
+        --gold: #dfb743;
+        --gold-light: #f3df95;
+        --text-light: #f4f6fa;
+        --text-muted: #8fa0b5;
+        --crimson: #c0243c;
+        --success: #27ae60;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+        font-family:
+          "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        background: radial-gradient(circle at 50% 50%, #121c35 0%, #070b14 90%);
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        letter-spacing: 1px;
+        color: var(--gold-light);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3.5rem;
+      }
+
+      header h1 {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 20px rgba(223, 183, 115, 0.2);
+      }
+
+      .intro-box {
+        background: var(--card-bg);
+        border: 1px solid rgba(223, 183, 67, 0.2);
+        padding: 2rem;
+        border-radius: 8px;
+        max-width: 850px;
+        margin: 0 auto;
+        backdrop-filter: blur(10px);
+        text-align: left;
+      }
+
+      .intro-box p {
+        margin-bottom: 1rem;
+        color: var(--text-muted);
+        font-size: 1.05rem;
+      }
+
+      .intro-box p:last-child {
+        margin-bottom: 0;
+      }
+
+      .arena {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 2.5rem;
+        align-items: start;
+        margin-bottom: 4rem;
+      }
+
+      .profile-card {
+        background: var(--card-bg);
+        border: 2px solid var(--gold);
+        border-radius: 8px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      }
+
+      .profile-card.bride {
+        border-color: #ff79c6;
+        background: rgba(43, 20, 54, 0.7);
+      }
+
+      .avatar {
+        width: 95px;
+        height: 95px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #f3df95, #dfb743);
+        margin: 0 auto 1.2rem auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+      }
+
+      .profile-card.bride .avatar {
+        background: linear-gradient(135deg, #ff9233, #ff79c6);
+      }
+
+      .astro-details {
+        margin-top: 1.5rem;
+        text-align: left;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 1rem;
+        border-radius: 6px;
+      }
+
+      .detail-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.95rem;
+      }
+
+      .detail-row:last-child {
+        border: none;
+      }
+
+      .detail-row span:first-child {
+        color: var(--text-muted);
+      }
+
+      .grooms-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .groom-row {
+        background: var(--card-bg);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+      }
+
+      .groom-row:hover {
+        border-color: var(--gold);
+        transform: translateX(5px);
+      }
+
+      .groom-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .groom-meta .avatar {
+        margin: 0;
+        width: 85px;
+        height: 85px;
+        font-size: 2rem;
+      }
+
+      .groom-data-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 0.3rem 1.5rem;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .action-block {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        min-width: 160px;
+      }
+
+      .btn {
+        padding: 0.6rem 1rem;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+        border-radius: 4px;
+      }
+
+      .btn-marry {
+        background: var(--success);
+        color: var(--text-light);
+      }
+
+      .btn-marry:hover {
+        background: #2ebd6c;
+        box-shadow: 0 0 12px rgba(39, 174, 96, 0.4);
+      }
+
+      .btn-reject {
+        background: transparent;
+        border-color: var(--crimson);
+        color: #ff4d6d;
+      }
+
+      .btn-reject:hover {
+        background: var(--crimson);
+        color: var(--text-light);
+        box-shadow: 0 0 12px rgba(192, 36, 60, 0.4);
+      }
+
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(4, 6, 12, 0.92);
+        backdrop-filter: blur(8px);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .modal-content {
+        background: #0d1424;
+        border: 2px solid var(--gold);
+        width: 90%;
+        max-width: 650px;
+        padding: 2.5rem;
+        border-radius: 8px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+        text-align: center;
+      }
+
+      .score-box {
+        font-size: 3.5rem;
+        font-family: "Cinzel", serif;
+        font-weight: 700;
+        color: var(--gold);
+        margin: 0.5rem 0;
+        text-shadow: 0 0 20px rgba(223, 183, 67, 0.4);
+      }
+
+      .verdict-badge {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .verdict-badge.win {
+        color: var(--success);
+      }
+      .verdict-badge.lose {
+        color: #ff4d6d;
+      }
+
+      .analysis-text {
+        text-align: left;
+        background: rgba(0, 0, 0, 0.35);
+        padding: 1.5rem;
+        border-radius: 6px;
+        max-height: 250px;
+        overflow-y: auto;
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .analysis-text p {
+        margin-bottom: 0.8rem;
+      }
+      .analysis-text p:last-child {
+        margin-bottom: 0;
+      }
+
+      .btn-return {
+        background: var(--gold);
+        color: #070b14;
+        border: none;
+        padding: 0.7rem 2.5rem;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.3s;
+      }
+
+      .btn-return:hover {
+        background: #fff;
+      }
+
+      @media (max-width: 900px) {
+        .arena {
+          grid-template-columns: 1fr;
+        }
+        .profile-card {
+          max-width: 400px;
+          margin: 0 auto;
+          width: 100%;
+        }
+        .groom-row {
+          flex-direction: column;
+          text-align: center;
+          padding: 2rem;
+        }
+        .groom-meta {
+          flex-direction: column;
+        }
+        .groom-data-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .action-block {
+          width: 100%;
+          margin-top: 1rem;
+        }
+        header h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Ashtakoot Guna Milan</h1>
+        <p>Das kosmische Beziehungs-Rätsel der vedischen Astrologie</p>
+      </header>
+
+      <section class="intro-box" style="margin-bottom: 3.5rem">
+        <p>
+          Im traditionellen Indien wird das Beziehungsglück nicht dem Zufall
+          überlassen. Über das <strong>Ashtakoot-System</strong> (8 Kategorien)
+          vergleichen Astrologen die exakte Position des Mondes zum Zeitpunkt
+          der Geburt. Da der Mond das Unterbewusstsein, die Psyche und die
+          emotionale Natur steuert, gilt diese Berechnung als präziser
+          Gradmesser für eine lebenslange Verbindung.
+        </p>
+        <p>
+          Aus dem Abgleich der Eigenschaften errechnet sich ein Maximum von
+          <strong>36 Punkten (Gunas)</strong>. Das absolute Minimum für das
+          Erlauben einer Ehe liegt bei <strong>18 Punkten</strong>. Ab 24
+          Punkten spricht man von einer glücklichen Ehe. Doch Vorsicht: Wenn
+          fundamentale Gegensätze aufeinanderprallen oder
+          biologisch-energetische Typen identisch sind, entsteht ein
+          <strong>Dosha (Blockade)</strong>. Ein solches Dosha stuft eine
+          Hauptkategorie sofort auf Null Punkte herunter – das Schicksal gilt
+          dann als gefährdet.
+        </p>
+      </section>
+
+      <div class="arena">
+        <div class="profile-card bride">
+          <div class="avatar">
+            <img
+              width=" 85px"
+              height="85px"
+              style="border-radius: 50%"
+              src="Images/woman.jpg"
+            />
+          </div>
+          <h3>Priya</h3>
+          <p style="color: #ff79c6; font-size: 0.9rem; font-weight: bold">
+            Die Braut
+          </p>
+          <div class="astro-details">
+            <div class="detail-row">
+              <span>Mondzeichen</span><span>Jungfrau (Kanya)</span>
+            </div>
+            <div class="detail-row">
+              <span>Nadi-Energie</span><span>Madhya (Pitta-Typ)</span>
+            </div>
+            <div class="detail-row">
+              <span>Mentaler Gana</span><span>Deva (Göttlich)</span>
+            </div>
+            <div class="detail-row"><span>Tier-Yoni</span><span>Kuh</span></div>
+          </div>
+        </div>
+
+        <div class="grooms-list">
+          <div class="groom-row">
+            <div class="groom-meta">
+              <div class="avatar">
+                <img
+                  width="80px"
+                  height="80px"
+                  style="border-radius: 50%"
+                  src="Images/groom1.jpg"
+                />
+              </div>
+              <div>
+                <h3>Rohan</h3>
+                <div class="groom-data-grid">
+                  <div>Mondzeichen: <strong>Widder</strong></div>
+                  <div>Nadi: <strong>Madhya (Pitta-Typ)</strong></div>
+                  <div>Gana: <strong>Manushya (Menschlich)</strong></div>
+                  <div>Yoni: <strong>Ziege</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="action-block">
+              <button
+                class="btn btn-marry"
+                onclick="makeDecision('rohan', 'marry')"
+              >
+                Heiraten
+              </button>
+              <button
+                class="btn btn-reject"
+                onclick="makeDecision('rohan', 'reject')"
+              >
+                Ablehnen
+              </button>
+            </div>
+          </div>
+
+          <div class="groom-row">
+            <div class="groom-meta">
+              <div class="avatar">
+                <img
+                  width="80px"
+                  height="80px"
+                  style="border-radius: 50%"
+                  src="Images/groom2.jpg"
+                />
+              </div>
+              <div>
+                <h3>Arjun</h3>
+                <div class="groom-data-grid">
+                  <div>Mondzeichen: <strong>Stier</strong></div>
+                  <div>Nadi: <strong>Antya (Kapha-Typ)</strong></div>
+                  <div>Gana: <strong>Deva (Göttlich)</strong></div>
+                  <div>Yoni: <strong>Schlange</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="action-block">
+              <button
+                class="btn btn-marry"
+                onclick="makeDecision('arjun', 'marry')"
+              >
+                Heiraten
+              </button>
+              <button
+                class="btn btn-reject"
+                onclick="makeDecision('arjun', 'reject')"
+              >
+                Ablehnen
+              </button>
+            </div>
+          </div>
+
+          <div class="groom-row">
+            <div class="groom-meta">
+              <div class="avatar">
+                <img
+                  width="80px"
+                  height="80px"
+                  style="border-radius: 50%"
+                  src="Images/groom3.jpg"
+                />
+              </div>
+              <div>
+                <h3>Kabir</h3>
+                <div class="groom-data-grid">
+                  <div>Mondzeichen: <strong>Skorpion</strong></div>
+                  <div>Nadi: <strong>Antya (Kapha-Typ)</strong></div>
+                  <div>Gana: <strong>Rakshasa (Dämonisch)</strong></div>
+                  <div>Yoni: <strong>Tiger</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="action-block">
+              <button
+                class="btn btn-marry"
+                onclick="makeDecision('kabir', 'marry')"
+              >
+                Heiraten
+              </button>
+              <button
+                class="btn btn-reject"
+                onclick="makeDecision('kabir', 'reject')"
+              >
+                Ablehnen
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="resultModal">
+      <div class="modal-content">
+        <h3 id="modalTitle">Deine Entscheidung</h3>
+        <div class="score-box" id="modalScore">00 / 36 Gunas</div>
+        <div class="verdict-badge" id="modalVerdict">Verbindung geprüft</div>
+
+        <div class="analysis-text" id="modalAnalysis"></div>
+
+        <button class="btn-return" onclick="closeModal()">zurück</button>
+      </div>
+    </div>
+    <button
+      style="margin: 0 30% 50px"
+      class="btn-return"
+      onclick="window.location.href = 'liebe.html'"
+    >
+      ➥ klicke für zurück
+    </button>
+
+    <script>
+      const database = {
+        rohan: {
+          name: "Rohan",
+          score: 11,
+          isMatchSuccess: false,
+          analysis:
+            "<p>Deine Entscheidung führt ins Chaos! Rohan und Priya erreichen lediglich <strong>11 von 36 Punkten</strong>. Das ist weit unter dem Mindestmaß von 18.</p>" +
+            "<p>Hier schlägt das verheerende <strong>Nadi Dosha</strong> zu: Da beide Partner exakt dieselbe körperliche Bioenergie (Madhya / Pitta) besitzen, vergibt das System in der wichtigsten Genetik-Kategorie 0 von 8 Punkten. In der indischen Tradition wird hierdurch vor emotionaler Erschöpfung und Dissonanzen gewarnt.</p>" +
+            "<p>Zudem stehen ihre Mondzeichen (Widder und Jungfrau) im unglücklichen 6/8-Muster zueinander (Bhakoot Dosha), was zu psychischer Distanz führt.</p>",
+        },
+        arjun: {
+          name: "Arjun",
+          score: 31,
+          isMatchSuccess: true,
+          analysis:
+            "<p>Eine meisterhafte Entscheidung! Arjun und Priya sind ein kosmisches Geschenk mit sagenhaften <strong>31 von 36 Punkten</strong>.</p>" +
+            "<p>Da Arjuns Stier-Mond im glückbringenden Trigon zu Priyas Jungfrau-Mond steht, herrscht tiefes, blindes Vertrauen (volle 7/7 Punkte beim Bhakoot). Ihre Energietypen (Madhya & Antya) ergänzen sich perfekt, weshalb das Nadi-System die maximale Punktzahl (8/8) ausschüttet.</p>" +
+            "<p>Beide besitzen zudem das friedfertige Deva-Gana (Göttliches Temperament), was eine Ehe voller Respekt, Harmonie und ohne verletzende Machtkämpfe garantiert.</p>",
+        },
+        kabir: {
+          name: "Kabir",
+          score: 13,
+          isMatchSuccess: false,
+          analysis:
+            "<p>Diese Ehe würde unter einem sehr schlechten Stern stehen! Kabir und Priya erreichen nur ungenügende <strong>13 von 36 Punkten</strong>.</p>" +
+            "<p>Das größte Problem liegt im psychologischen Temperament (Gana Koota): Priyas sanfte, göttliche Seele (Deva) trifft auf Kabirs stolze, aggressive und dominante Rakshasa-Natur (Dämonischer Typus). Das System vergibt hierfür unbarmherzig 0 von 6 Punkten, da schmerzhafte emotionale Verletzungen vorprogrammiert sind.</p>" +
+            "<p>Zudem harmonieren die Gefühlsfelder (Mond in Jungfrau vs. Skorpion) auf Dauer nicht tief genug miteinander.</p>",
+        },
+      };
+
+      function makeDecision(groomKey, choice) {
+        const data = database[groomKey];
+        const modal = document.getElementById("resultModal");
+        const title = document.getElementById("modalTitle");
+        const scoreBox = document.getElementById("modalScore");
+        const verdict = document.getElementById("modalVerdict");
+        const analysis = document.getElementById("modalAnalysis");
+
+        scoreBox.innerText = `${data.score} / 36 Gunas`;
+
+        if (choice === "marry") {
+          if (data.isMatchSuccess) {
+            title.innerText = `Richtige Wahl! Ehe mit ${data.name}`;
+            verdict.innerText = "Kosmischer Segen erteilt";
+            verdict.className = "verdict-badge win";
+          } else {
+            title.innerText = `Fatale Wahl! Ehe mit ${data.name}`;
+            verdict.innerText = "Astrologischer Einspruch";
+            verdict.className = "verdict-badge lose";
+          }
+        } else {
+          if (data.isMatchSuccess) {
+            title.innerText = `Fehlentscheidung! ${data.name} abgewiesen`;
+            verdict.innerText = "Du hast das perfekte Match weggeschickt";
+            verdict.className = "verdict-badge lose";
+          } else {
+            title.innerText = `Kluge Entscheidung! ${data.name} abgewiesen`;
+            verdict.innerText = "Unglück erfolgreich abgewendet";
+            verdict.className = "verdict-badge win";
+          }
+        }
+
+        analysis.innerHTML = data.analysis;
+        modal.classList.add("active");
+      }
+
+      function closeModal() {
+        document.getElementById("resultModal").classList.remove("active");
+      }
+    </script>
+  </body>
+</html>
