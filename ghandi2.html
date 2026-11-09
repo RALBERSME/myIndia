@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghandi Erfahrungen</title>
+    <style>
+      :root {
+        --bg-dark: #090d16;
+        --tech-orange: #ff9933;
+        --tech-green: #138808;
+        --neon-blue: #00f3ff;
+        --khadi-white: #f5f2eb;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--khadi-white);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(9, 13, 22, 0.9);
+        backdrop-filter: blur(10px);
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+        border-bottom: 2px dashed var(--neon-blue);
+      }
+
+      nav a {
+        color: var(--khadi-white);
+        text-decoration: none;
+        margin: 0 20px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: var(--tech-orange);
+      }
+
+      section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 20px;
+        text-align: center;
+        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      h1,
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        background: transparent;
+        color: var(--neon-blue);
+        border: 2px solid var(--neon-blue);
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-family: inherit;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s;
+      }
+
+      .btn:hover {
+        background: var(--neon-blue);
+        color: var(--bg-dark);
+        box-shadow: 0 0 20px var(--neon-blue);
+      }
+
+      #section1 {
+        background: linear-gradient(135deg, #090d16, #1c1124);
+      }
+
+      .meter-container {
+        width: 100%;
+        max-width: 500px;
+        background: #222;
+        height: 30px;
+        border: 2px solid var(--khadi-white);
+        margin-bottom: 20px;
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+
+      .meter-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(
+          to right,
+          var(--tech-green),
+          var(--tech-orange),
+          #ff0055
+        );
+        transition: width 0.2s;
+      }
+
+      .meter-status {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--tech-orange);
+        margin-bottom: 30px;
+      }
+
+      .bug-particle {
+        position: fixed;
+        color: #ff0055;
+        font-weight: bold;
+        font-size: 1.5rem;
+        pointer-events: none;
+        z-index: 999;
+        animation: floatUp 1s ease-out forwards;
+      }
+
+      #section2 {
+        background: linear-gradient(135deg, #090d16, #0c1b24);
+      }
+
+      .specs-container {
+        width: 240px;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        margin-bottom: 40px;
+        cursor: pointer;
+      }
+
+      .lens {
+        width: 90px;
+        height: 90px;
+        border: 6px solid var(--khadi-white);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        transition: all 0.1s;
+      }
+
+      .bridge {
+        width: 60px;
+        height: 6px;
+        background-color: var(--khadi-white);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .disco-active .lens {
+        animation: disco 0.2s infinite;
+        box-shadow: 0 0 20px currentColor;
+      }
+
+      .matrix-quote {
+        min-height: 80px;
+        font-style: italic;
+        color: #34d399;
+        font-size: 1.5rem;
+        max-width: 800px;
+      }
+
+      #section3 {
+        background: linear-gradient(135deg, #090d16, #1a1611);
+      }
+
+      .sandals-container {
+        font-size: 5rem;
+        margin: 30px 0;
+        display: inline-block;
+        position: relative;
+        user-select: none;
+        filter: drop-shadow(0 0 15px var(--tech-orange));
+        transition: transform 0.1s ease;
+      }
+
+      @keyframes marchSteps {
+        0% {
+          transform: scale(1) rotate(0deg);
+        }
+        25% {
+          transform: scale(1.1) rotate(-8deg) translateY(-5px);
+        }
+        75% {
+          transform: scale(1.1) rotate(8deg) translateY(-5px);
+        }
+        100% {
+          transform: scale(1) rotate(0deg);
+        }
+      }
+
+      .distance-display {
+        min-height: 50px;
+        color: #ff9933;
+        font-weight: bold;
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+        max-width: 650px;
+        transition: all 0.3s ease;
+        text-shadow: 0 0 10px rgba(255, 153, 51, 0.3);
+      }
+
+      .output-item {
+        position: absolute;
+        font-size: 2rem;
+        pointer-events: none;
+        z-index: 10;
+        animation: shootOutUp 1.2s cubic-bezier(0.1, 1, 0.1, 1) forwards;
+      }
+
+      @keyframes shootOutUp {
+        0% {
+          transform: translate(0, 0) scale(0.4) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(var(--x), var(--y)) scale(1.3) rotate(180deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#section1">1. Aggro-Meter</a>
+      <a href="#section2">2. Disco-Guru</a>
+      <a href="#section3">3. Gandhis Salz-Marsch</a>
+      <a href="ghandi.html">➥ klicke hier für zurück</a>
+    </nav>
+
+    <section id="section1">
+      <h2>01. Das Gandhi-Bug-Toleranz-Ometer 🧘‍♂️</h2>
+      <p>
+        Ein falsches Semikolon im Code bringt europäische Entwickler zur
+        Weißglut. Wie reagiert das Symbol unendlicher Geduld auf endlose
+        Fehlermeldungen? Spamme den Button und teste das System!
+      </p>
+
+      <div class="meter-container">
+        <div class="meter-fill" id="meterFill"></div>
+      </div>
+      <div class="meter-status" id="meterStatus">
+        Status: Absolute innere Ruhe (0% Aggro)
+      </div>
+
+      <button class="btn" id="bugBtn">Fehlermeldung triggern! 💥</button>
+    </section>
+
+    <section id="section2">
+      <h2>02. Der Tech-Guru Zitat-Generator 🕶️</h2>
+      <p>
+        Was passiert, wenn man Jahrtausende alte Weisheit mit modernem Code
+        kreuzt? Bewege deine Maus über die Brille oder klicke darauf, um sie in
+        den <strong>Disco-Tech-Modus</strong> zu versetzen und den Code-Guru
+        sprechen zu lassen!
+      </p>
+
+      <div class="specs-container" id="discoSpecs">
+        <div class="lens"></div>
+        <div class="bridge"></div>
+        <div class="lens"></div>
+      </div>
+
+      <div class="matrix-quote" id="quoteDisplay">
+        "Bewege die Maus über die Brille der Erleuchtung..."
+      </div>
+    </section>
+
+    <section id="section3">
+      <h2>03. Gandhis Digitaler Salzmarsch 🩴👣</h2>
+      <p>
+        1930 lief Gandhi 385 Kilometer zu Fuß im berühmten Salzmarsch – in
+        einfachen Sandalen. Heute beweisen indische IT-Entwickler denselben
+        epischen Langstrecken-Schritt: Sie programmieren gigantische
+        Software-Systeme mit minimalem Budget. Starte den digitalen Marsch!
+      </p>
+
+      <div
+        class="sandals-container"
+        style="
+          font-size: 5rem;
+          margin: 30px 0;
+          display: inline-block;
+          position: relative;
+          user-select: none;
+        "
+        id="sandalSquad"
+      >
+        🩴🩴
+      </div>
+
+      <div
+        class="distance-display"
+        id="distanceDisplay"
+        style="
+          min-height: 40px;
+          color: #ff9933;
+          font-weight: bold;
+          font-size: 1.4rem;
+          margin-bottom: 20px;
+        "
+      >
+        Zurückgelegte Strecke: 0 km 💨
+      </div>
+
+      <button class="btn" id="marchBtn">Schritt machen! 👣</button>
+    </section>
+
+    <script>
+      const bugBtn = document.getElementById("bugBtn");
+      const meterFill = document.getElementById("meterFill");
+      const meterStatus = document.getElementById("meterStatus");
+      let bugCount = 0;
+
+      const statusLevels = [
+        { limit: 10, text: "Status: Absolute innere Ruhe 🧘‍♂️" },
+        {
+          limit: 30,
+          text: "Status: Ein leichtes Lächeln über dummen Code. 😊",
+        },
+        { limit: 60, text: "Status: Gandhi atmet tief durch. Ooommmm. 😮‍💨" },
+        {
+          limit: 90,
+          text: "Status: Brille wird kurz geputzt. Code wird analysiert. 🧐",
+        },
+        {
+          limit: 99,
+          text: "Status: Warnung: Sogar die Geduld eines Gurus hat Grenzen... ⚡",
+        },
+        {
+          limit: 100,
+          text: "Status: ERROR! Selbst Gandhi hat jetzt StackOverflow geöffnet! 🤯💻",
+        },
+      ];
+
+      bugBtn.addEventListener("click", (e) => {
+        if (bugCount < 100) {
+          bugCount += 5;
+          if (bugCount > 100) bugCount = 100;
+
+          meterFill.style.width = bugCount + "%";
+
+          const currentStatus = statusLevels.find(
+            (level) => bugCount <= level.limit,
+          );
+          meterStatus.innerText = currentStatus.text;
+
+          createFlyingBug(e.clientX, e.clientY);
+        } else {
+          bugCount = 0;
+          meterFill.style.width = "0%";
+          meterStatus.innerText = statusLevels[0].text;
+        }
+      });
+
+      function createFlyingBug(x, y) {
+        const bugTexts = [
+          "NullPointerException",
+          "SyntaxError",
+          "Broken Pipe",
+          "StackOverflow",
+          "; expected",
+          "CSS broken",
+          "404",
+        ];
+        const p = document.createElement("div");
+        p.classList.add("bug-particle");
+        p.innerText = bugTexts[Math.floor(Math.random() * bugTexts.length)];
+
+        p.style.left = x + "px";
+        p.style.top = y + window.scrollY + "px";
+
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 1000);
+      }
+
+      const discoSpecs = document.getElementById("discoSpecs");
+      const quoteDisplay = document.getElementById("quoteDisplay");
+
+      const techQuotes = [
+        "„Sei du selbst die Veränderung, die du dir für deinen Legacy-Code wünschst.“",
+        "„Ein Bug im Production-Code macht die ganze Welt blind.“",
+        "„Zuerst ignorieren sie dich, dann lachen sie über deinen Code, dann hacken sie dich, dann merkst du, dass du kein Backup hast.“",
+        "„Die Zukunft hängt davon ab, was wir heute in der Git-Repository commiten.“",
+        "„Stärke wächst nicht aus körperlicher Kraft – eher aus dem fehlerfreien Kompilieren eines Riesen-Projekts am Freitagabend.“",
+      ];
+
+      function triggerDiscoQuote() {
+        discoSpecs.classList.add("disco-active");
+        const randomQuote =
+          techQuotes[Math.floor(Math.random() * techQuotes.length)];
+        quoteDisplay.innerText = randomQuote;
+      }
+
+      function stopDisco() {
+        discoSpecs.classList.remove("disco-active");
+      }
+
+      discoSpecs.addEventListener("mouseenter", triggerDiscoQuote);
+      discoSpecs.addEventListener("mouseleave", stopDisco);
+      discoSpecs.addEventListener("click", triggerDiscoQuote);
+
+      const marchBtn = document.getElementById("marchBtn");
+      const sandalSquad = document.getElementById("sandalSquad");
+      const distanceDisplay = document.getElementById("distanceDisplay");
+
+      let totalKilometers = 0;
+
+      const marchMilestones = [
+        {
+          km: 50,
+          text: "km 50: Erste Datenpakete erfolgreich zu Fuß transportiert. 📦",
+        },
+        {
+          km: 150,
+          text: "km 150: Die Sandalen überhitzen. Schnell indischen Chai nachschütten! ☕",
+        },
+        {
+          km: 250,
+          text: "km 250: Glasfaserkabel erfolgreich durch die Wüste verlegt. 🌐",
+        },
+        {
+          km: 350,
+          text: "km 350: Fast am Ziel. Die NASA ruft an und fragt nach Code-Optimierung. 📞",
+        },
+        {
+          km: 385,
+          text: "km 385: ZIEL ERREICHT! Das digitale Salz (Open-Source-Code) gehört allen! 🌊👑",
+        },
+      ];
+
+      marchBtn.addEventListener("click", () => {
+        if (totalKilometers < 385) {
+          totalKilometers += 35;
+          if (totalKilometers > 385) totalKilometers = 385;
+
+          sandalSquad.style.animation = "none";
+          void sandalSquad.offsetWidth;
+          sandalSquad.style.animation = "disco 0.15s 2 ease-in-out";
+
+          let currentMilestone = `Zurückgelegte Strecke: ${totalKilometers} km 👣`;
+          for (let milestone of marchMilestones) {
+            if (totalKilometers >= milestone.km) {
+              currentMilestone = milestone.text;
+            }
+          }
+          distanceDisplay.innerText = currentMilestone;
+
+          shootFootprints();
+        } else {
+          totalKilometers = 0;
+          distanceDisplay.innerText = "Zurückgelegte Strecke: 0 km 💨";
+        }
+      });
+
+      function shootFootprints() {
+        const steps = ["👣", "⚡", "🩴", "01", "10", "🌐"];
+        for (let i = 0; i < 10; i++) {
+          const p = document.createElement("div");
+          p.classList.add("output-item");
+          p.innerText = steps[Math.floor(Math.random() * steps.length)];
+
+          const angle = Math.random() * Math.PI + Math.PI;
+          const distance = Math.random() * 100 + 50;
+          const x = Math.cos(angle) * distance;
+          const y = Math.sin(angle) * distance;
+
+          p.style.setProperty("--x", `${x}px`);
+          p.style.setProperty("--y", `${y}px`);
+          p.style.left = "calc(50% - 20px)";
+          p.style.top = "20%";
+
+          sandalSquad.parentElement.appendChild(p);
+          setTimeout(() => p.remove(), 1200);
+        }
+      }
+    </script>
+  </body>
+</html>
